@@ -1,14 +1,14 @@
 /**
- * Single Post item
+ * Component that displays one category item
  */
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-class Post extends React.Component {
+class Category extends React.Component {
 
   static propTypes = {
-    post: React.PropTypes.object,
+    category: React.PropTypes.object,
     mutate: React.PropTypes.func,
     refresh: React.PropTypes.func,
   }
@@ -19,13 +19,12 @@ class Post extends React.Component {
         <div
           className='w-100'
           style={{
-            backgroundImage: `url(${this.props.post.imageUrl})`,
             backgroundSize: 'cover',
-            paddingBottom: '100%',
+            paddingBottom: '10%',
           }}
         />
         <div className='pt3'>
-          {this.props.post.description}&nbsp;
+          {this.props.category.name}&nbsp;
           <span className='red f6 pointer dim' onClick={this.handleDelete}>Delete</span>
         </div>
       </div>
@@ -33,19 +32,19 @@ class Post extends React.Component {
   }
 
   handleDelete = () => {
-    this.props.mutate({variables: {id: this.props.post.id}})
+    this.props.mutate({variables: {id: this.props.category.id}})
       .then(this.props.refresh)
   }
 }
 
 const deleteMutation = gql`
-  mutation deletePost($id: ID!) {
-    deletePost(id: $id) {
+  mutation deleteCategory($id: ID!) {
+    deleteCategory(id: $id) {
       id
     }
   }
 `
 
-const PostWithMutation = graphql(deleteMutation)(Post)
+const CategoryWithMutation = graphql(deleteMutation)(Category)
 
-export default PostWithMutation
+export default CategoryWithMutation
