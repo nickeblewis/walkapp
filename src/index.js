@@ -15,10 +15,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // The next four lines import our own components
-import ListPage from './components/ListPage'
-import ListCategory from './components/ListCategory'
-import CreatePage from './components/CreatePage'
-import CreateCategory from './components/CreateCategory'
+import ListPage from './containers/ListPage'
+import ListCategory from './containers/ListCategory'
+import CreatePage from './containers/CreatePage'
+import CreateCategory from './containers/CreateCategory'
 
 // Next we need to include the tools for app routing
 import { Router, Route, browserHistory } from 'react-router'
