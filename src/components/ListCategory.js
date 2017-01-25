@@ -1,3 +1,6 @@
+/**
+ * Component that lists all available categories
+ */
 import React from 'react'
 import { Link } from 'react-router'
 import Category from '../components/Category'

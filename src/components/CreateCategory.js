@@ -1,3 +1,6 @@
+/**
+ * Component for category creation
+ */
 import React from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'

@@ -1,3 +1,6 @@
+/**
+ * Component that lists all Posts
+ */
 import React from 'react'
 import { Link } from 'react-router'
 import Post from '../components/Post'
