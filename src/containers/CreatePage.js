@@ -23,7 +23,7 @@ class CreatePage extends React.Component {
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
-          <Upload />
+          <Upload onChange={(e) => this.setState({imageUrl: e.target.value})} />
           <input
             className='w-100 pa3 mv2'
             value={this.state.description}

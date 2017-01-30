@@ -68,6 +68,7 @@ class Upload extends React.Component {
 
 Upload.prototypes = {
     hidden: React.PropTypes.bool,
+    onChange: React.PropTypes.func,
     data: React.PropTypes.object,
     onSelect:React.PropTypes.func,
 };
