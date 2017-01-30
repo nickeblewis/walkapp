@@ -13,10 +13,14 @@
     "react-apollo": "^0.8.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.0",
-    "tachyons": "^4.3.1"
+    "react-color": "^2.3.1",
+    "react-helmet": "^3.1.0",
+    "react-dropzone": "^3.5.3",
+    "tachyons": "^4.3.1",
+    "superagent": "^2.1.0"
   },
   "scripts": {
-    "start": "cross-env PORT=4000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -5,6 +5,7 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import Upload from '../components/Upload'
 
 class CreatePage extends React.Component {
 
@@ -22,6 +23,7 @@ class CreatePage extends React.Component {
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
+          <Upload />
           <input
             className='w-100 pa3 mv2'
             value={this.state.description}
