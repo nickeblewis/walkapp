@@ -15,6 +15,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 // The next four lines import our own components
+import HomePage from './containers/HomePage'
 import ListPage from './containers/ListPage'
 import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
@@ -55,7 +56,8 @@ const client = new ApolloClient({ networkInterface })
 ReactDOM.render((
   <ApolloProvider client={client}>
     <Router history={browserHistory}>
-      <Route path='/' component={ListPage} />
+      <Route path='/' component={HomePage} />
+      <Route path='/posts' component={ListPage} />
       <Route path='/create' component={CreatePage} />
       <Route path='/createcategory' component={CreateCategory} />
       <Route path='/categories' component={ListCategory} />

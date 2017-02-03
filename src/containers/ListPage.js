@@ -19,7 +19,7 @@ class ListPage extends React.Component {
     }
 
     return (
-      <div className='w-100 flex justify-center'>
+      <div className='cf'>
         <Link to='/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
           + New Post
         </Link>
