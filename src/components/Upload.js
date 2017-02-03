@@ -42,6 +42,7 @@ class Upload extends React.Component {
                 this.setState({
                     uploadedFileCloudinaryUrl: response.body.secure_url
                 });
+                this.onChange = state.uploadedFileCloudinaryUrl;
             }
         });
     }
@@ -57,7 +58,7 @@ class Upload extends React.Component {
                     {this.state.uploadedFileCloudinaryUrl === '' ? null :
                         <div>
                             <p>{this.state.uploadedFile.name}</p>
-                            <img src={this.state.uploadedFileCloudinaryUrl} />
+                            <img alt={this.state.uploadedFileCloudinaryUrl} src={this.state.uploadedFileCloudinaryUrl} />
                         </div>}
                 </div>
             </Dropzone>                                  

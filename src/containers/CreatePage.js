@@ -5,10 +5,50 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Upload from '../components/Upload'
+import Dropzone from 'react-dropzone'
+import request from 'superagent'
+
+const CLOUDINARY_UPLOAD_PRESET = 'gec3tjz3';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
+
 
 class CreatePage extends React.Component {
+  constructor(props) {
+        super(props);
 
+        this.state = {
+            open: true,
+            uploadedFile: null,
+            uploadedFileCloudinaryUrl: ''
+        };
+    }
+
+    onImageDrop(files) {
+        this.setState({
+            uploadedFile: files[0]
+        });
+
+        this.handleImageUpload(files[0]);
+    }
+
+    handleImageUpload(file) {
+        let upload = request.post(
+            CLOUDINARY_UPLOAD_URL).field('upload_preset', 
+            CLOUDINARY_UPLOAD_PRESET).field('file', file);
+
+        upload.end((err, response) => {
+            if (err) {
+                console.error(err);
+            }
+
+            if (response.body.secure_url !== '') {
+                this.setState({
+                    uploadedFileCloudinaryUrl: response.body.secure_url,
+                    imageUrl: response.body.secure_url
+                });
+            }
+        });
+    }
   static propTypes = {
     router: React.PropTypes.object,
     addPost: React.PropTypes.func,
@@ -23,7 +63,18 @@ class CreatePage extends React.Component {
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
-          <Upload onChange={(e) => this.setState({imageUrl: e.target.value})} />
+          <Dropzone
+                onDrop={this.onImageDrop.bind(this)}
+                multiple={false}
+                accept="image/*">
+                <div>
+                    {this.state.uploadedFileCloudinaryUrl === '' ? null :
+                        <div>
+                            <p>{this.state.uploadedFile.name}</p>
+                            <img alt={this.state.uploadedFileCloudinaryUrl} src={this.state.uploadedFileCloudinaryUrl} />
+                        </div>}
+                </div>
+            </Dropzone>   
           <input
             className='w-100 pa3 mv2'
             value={this.state.description}
@@ -51,7 +102,7 @@ class CreatePage extends React.Component {
     const {description, imageUrl} = this.state
     this.props.addPost({ description, imageUrl })
       .then(() => {
-        this.props.router.push('/')
+        this.props.router.push('/posts')
       })
   }
 }
