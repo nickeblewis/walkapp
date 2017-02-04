@@ -54,6 +54,17 @@ class HomePage extends React.Component {
             </Thumbnail>
           </Col>
         </Row>
+        <Row>
+          <Col xs={6} md={3}>
+            <Thumbnail href="#" alt="171x180" src="http://placehold.it/171x180" />
+          </Col>
+          <Col xs={6} md={3}>
+            <Thumbnail href="#" alt="171x180" src="http://placehold.it/171x180" />
+          </Col>
+          <Col xs={6} md={3}>
+            <Thumbnail href="#" alt="171x180" src="http://placehold.it/171x180" />
+          </Col>
+        </Row>
       </Grid>
     )
   }

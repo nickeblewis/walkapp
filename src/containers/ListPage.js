@@ -7,6 +7,10 @@ import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import { Grid, Thumbnail, Col, Row, Button, Jumbotron } from 'react-bootstrap'
+
+
+
 class ListPage extends React.Component {
 
   static propTypes = {
