@@ -14,9 +14,11 @@ class Photo extends React.Component {
   }
 
   render () {
+    const outputUrl = this.props.photo.imageUrl;
+
     return (
       <Col xs={6} md={4}>
-        <Thumbnail src={this.props.photo.imageUrl} alt="242x200">
+        <Thumbnail src={outputUrl} alt="image">
           <h3>{this.props.photo.name}</h3>
           <p>{this.props.photo.description}</p>
           <p>
