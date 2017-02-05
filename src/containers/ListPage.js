@@ -23,16 +23,16 @@ class ListPage extends React.Component {
     }
 
     return (
-      <div className='cf'>
+      <Grid>
         <Link to='/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
           + New Post
         </Link>
-        <div className='w-100' style={{ maxWidth: 400 }}>
+        <Row>
           {this.props.data.allPosts.map((post) =>
             <Post key={post.id} post={post} refresh={() => this.props.data.refetch()} />
           )}
-        </div>
-      </div>
+        </Row>
+      </Grid>
     )
   }
 }
