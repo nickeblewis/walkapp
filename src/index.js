@@ -57,7 +57,7 @@ ReactDOM.render((
   <ApolloProvider client={client}>
     <Router history={browserHistory}>
       <Route path='/' component={HomePage} />
-      <Route path='/posts' component={ListPage} />
+      <Route path='/photos' component={ListPage} />
       <Route path='/create' component={CreatePage} />
       <Route path='/createcategory' component={CreateCategory} />
       <Route path='/categories' component={ListCategory} />

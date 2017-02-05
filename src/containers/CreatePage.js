@@ -51,10 +51,11 @@ class CreatePage extends React.Component {
     }
   static propTypes = {
     router: React.PropTypes.object,
-    addPost: React.PropTypes.func,
+    addPhoto: React.PropTypes.func,
   }
 
   state = {
+    name: '',
     description: '',
     imageUrl: '',
   }
@@ -77,6 +78,12 @@ class CreatePage extends React.Component {
             </Dropzone>   
           <input
             className='w-100 pa3 mv2'
+            value={this.state.name}
+            placeholder='Name'
+            onChange={(e) => this.setState({name: e.target.value})}
+          />
+          <input
+            className='w-100 pa3 mv2'
             value={this.state.description}
             placeholder='Description'
             onChange={(e) => this.setState({description: e.target.value})}
@@ -91,26 +98,27 @@ class CreatePage extends React.Component {
             <img src={this.state.imageUrl} role='presentation' className='w-100 mv3' />
           }
           {this.state.description && this.state.imageUrl &&
-            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePost}>Post</button>
+            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePhoto}>Photo</button>
           }
         </div>
       </div>
     )
   }
 
-  handlePost = () => {
-    const {description, imageUrl} = this.state
-    this.props.addPost({ description, imageUrl })
+  handlePhoto = () => {
+    const {name, description, imageUrl} = this.state
+    this.props.addPhoto({ name, description, imageUrl })
       .then(() => {
-        this.props.router.push('/posts')
+        this.props.router.push('/photos')
       })
   }
 }
 
 const addMutation = gql`
-  mutation addPost($description: String!, $imageUrl: String!) {
-    createPost(description: $description, imageUrl: $imageUrl) {
+  mutation addPhoto($name: String!, $description: String!, $imageUrl: String!) {
+    createPhoto(name: $name, description: $description, imageUrl: $imageUrl) {
       id
+      name
       description
       imageUrl
     }
@@ -119,14 +127,14 @@ const addMutation = gql`
 
 const PageWithMutation = graphql(addMutation, {
   props: ({ ownProps, mutate }) => ({
-    addPost: ({ description, imageUrl }) =>
+    addPhoto: ({ name, description, imageUrl }) =>
       mutate({
-        variables: { description, imageUrl },
+        variables: { name, description, imageUrl },
         updateQueries: {
-          allPosts: (state, { mutationResult }) => {
-            const newPost = mutationResult.data.createPost
+          allPhotos: (state, { mutationResult }) => {
+            const newPhoto = mutationResult.data.createPhoto
             return {
-              allPosts: [...state.allPosts, newPost]
+              allPhotos: [...state.allPhotos, newPhoto]
             }
           },
         },

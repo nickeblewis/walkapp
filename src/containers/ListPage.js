@@ -3,11 +3,11 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
-import Post from '../components/Post'
+import Photo from '../components/Photo'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { Grid, Thumbnail, Col, Row, Button, Jumbotron } from 'react-bootstrap'
+import { Grid, Row } from 'react-bootstrap'
 
 
 
@@ -25,11 +25,11 @@ class ListPage extends React.Component {
     return (
       <Grid>
         <Link to='/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
-          + New Post
+          + New Photo
         </Link>
         <Row>
-          {this.props.data.allPosts.map((post) =>
-            <Post key={post.id} post={post} refresh={() => this.props.data.refetch()} />
+          {this.props.data.allPhotos.map((photo) =>
+            <Photo key={photo.id} photo={photo} refresh={() => this.props.data.refetch()} />
           )}
         </Row>
       </Grid>
@@ -37,10 +37,11 @@ class ListPage extends React.Component {
   }
 }
 
-const FeedQuery = gql`query allPosts {
-  allPosts(orderBy: createdAt_DESC) {
+const FeedQuery = gql`query allPhotos {
+  allPhotos(orderBy: createdAt_DESC) {
     id
     imageUrl
+    name
     description
   }
 }`
