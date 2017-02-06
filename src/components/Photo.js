@@ -4,7 +4,8 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Thumbnail, Col, Button } from 'react-bootstrap'
+import { Link } from 'react-router'
+
 class Photo extends React.Component {
 
   static propTypes = {
@@ -17,17 +18,15 @@ class Photo extends React.Component {
     const outputUrl = this.props.photo.imageUrl;
 
     return (
-      <Col xs={6} md={4}>
-        <Thumbnail src={outputUrl} alt="image">
-          <h3>{this.props.photo.name}</h3>
-          <p>{this.props.photo.description}</p>
-          <p>
-            <Button bsStyle="primary">Button</Button>&nbsp;
-            <Button bsStyle="default">Button</Button>
-            <span className='red f6 pointer dim' onClick={this.handleDelete}>Delete</span>
-          </p>
-        </Thumbnail>
-      </Col>
+      <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+        <div className='aspect-ratio aspect-ratio--1x1'>
+          <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
+        </div>
+        <Link className='ph2 ph0-ns pb3 link db' to='/'>
+          <h3 className='f5 f4-ns mb0 black-90'>{this.props.photo.name}</h3>
+          <h3 className='f6 f5 mt2 black-60'>{this.props.photo.description}</h3>
+        </Link>
+      </article>
     )
   }
 
