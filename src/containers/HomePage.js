@@ -4,6 +4,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Link } from 'react-router'
 
 class HomePage extends React.Component {
 
@@ -12,17 +13,19 @@ class HomePage extends React.Component {
   }
 
   render () {
+    const outputUrl = "http://placehold.it/400x400";
     return (
        <article>
           <header className='bg-gold sans-serif'>
             <nav className="dt w-100 mw8 center"> 
               
               <div className="dtc v-mid tr pa3">
-                <a className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Events</a> 
-                <a className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Walks</a> 
-                <a className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/" >Media</a> 
-                <a className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/" >Contacts</a> 
-                <a className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba" href="/" >Sign Up</a> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Home</Link> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Events</Link> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >Walks</Link> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/photos" >Media</Link> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" href="/" >Contacts</Link> 
+                <Link className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba" href="/" >Sign Up</Link> 
               </div>
             </nav>
             <div className='mw9 center pa4 pt5-ns ph7-l'>
@@ -36,6 +39,44 @@ class HomePage extends React.Component {
               <h5 className="f6 ttu tracked black-80">By Nick Lewis, Dan Davis &amp; Tina Lewis</h5>
             </div>
           </header>
+          <section className='cf w-100 pa2-ns'>
+            <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+              <div className='aspect-ratio aspect-ratio--1x1'>
+                <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
+              </div>
+              <Link className='ph2 ph0-ns pb3 link db' to='/'>
+                <h3 className='f5 f4-ns mb0 black-90'>Heading</h3>
+                <h3 className='f6 f5 fw4 mt2 black-60'>This is the message</h3>
+              </Link>
+            </article>
+            <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+              <div className='aspect-ratio aspect-ratio--1x1'>
+                <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
+              </div>
+              <Link className='ph2 ph0-ns pb3 link db' to='/'>
+                <h3 className='f5 f4-ns mb0 black-90'>Heading</h3>
+                <h3 className='f6 f5 fw4 mt2 black-60'>This is the message</h3>
+              </Link>
+            </article>
+            <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+              <div className='aspect-ratio aspect-ratio--1x1'>
+                <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
+              </div>
+              <Link className='ph2 ph0-ns pb3 link db' to='/'>
+                <h3 className='f5 f4-ns mb0 black-90'>Heading</h3>
+                <h3 className='f6 f5 fw4 mt2 black-60'>This is the message</h3>
+              </Link>
+            </article>
+            <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+              <div className='aspect-ratio aspect-ratio--1x1'>
+                <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
+              </div>
+              <Link className='ph2 ph0-ns pb3 link db' to='/'>
+                <h3 className='f5 f4-ns mb0 black-90'>Heading</h3>
+                <h3 className='f6 f5 fw4 mt2 black-60'>This is the message</h3>
+              </Link>
+            </article>
+          </section>
           <div className="pa4 ph7-l georgia mw9-l center">
             <p className="f5 f3-ns lh-copy measure georgia">
               Theodore Sturgeon was a science fiction author, critic, and the basis for Kurt Vonnegut's recurring character Kilgore Trout. He was prolific, authoring over 200 pieces himself and critiquing around 400 others.
