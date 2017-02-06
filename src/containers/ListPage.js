@@ -7,10 +7,6 @@ import Photo from '../components/Photo'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { Grid, Row } from 'react-bootstrap'
-
-
-
 class ListPage extends React.Component {
 
   static propTypes = {
@@ -23,16 +19,16 @@ class ListPage extends React.Component {
     }
 
     return (
-      <Grid>
+      <section className='cf w-100 pa2-ns'>
         <Link to='/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
           + New Photo
         </Link>
-        <Row>
+        
           {this.props.data.allPhotos.map((photo) =>
             <Photo key={photo.id} photo={photo} refresh={() => this.props.data.refetch()} />
           )}
-        </Row>
-      </Grid>
+        
+      </section>
     )
   }
 }
