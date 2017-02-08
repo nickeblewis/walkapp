@@ -14,8 +14,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+// Layouts
+import MainLayout from './layouts/MainLayout'
+
 // The next four lines import our own components
 import HomePage from './containers/HomePage'
+import WalkPage from './containers/WalkPage'
 import ListPage from './containers/ListPage'
 import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
@@ -35,18 +39,7 @@ import './index.css'
 // You will see the endpoint from our Farnborough database is below
 const networkInterface = createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/cixraxev60e4c0121krsia44h' })
 
-// The x-graphcool-source header is to let the server know that the example app has started.
-// (Not necessary for normal projects)
-networkInterface.use([{
-  applyMiddleware (req, next) {
-    if (!req.options.headers) {
-      // Create the header object if needed.
-      req.options.headers = {}
-    }
-    req.options.headers['x-graphcool-source'] = 'example:react-apollo-instagram'
-    next()
-  },
-}])
+
 
 const client = new ApolloClient({ networkInterface })
 
@@ -56,11 +49,14 @@ const client = new ApolloClient({ networkInterface })
 ReactDOM.render((
   <ApolloProvider client={client}>
     <Router history={browserHistory}>
-      <Route path='/' component={HomePage} />
-      <Route path='/photos' component={ListPage} />
-      <Route path='/create' component={CreatePage} />
-      <Route path='/createcategory' component={CreateCategory} />
-      <Route path='/categories' component={ListCategory} />
+      <Route component={MainLayout}>
+        <Route path='/' component={HomePage} />
+        <Route path='/photos' component={ListPage} />
+        <Route path='/walks' component={WalkPage} />
+        <Route path='/create' component={CreatePage} />
+        <Route path='/createcategory' component={CreateCategory} />
+        <Route path='/categories' component={ListCategory} />
+      </Route>
     </Router>
   </ApolloProvider>
   ),

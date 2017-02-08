@@ -6,7 +6,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link } from 'react-router'
 
-class HomePage extends React.Component {
+class WalkPage extends React.Component {
 
   static propTypes = {
     data: React.PropTypes.object,
@@ -18,7 +18,7 @@ class HomePage extends React.Component {
       <article>
         <div className="pa4 ph7-l georgia mw9-l center">
           <p className="f5 f3-ns lh-copy measure georgia">
-            Theodore Sturgeon was a science fiction author, critic, and the basis for Kurt Vonnegut's recurring character Kilgore Trout. He was prolific, authoring over 200 pieces himself and critiquing around 400 others.
+            Welcome to our Walks section where you can find a number of areas of Farnborough to explore through a series of interesting walks that you can follow. There is something for everyone here, whether you are new to the area and want to find the important things or whether you want to delve into the fascinating history of the town. You should find something that is up your street!
           </p>
           <p className="f5 f3-ns lh-copy measure georgia">
             In 1958 he published a piece in Venture proclaiming what he called "Sturgeon's Revelation"
@@ -84,6 +84,6 @@ const FeedQuery = gql`query allPosts {
   }
 }`
 
-const HomePageWithData = graphql(FeedQuery)(HomePage)
+const WalkPageWithData = graphql(FeedQuery)(WalkPage)
 
-export default HomePageWithData
+export default WalkPageWithData
