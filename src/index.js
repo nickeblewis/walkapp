@@ -20,6 +20,7 @@ import MainLayout from './layouts/MainLayout'
 // The next four lines import our own components
 import HomePage from './containers/HomePage'
 import WalkPage from './containers/WalkPage'
+import BusinessPage from './containers/BusinessPage'
 import ListPage from './containers/ListPage'
 import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
@@ -53,6 +54,7 @@ ReactDOM.render((
         <Route path='/' component={HomePage} />
         <Route path='/photos' component={ListPage} />
         <Route path='/walks' component={WalkPage} />
+        <Route path='/contacts' component={BusinessPage} />
         <Route path='/create' component={CreatePage} />
         <Route path='/createcategory' component={CreateCategory} />
         <Route path='/categories' component={ListCategory} />
