@@ -18,7 +18,7 @@ class WalkPage extends React.Component {
       <article>
         <div className="pa4 ph7-l georgia mw9-l center">
           <p className="f5 f3-ns lh-copy measure georgia">
-            Welcome Welcome to our Walks section where you can find a number of areas of Farnborough to explore through a series of interesting walks that you can follow. There is something for everyone here, whether you are new to the area and want to find the important things or whether you want to delve into the fascinating history of the town. You should find something that is up your street!
+            Welcome to our Walks section where you can find a number of areas of Farnborough to explore through a series of interesting walks that you can follow. There is something for everyone here, whether you are new to the area and want to find the important things or whether you want to delve into the fascinating history of the town. You should find something that is up your street!
           </p>
           <p className="f5 f3-ns lh-copy measure georgia">
             In 1958 he published a piece in Venture proclaiming what he called "Sturgeon's Revelation"
