@@ -22,7 +22,6 @@ class Header extends React.Component {
                 </div>
             </nav>
             <div className='mw9 center pa4 pt5-ns ph7-l'>
-                <time className="f6 mb2 dib ttu tracked"><small>06 February, 2017</small></time>
                 <h3 className="f2 f1-m f-headline-l measure-narrow lh-title mv0">
                 <span className="bg-black-90 lh-copy white pa1 tracked-tight">
                     Farnborough Guide
