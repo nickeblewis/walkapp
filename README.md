@@ -5,7 +5,7 @@
 
 ### Version 0.1 towards v1.0!
 
-The main features of the site (or pages I guess)
+The main features of the site will be
 
 * Home
 * Walks
