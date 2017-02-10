@@ -10,6 +10,7 @@ The main features of the site (or pages I guess)
 * Home
 * Walks
 * Photos
+* Events
 * Contacts - Businesses, Organisations, Places and Amenities finder
 
 These are what we have kicked off with and there are a few gaps to fill before this begins to feel like a well-designed app. 
