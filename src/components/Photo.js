@@ -18,7 +18,7 @@ class Photo extends React.Component {
     const outputUrl = this.props.photo.imageUrl;
 
     return (
-      <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+      <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
           <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
         </div>

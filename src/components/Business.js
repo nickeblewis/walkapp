@@ -17,10 +17,10 @@ class Business extends React.Component {
   render () {
 
     return (
-      <article className='fl w-100 w-50-m  w-25-ns pa2-ns'>
+      <article className='fl pv2 w-100 w-third-l pr4-l'>
         <Link className='ph2 ph0-ns pb3 link db' to='/'>
-          <h3 className='f5 f4-ns mb0 black-90'>{this.props.business.businessName}</h3>
-          <h3 className='f6 f5 fw4 mt2 black-60'>{this.props.business.contactName}</h3>
+          <h2 className='f5 f4-ns fw6 mb0'>{this.props.business.businessName}</h2>
+          <p className='f6 f5-ns measure lh-copy mt0'>{this.props.business.contactName}</p>
         </Link>
       </article>
     )

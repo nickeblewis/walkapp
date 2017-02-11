@@ -8,12 +8,10 @@ class MainLayout extends React.Component {
 
   render () {
     return (
-        <article>
+        <main>
           <Header />
-          <section className='cf w-100 pa2-ns'>
-            {this.props.children}
-          </section>
-        </article>
+          {this.props.children}
+        </main>
     )
   }
 }
