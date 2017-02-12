@@ -33,14 +33,11 @@ class PhotoSection extends React.Component {
 
     // Now for the JSX template that defines how our component actually looks!
     return (
-      <div className="tl bt b--black-10 pa3 pa5-ns bg-yellow navy">
+      <div className="tl bt b--black-10 pa3 pa5-ns bg-black yellow">
         <div className="mw9 center">
           <h1 className="f5 ttu tracked fw6 pa3">{this.props.title}</h1>
           <section className="lh-copy">
             <div className="cf pa2">
-              <p className="f5 f3-ns lh-copy georgia pa2">
-                A selection of photos taken by both FG's Editorial team and our members
-              </p>
               { /* The following piece of code loops through the photo data (see below) */ }
               {this.props.data.allPhotos.map((photo) =>
                 <Photo key={photo.id} photo={photo} />
