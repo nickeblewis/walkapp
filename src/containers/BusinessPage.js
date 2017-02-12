@@ -36,7 +36,7 @@ class BusinessPage extends React.Component {
 }
 
 const FeedQuery = gql`query allBusinesses {
-  allBusinesses(orderBy: createdAt_DESC) {
+  allBusinesses(orderBy: businessName_ASC) {
     id
     contactName
     businessName
