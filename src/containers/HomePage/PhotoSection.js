@@ -43,8 +43,8 @@ class PhotoSection extends React.Component {
                 <Photo key={photo.id} photo={photo} />
               )}
               </div>
-              </section>
-              </div>
+            </section>
+          </div>
       </div>
     )
   }
