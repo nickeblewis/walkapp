@@ -24,7 +24,7 @@ class HomePage extends React.Component {
     // Now for the JSX template that defines how our component actually looks!
     return (
       <article>
-        <BusinessSection title="Featured Businesses" />
+        <BusinessSection title="Featured" />
         <PhotoSection title="Newest Photos" />
       </article>
     )

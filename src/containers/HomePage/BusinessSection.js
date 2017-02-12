@@ -32,9 +32,6 @@ class BusinessSection extends React.Component {
           <h1 className="f5 ttu tracked fw6">{this.props.title}</h1>
           <section className="lh-copy">
             <div className="cf">
-               <p className="f5 f3-ns lh-copy georgia">
-                Farnborough has a vibrant business community and FG wants to introduce you to them!
-              </p>
             { /* The following piece of code loops through the business data (see below) */ }
             {this.props.data.allBusinesses.map((business) =>
               <Business key={business.id} business={business} />
