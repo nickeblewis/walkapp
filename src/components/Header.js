@@ -8,10 +8,12 @@ class Header extends React.Component {
 
 
   render () {
+    const headerImg = '../assets/iStock-504241498.jpg';
+    // const headerImg = 'http://mrmrs.io/photos/u/011.jpg'; //./iStock-504241498.jpg';
     return (
-        <header className='w-100 pa3 ph5-ns bg-green sans-serif'>
+        <header className='bg-center cover w-100 pa3 ph5-ns bg-dark-green sans-serif ferns'>
             <nav className="dt w-100 mw8 center">                 
-                <div className="dtc v-mid tr pa3">
+                <div className="dtc v-mid tr pa3 bg-black">
                     <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
                     <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link> 
                     <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> 
@@ -26,7 +28,12 @@ class Header extends React.Component {
                     Farnborough Guide
                 </span>
                 </h3>
-                <h4 className="f3 fw1 georgia i">The definitive guide to your town.</h4>
+                <h4 className="f2 lh-copy">
+                <span className="bg-black-90 lh-copy white pa1 i tracked-tight">
+                    The definitive guide to your town.
+                </span>
+                </h4>
+                
             </div>
         </header> 
     )

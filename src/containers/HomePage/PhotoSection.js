@@ -38,6 +38,9 @@ class PhotoSection extends React.Component {
           <h1 className="f5 ttu tracked fw6 pa3">{this.props.title}</h1>
           <section className="lh-copy">
             <div className="cf pa2">
+              <p className="f5 f3-ns lh-copy georgia pa2">
+                A selection of photos taken by both FG's Editorial team and our members
+              </p>
               { /* The following piece of code loops through the photo data (see below) */ }
               {this.props.data.allPhotos.map((photo) =>
                 <Photo key={photo.id} photo={photo} />

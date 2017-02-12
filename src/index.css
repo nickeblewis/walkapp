@@ -1,6 +1,12 @@
 @import './_normalize.css';
 
 /* Home page classes */
+
+.ferns{
+    background-image: url('assets/iStock-504241498.jpg');
+    background-image: url('assets/NIC_0713.jpg');
+}
+
 .bl {
     border-left-style: solid;
     border-left-width: 1px;

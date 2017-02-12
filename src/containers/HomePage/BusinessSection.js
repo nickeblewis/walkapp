@@ -32,6 +32,9 @@ class BusinessSection extends React.Component {
           <h1 className="f5 ttu tracked fw6">{this.props.title}</h1>
           <section className="lh-copy">
             <div className="cf">
+               <p className="f5 f3-ns lh-copy georgia">
+                Farnborough has a vibrant business community and FG wants to introduce you to them!
+              </p>
             { /* The following piece of code loops through the business data (see below) */ }
             {this.props.data.allBusinesses.map((business) =>
               <Business key={business.id} business={business} />
@@ -47,7 +50,7 @@ class BusinessSection extends React.Component {
 // Hey this is a query here :-) You should recognise this from earlier lessons
 // We are going to grab the 4 most recently added businesses...
 const FeedQuery = gql`query allBusinesses {
-  allBusinesses(orderBy: createdAt_DESC, first: 6) {
+  allBusinesses(filter: {published: true},orderBy: createdAt_DESC,first: 6) {
     id
     contactName
     businessName
