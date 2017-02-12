@@ -6,6 +6,7 @@
 // Everything is a component in React!
 import React from 'react'
 import PhotoSection from './PhotoSection'
+import IntroBlock from './IntroBlock'
 import BusinessSection from './BusinessSection'
 
 // https://ponyfoo.com/articles/es6-classes-in-depth describes classes really well
@@ -24,6 +25,7 @@ class HomePage extends React.Component {
     // Now for the JSX template that defines how our component actually looks!
     return (
       <article>
+        <IntroBlock />
         <BusinessSection title="Featured Businesses" />
         <PhotoSection title="Newest Photos" />
       </article>
