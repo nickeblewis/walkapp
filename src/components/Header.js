@@ -2,13 +2,13 @@
  * Component that lists all Posts
  */
 import React from 'react'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 
 class Header extends React.Component {
 
 
   render () {
-    const headerImg = '../assets/iStock-504241498.jpg';
+    // const headerImg = '../assets/iStock-504241498.jpg';
     // const headerImg = 'http://mrmrs.io/photos/u/011.jpg'; //./iStock-504241498.jpg';
     return (
         <header className='bg-center cover w-100 pa3 ph5-ns bg-dark-green-90 sans-serif ferns'>

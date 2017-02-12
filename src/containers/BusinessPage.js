@@ -18,16 +18,19 @@ class BusinessPage extends React.Component {
     }
 
     return (
-      <main>
-      
-      <section className='cf w-100 pa2-ns'>
-        
+            <div className="tl bt b--black-10 pa3 pa5-ns bg-lightest-green navy">
+        <div className="mw9 center">
+          <h1 className="f5 ttu tracked fw6">Business Directory</h1>
+          <section className="lh-copy">
+            <div className="cf">
+  
           {this.props.data.allBusinesses.map((business) =>
-            <Business key={business.id} business={business} refresh={() => this.props.data.refetch()} />
+            <Business key={business.id} business={business} />
           )}
-        
-      </section>
-      </main>
+         </div>
+          </section>
+        </div>
+      </div>
     )
   }
 }

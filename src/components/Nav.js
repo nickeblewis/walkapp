@@ -8,7 +8,7 @@ class Nav extends React.Component {
 
 
   render () {
-    const headerImg = '../assets/iStock-504241498.jpg';
+    // const headerImg = '../assets/iStock-504241498.jpg';
     // const headerImg = 'http://mrmrs.io/photos/u/011.jpg'; //./iStock-504241498.jpg';
     return (
         <header className="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
