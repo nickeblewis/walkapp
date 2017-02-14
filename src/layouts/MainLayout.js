@@ -14,7 +14,7 @@ class MainLayout extends React.Component {
           <Nav/>
           <Header />
           {this.props.children}
-          { /* We need a footer to go here */ }          
+          <Footer />        
         </main>
     )
   }
