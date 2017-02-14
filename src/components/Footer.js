@@ -13,16 +13,10 @@ class Footer extends React.Component {
             
             <div className='db dt-ns mw9 center w-100'>
                 <h4 className="f2 lh-copy">
-                <span className="bg-black-100 lh-copy white pa1 tracked-tight">
-                    <a className="link near-black hover-silver dib h2 w2 mr3" href="https://facebook.com"></a>
+                <span className="bg-black-90 lh-copy white pa1 tracked-tight">
+                    <a className="link silver hover-white dib h2 w2 mr3" href="https://facebook.com/farnboroughguide"><p className="pa3">f</p></a>
                 </span>
                 </h4>
-                
-            </div>
-              <div className="bg-black tracked-tight">
-                <a className="link near-black hover-silver dib h2 w1 mr3" href="https://facebook.com">
-                  <p className="center b white">Facebook</p>
-                </a>
             </div>
         </footer> 
     )
