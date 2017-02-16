@@ -19,9 +19,13 @@ class HomePage extends React.Component {
     data: React.PropTypes.object,
   }
 
+ 
+
   // The following function is responsible for rendering to the browser
   render () {
-
+    // if (this.props.data.loading) {
+    //   return (<div>Loading</div>)
+    // }
     // Now for the JSX template that defines how our component actually looks!
     return (
       <article>
@@ -33,4 +37,5 @@ class HomePage extends React.Component {
   }
 }
 
+// export default HomePage
 export default HomePage
