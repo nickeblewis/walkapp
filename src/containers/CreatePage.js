@@ -98,7 +98,7 @@ class CreatePage extends React.Component {
             <img src={this.state.imageUrl} role='presentation' className='w-100 mv3' />
           }
           {this.state.description && this.state.imageUrl && this.state.name &&
-            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePhoto}>Photo</button>
+            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePhoto}>Post</button>
           }
         </div>
       </div>
