@@ -18,6 +18,8 @@ import ReactDOM from 'react-dom'
 import MainLayout from './layouts/MainLayout'
 
 // The next four lines import our own components
+import LoginUser from './containers/LoginUser'
+import CreateUser from './containers/CreateUser'
 import HomePage from './containers/HomePage'
 import WalkPage from './containers/WalkPage'
 import BusinessPage from './containers/BusinessPage'
@@ -41,7 +43,19 @@ import './index.css'
 // You will see the endpoint from our Farnborough database is below
 const networkInterface = createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/cixraxev60e4c0121krsia44h' })
 
+networkInterface.use([{
+  applyMiddleware (req, next) {
+    if (!req.options.headers) {
+      req.options.headers = {}
+    }
 
+    // get the authentication token from local storage if it exists
+    if (localStorage.getItem('graphcoolToken')) {
+      req.options.headers.authorization = `Bearer ${localStorage.getItem('graphcoolToken')}`
+    }
+    next()
+  },
+}])
 
 const client = new ApolloClient({ networkInterface })
 
@@ -59,6 +73,8 @@ ReactDOM.render((
         <Route path='/create' component={CreatePage} />
         <Route path='/createcategory' component={CreateCategory} />
         <Route path='/categories' component={ListCategory} />
+        <Route path='login' component={LoginUser} />
+        <Route path='signup' component={CreateUser} />
       </Route>
     </Router>
   </ApolloProvider>
