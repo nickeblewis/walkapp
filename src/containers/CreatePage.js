@@ -72,7 +72,7 @@ class CreatePage extends React.Component {
                   {this.state.uploadedFileCloudinaryUrl === '' ? null :
                       <div>
                           <p>{this.state.uploadedFile.name}</p>
-                          <img alt={this.state.uploadedFileCloudinaryUrl} src={this.state.uploadedFileCloudinaryUrl} />
+                          {/*<img alt={this.state.uploadedFileCloudinaryUrl} src={this.state.uploadedFileCloudinaryUrl} />*/}
                       </div>}
               </div>
           </Dropzone>   
