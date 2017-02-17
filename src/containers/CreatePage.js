@@ -46,8 +46,6 @@ class CreatePage extends React.Component {
                 console.error("ERR1",err);
             }
 
-            console.log("RESPONSE", response.body);
-
             if (response.body.url !== '') {
                 this.setState({
                     uploadedFileCloudinaryUrl: response.body.url,
