@@ -95,7 +95,7 @@ class CreatePage extends React.Component {
             onChange={(e) => this.setState({imageUrl: e.target.value})}
           />
           {this.state.description && this.state.imageUrl && this.state.name &&
-            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePhoto}>Upload</button>
+            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handlePhoto}>Post</button>
           }
         </div>
       </div>
