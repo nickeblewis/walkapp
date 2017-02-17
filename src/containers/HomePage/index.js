@@ -29,8 +29,10 @@ class HomePage extends React.Component {
     // Now for the JSX template that defines how our component actually looks!
     return (
       <article>
+        { /* This section should be a bit more explanatory */ }
         <IntroBlock />
-        <BusinessSection title="Featured Businesses" />
+        {/*<BusinessSection title="Featured Businesses" />*/}
+        { /* Would be great to pass through a value for number of photos to show here */ }
         <PhotoSection title="Newest Photos" />
       </article>
     )

@@ -21,12 +21,12 @@ import MainLayout from './layouts/MainLayout'
 import LoginUser from './containers/LoginUser'
 import CreateUser from './containers/CreateUser'
 import HomePage from './containers/HomePage'
-import WalkPage from './containers/WalkPage'
-import BusinessPage from './containers/BusinessPage'
+// import WalkPage from './containers/WalkPage'
+// import BusinessPage from './containers/BusinessPage'
 import ListPage from './containers/ListPage'
-import ListCategory from './containers/ListCategory'
+// import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
-import CreateCategory from './containers/CreateCategory'
+// import CreateCategory from './containers/CreateCategory'
 
 // Next we need to include the tools for app routing
 import { Router, Route, browserHistory } from 'react-router'
@@ -68,11 +68,11 @@ ReactDOM.render((
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
         <Route path='/photos' component={ListPage} />
-        <Route path='/walks' component={WalkPage} />
-        <Route path='/contacts' component={BusinessPage} />
+        {/*<Route path='/walks' component={WalkPage} />*/}
+        {/*<Route path='/contacts' component={BusinessPage} />*/}
         <Route path='/create' component={CreatePage} />
-        <Route path='/createcategory' component={CreateCategory} />
-        <Route path='/categories' component={ListCategory} />
+        {/*<Route path='/createcategory' component={CreateCategory} />*/}
+        {/*<Route path='/categories' component={ListCategory} />*/}
         <Route path='login' component={LoginUser} />
         <Route path='signup' component={CreateUser} />
       </Route>
