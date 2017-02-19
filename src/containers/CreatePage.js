@@ -16,13 +16,13 @@ const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload'
 
 class CreatePage extends React.Component {
   constructor(props) {
-        super(props);
+    super(props);
 
-        this.state = {
-            open: true,
-            uploadedFile: null,
-            uploadedFileCloudinaryUrl: ''
-        };
+    this.state = {
+        open: true,
+        uploadedFile: null,
+        uploadedFileCloudinaryUrl: ''
+      };
     }
 
     onImageDrop(files) {
@@ -49,23 +49,31 @@ class CreatePage extends React.Component {
             if (response.body.url !== '') {
                 this.setState({
                     uploadedFileCloudinaryUrl: response.body.url,
-                    imageUrl: response.body.url
+                    imageUrl: response.body.url,
+                    userId: this.props.data.user.id
                 });
             }
         });
     }
   static propTypes = {
     router: React.PropTypes.object,
-    addPhoto: React.PropTypes.func,
+    mutate: React.PropTypes.func,
+    data: React.PropTypes.object,
   }
 
   state = {
     name: '',
     description: '',
     imageUrl: '',
+    userId: 0
   }
 
   render () {
+    if (!this.props.data.user) {
+      console.warn('only logged in users can create new posts')
+      this.props.router.replace('/photos')
+    }
+
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
@@ -108,40 +116,49 @@ class CreatePage extends React.Component {
   }
 
   handlePhoto = () => {
-    const {name, description, imageUrl} = this.state
-    this.props.addPhoto({ name, description, imageUrl })
+    this.setState({userId: this.props.data.user.id})
+    const {name, description, imageUrl, userId} = this.state
+    this.props.mutate({variables: {name, description, imageUrl, userId }})
       .then(() => {
         this.props.router.push('/photos')
       })
   }
 }
 
-const addMutation = gql`
-  mutation addPhoto($name: String!, $description: String!, $imageUrl: String!) {
-    createPhoto(name: $name, description: $description, imageUrl: $imageUrl) {
+const createPhoto = gql`
+  mutation ($name: String!, $description: String!, $imageUrl: String!, $userId: ID!) {
+    createPhoto(name: $name, description: $description, imageUrl: $imageUrl, userId: $userId) {
       id
-      name
-      description
-      imageUrl
+    }
+  }
+`
+const userQuery = gql`
+  query {
+    user {
+      id
     }
   }
 `
 
-const PageWithMutation = graphql(addMutation, {
-  props: ({ ownProps, mutate }) => ({
-    addPhoto: ({ name, description, imageUrl }) =>
-      mutate({
-        variables: { name, description, imageUrl },
-        updateQueries: {
-          allPhotos: (state, { mutationResult }) => {
-            const newPhoto = mutationResult.data.createPhoto
-            return {
-              allPhotos: [...state.allPhotos, newPhoto]
-            }
-          },
-        },
-      })
-  })
-})(withRouter(CreatePage))
+// const PageWithMutation = graphql(addMutation, {
+//   props: ({ ownProps, mutate }) => ({
+//     addPhoto: ({ name, description, imageUrl }) =>
+//       mutate({
+//         variables: { name, description, imageUrl },
+//         updateQueries: {
+//           allPhotos: (state, { mutationResult }) => {
+//             const newPhoto = mutationResult.data.createPhoto
+//             return {
+//               allPhotos: [...state.allPhotos, newPhoto]
+//             }
+//           },
+//         },
+//       })
+//   })
+// })(withRouter(CreatePage))
 
-export default PageWithMutation
+// export default PageWithMutation
+
+export default graphql(createPhoto)(
+  graphql(userQuery, { options: { forceFetch: true }} )(withRouter(CreatePage))
+)

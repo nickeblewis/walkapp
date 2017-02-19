@@ -26,6 +26,7 @@ class Photo extends React.Component {
           <h3 className='f5 f4-ns mb0 black-90'>{this.props.photo.name}</h3>
           <h3 className='f6 f5 fw4 mt2 black-60'>{this.props.photo.description}</h3>
         </Link>*/}
+        {/*<span onClick={this.handleDelete}>Delete</span>*/}
       </article>
     )
   }

@@ -74,7 +74,7 @@ ReactDOM.render((
         {/*<Route path='/createcategory' component={CreateCategory} />*/}
         {/*<Route path='/categories' component={ListCategory} />*/}
         <Route path='login' component={LoginUser} />
-        <Route path='signup' component={CreateUser} />
+        <Route path='signup' component={CreateUser}/>
       </Route>
     </Router>
   </ApolloProvider>
