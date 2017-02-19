@@ -22,10 +22,10 @@ class Photo extends React.Component {
         <div className='aspect-ratio aspect-ratio--1x1'>
           <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' />  
         </div>
-        <Link className='ph2 ph0-ns pb3 link db' to='/'>
+        {/*<Link className='ph2 ph0-ns pb3 link db' to='/'>
           <h3 className='f5 f4-ns mb0 black-90'>{this.props.photo.name}</h3>
           <h3 className='f6 f5 fw4 mt2 black-60'>{this.props.photo.description}</h3>
-        </Link>
+        </Link>*/}
       </article>
     )
   }
