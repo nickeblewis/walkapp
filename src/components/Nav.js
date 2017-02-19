@@ -73,7 +73,6 @@ class Nav extends React.Component {
   render () {
     // const headerImg = '../assets/iStock-504241498.jpg';
     // const headerImg = 'http://mrmrs.io/photos/u/011.jpg'; //./iStock-504241498.jpg';
-    console.log(this._isLoggedIn())
     if (this._isLoggedIn()) {
       return this.renderLoggedIn()
     } else {
