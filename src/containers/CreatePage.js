@@ -8,20 +8,17 @@ import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
-const GC_PROJECT_CODE = "cixraxev60e4c0121krsia44h";
+// TODO: Should move these to environment variables, this is not secure
 const GC_UPLOAD_URL = "https://api.graph.cool/file/v1/cixraxev60e4c0121krsia44h";
-const CLOUDINARY_UPLOAD_PRESET = 'gec3tjz3';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
-
 
 class CreatePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        open: true,
-        uploadedFile: null,
-        uploadedFileCloudinaryUrl: ''
+      open: true,
+      uploadedFile: null,
+      uploadedFileCloudinaryUrl: ''
       };
     }
 
@@ -34,10 +31,6 @@ class CreatePage extends React.Component {
     }
 
     handleImageUpload(file) {
-        // let upload = request.post(
-        //     CLOUDINARY_UPLOAD_URL).field('upload_preset', 
-        //     CLOUDINARY_UPLOAD_PRESET).field('file', file);
-
         let upload = request.post(
             GC_UPLOAD_URL).field('data', file);
 
@@ -82,11 +75,10 @@ class CreatePage extends React.Component {
             multiple={false}
             accept="image/*">
               <div>
-                  {this.state.uploadedFileCloudinaryUrl === '' ? null :
-                      <div>
-                          <p>{this.state.uploadedFile.name}</p>
-                          {/*<img alt={this.state.uploadedFileCloudinaryUrl} src={this.state.uploadedFileCloudinaryUrl} />*/}
-                      </div>}
+                {this.state.uploadedFileCloudinaryUrl === '' ? null :
+                  <div>
+                      <p>{this.state.uploadedFile.name}</p>
+                  </div>}
               </div>
           </Dropzone>   
           <input
@@ -132,6 +124,7 @@ const createPhoto = gql`
     }
   }
 `
+
 const userQuery = gql`
   query {
     user {
@@ -139,25 +132,6 @@ const userQuery = gql`
     }
   }
 `
-
-// const PageWithMutation = graphql(addMutation, {
-//   props: ({ ownProps, mutate }) => ({
-//     addPhoto: ({ name, description, imageUrl }) =>
-//       mutate({
-//         variables: { name, description, imageUrl },
-//         updateQueries: {
-//           allPhotos: (state, { mutationResult }) => {
-//             const newPhoto = mutationResult.data.createPhoto
-//             return {
-//               allPhotos: [...state.allPhotos, newPhoto]
-//             }
-//           },
-//         },
-//       })
-//   })
-// })(withRouter(CreatePage))
-
-// export default PageWithMutation
 
 export default graphql(createPhoto)(
   graphql(userQuery, { options: { forceFetch: true }} )(withRouter(CreatePage))

@@ -1,10 +1,7 @@
-/**
- * Component that lists all Posts
- */
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Nav from '../components/Nav'
+// import Nav from '../components/Nav'
 import { Link } from 'react-router'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router'
@@ -79,8 +76,7 @@ class MainLayout extends React.Component {
     }
 
     return (
-        <main>
-          {/*<Nav/>*/}
+        <main>          
           {nav}
           <Header />
           {this.props.children}
