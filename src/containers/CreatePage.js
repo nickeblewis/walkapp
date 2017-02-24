@@ -9,8 +9,6 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
 // TODO: Should move these to environment variables, this is not secure
-const GC_UPLOAD_URL = "https://api.graph.cool/file/v1/cixraxev60e4c0121krsia44h";
-
 const CLOUDINARY_UPLOAD_PRESET = 'gec3tjz3';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
 
