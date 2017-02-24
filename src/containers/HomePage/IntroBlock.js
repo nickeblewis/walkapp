@@ -35,7 +35,7 @@ class IntroBlock extends React.Component {
         </div>
          <div className="fl-m fl-l w-50-m w-50-l br b--light-gray">
           <div className="pa3 pa4-m">
-            <h3 className="f3">Photography</h3>
+            <h3 className="f3">Photos</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
               We are launching the site early by introducing our local photography campaign. We invite everyone to share their photgraphs of the town here on Farnborough Guide. We are especially interested in businesses around the town whom wish to share photographs of what they do, what they sell. help spread the word.
             </p>
