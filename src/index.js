@@ -13,6 +13,7 @@ import HomePage from './containers/HomePage'
 import ListPage from './containers/ListPage'
 // import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
+import PhotoPage from './containers/PhotoPage'
 // import CreateCategory from './containers/CreateCategory'
 
 import { Router, Route, browserHistory } from 'react-router'
@@ -44,10 +45,11 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
-        <Route path='/photos' component={ListPage} />
+        <Route path='/photo' component={ListPage} />
         {/*<Route path='/walks' component={WalkPage} />*/}
         {/*<Route path='/contacts' component={BusinessPage} />*/}
-        <Route path='/create' component={CreatePage} />
+        <Route path='/photo/create' component={CreatePage} />
+        <Route path='/photo/view/:id' component={PhotoPage} />
         {/*<Route path='/createcategory' component={CreateCategory} />*/}
         {/*<Route path='/categories' component={ListCategory} />*/}
         <Route path='login' component={LoginUser} />
