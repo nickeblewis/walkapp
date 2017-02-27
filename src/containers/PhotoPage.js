@@ -4,17 +4,35 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
+import { withRouter } from 'react-router'
 
 class PhotoPage extends React.Component {
 
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.shape({
+      loading: React.PropTypes.bool,
+      error: React.PropTypes.object,
+      Photo: React.PropTypes.object,
+    }).isRequired,
+    params: React.PropTypes.object.isRequired
   }
 
   render () {
-    const outputUrl = "http://placehold.it/400x400";
+    // const outputUrl = "http://placehold.it/400x400";
     var myText = this.props.params.id;
+
+    if (this.props.data.loading) {
+      return (<div>Loading</div>)
+    }
+
+     if (this.props.data.error) {
+      console.log(this.props.data.error)
+      return (<div>An unexpected error occurred</div>)
+    }
+
+    // const Photo = this.props.data.Photo
+
     return (
       <article>
         <div className="pa4 ph7-l georgia mw9-l center">
@@ -27,16 +45,8 @@ class PhotoPage extends React.Component {
   }
 }
 
-const FeedQuery = gql`query allPosts {
-  allPosts(orderBy: createdAt_DESC) {
-    id
-    imageUrl
-    description
-  }
-}`
 
-const photoQuery = gql`
-  query Photo($id: ID!) {
+const PhotoQuery = gql`query PhotoQuery($id: ID!) {
     Photo(id: $id) {
       id
       imageUrl
@@ -44,6 +54,24 @@ const photoQuery = gql`
   }
 `
 
-const PhotoPageWithData = graphql(photoQuery)(PhotoPage)
+const PhotoPageWithData = graphql(PhotoQuery,{
+  options: (ownProps) => ({
+    variables: {
+      id: ownProps.params.id
+    }
+  })
+})(withRouter(PhotoPage))
+
+// Nilan suggests....
+
+// const PhotoQuery = gqlquery PhotoQuery($id: ID!) { Photo(id: $id) { id file { url } } }
+// const PhotoComponentWithData = graphql(PhotoQuery, {
+// options: (ownProps) => ({
+// variables: {
+// id: ownProps.params.id
+// }
+// })
+// }
+// )(withRouter(Photo))
 
 export default PhotoPageWithData
