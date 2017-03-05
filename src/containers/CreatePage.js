@@ -114,7 +114,7 @@ class CreatePage extends React.Component {
     const {name, description, imageUrl, userId} = this.state
     this.props.mutate({variables: {name, description, imageUrl, userId }})
       .then(() => {
-        this.props.router.push('/photos')
+        this.props.router.push('/photo')
       })
   }
 }
