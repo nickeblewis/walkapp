@@ -14,6 +14,7 @@ class IntroBlock extends React.Component {
    * | Photo | Signup  |
    */
   render () {
+    
     return (
       <div className="db dt-ns mw9 center">
         <div className="fl-m fl-l w-33-m w-33-l">
