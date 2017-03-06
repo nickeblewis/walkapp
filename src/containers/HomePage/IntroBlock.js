@@ -39,6 +39,7 @@ class IntroBlock extends React.Component {
               So you have some photos to share with everyone in the town? What are you waiting for? Once registered you may upload new images via our photos page!
             </p>
             <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/signup" >Register Now!</Link> 
+            <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/Photo" >View all photos</Link> 
           </div>
         </div> 
       </div>
