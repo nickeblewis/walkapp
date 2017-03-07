@@ -10,7 +10,7 @@ class IntroBlock extends React.Component {
   }
   
   render () {
-    
+
     return (
       <div className="db dt-ns mw9 center">
         <div className="fl-m fl-l w-33-m w-33-l">
@@ -23,7 +23,7 @@ class IntroBlock extends React.Component {
         </div>
         <div className="fl-m fl-l w-33-m w-33-l">
           <div className="pa4 pa4-m">
-    <h3 className="f3">We are seeking photos</h3>
+            <h3 className="f3">We are seeking photos</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
               We are launching the site early by introducing our local photography campaign. We invite everyone to share their photgraphs of the town here on Farnborough Guide. We are especially interested in businesses around the town whom wish to share photographs of what they do, what they sell. help spread the word.
             </p>
