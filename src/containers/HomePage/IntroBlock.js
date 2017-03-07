@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { 
+  Link 
+} from 'react-router'
 
 class IntroBlock extends React.Component {
 
@@ -7,13 +9,8 @@ class IntroBlock extends React.Component {
     data: React.PropTypes.object,
   }
   
-  /**
-   * We need to rearaange this code a bit so that the Welcome section is one wide column and the sections
-   * entitled photography and sign up are in tow columns below, so something like:
-   * |     Welcome     |
-   * | Photo | Signup  |
-   */
   render () {
+    
     return (
       <div className="db dt-ns mw9 center">
         <div className="fl-m fl-l w-33-m w-33-l">
@@ -38,12 +35,21 @@ class IntroBlock extends React.Component {
             <p className="mid-gray f3 lh-copy measure-narrow">
               So you have some photos to share with everyone in the town? What are you waiting for? Once registered you may upload new images via our photos page!
             </p>
-            <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/signup" >Register Now!</Link> 
-            <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/Photo" >View all photos</Link> 
+            { /* Dan, I have created a function that returns the appropriate button at this stage */}
+            {this._renderButton()}
           </div>
         </div> 
       </div>
-    )
+    )    
+  }
+
+  // Dan, If not logged in show the Register button, otherwise show the view all photos button
+  _renderButton() {
+    if ( !this.props.data.user ) {
+      return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/signup" >Register Now!</Link>
+    } else {
+      return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/Photo" >View all photos</Link> 
+    }
   }
 }
 

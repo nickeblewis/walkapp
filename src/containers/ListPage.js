@@ -17,7 +17,7 @@ class ListPage extends React.Component {
     if (this.props.data.loading) {
       return (<div>Loading</div>)
     }
-
+console.log(this.props)
     return (
       <main>
       

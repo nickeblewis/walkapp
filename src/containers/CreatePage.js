@@ -64,6 +64,7 @@ class CreatePage extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     if (!this.props.data.user) {
       console.warn('only logged in users can create new posts')
       this.props.router.replace('/photos')
