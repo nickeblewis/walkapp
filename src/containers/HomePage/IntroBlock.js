@@ -31,7 +31,7 @@ class IntroBlock extends React.Component {
         </div>
         <div className="fl-m fl-l w-33-m w-33-l br b--light-gray">
           <div className="pa4 pa4-m">
-    <h3 className="f3">1. Sign-up</h3>
+            {this._showText()}
             <p className="mid-gray f3 lh-copy measure-narrow">
               So you have some photos to share with everyone in the town? What are you waiting for? Once registered you may upload new images via our photos page!
             </p>
@@ -49,6 +49,14 @@ class IntroBlock extends React.Component {
       return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/signup" >Register Now!</Link>
     } else {
       return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/Photo" >View all photos</Link> 
+    }
+  }
+
+  _showText() {
+    if ( !this.props.data.user ) {
+      return <h3 className="f3">1. Sign-up</h3>
+    } else {
+      return <h3 className="f3">2. Add photos</h3>
     }
   }
 }
