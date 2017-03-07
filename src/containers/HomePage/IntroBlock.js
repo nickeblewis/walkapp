@@ -23,7 +23,7 @@ class IntroBlock extends React.Component {
         </div>
         <div className="fl-m fl-l w-33-m w-33-l">
           <div className="pa4 pa4-m">
-    <h3 className="f3">2.)We are seeking photos</h3>
+    <h3 className="f3">2) We are seeking photos</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
               We are launching the site early by introducing our local photography campaign. We invite everyone to share their photgraphs of the town here on Farnborough Guide. We are especially interested in businesses around the town whom wish to share photographs of what they do, what they sell. help spread the word.
             </p>
@@ -31,7 +31,7 @@ class IntroBlock extends React.Component {
         </div>
         <div className="fl-m fl-l w-33-m w-33-l br b--light-gray">
           <div className="pa4 pa4-m">
-    <h3 className="f3">1.)Sign-up</h3>
+    <h3 className="f3">1) Sign-up</h3>
             <p className="mid-gray f3 lh-copy measure-narrow">
               So you have some photos to share with everyone in the town? What are you waiting for? Once registered you may upload new images via our photos page!
             </p>
