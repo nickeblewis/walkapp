@@ -9,7 +9,7 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
 // TODO: Should move these to environment variables, this is not secure
-const CLOUDINARY_UPLOAD_PRESET = 'gec3tjz3';
+const CLOUDINARY_UPLOAD_PRESET = 'bqzvryde';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
 
 class CreatePage extends React.Component {
