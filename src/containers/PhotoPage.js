@@ -23,6 +23,14 @@ class PhotoPage extends React.Component {
   render () {
     // const outputUrl = "http://placehold.it/400x400";
     // var myText = this.props.params.id;
+    // console.log(this.props.data.Photo)
+    // let outputUrl = '';
+    
+    // if(this.props.data.Photo.publicId === null) {
+    //   outputUrl = this.props.data.Photo.imageUrl;
+    // } else {
+    //   outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/' + this.props.data.Photo.publicId;
+    // }
 
     if (this.props.data.loading) {
       return (<div>Loading</div>)
@@ -33,16 +41,19 @@ class PhotoPage extends React.Component {
       return (<div>An unexpected error occurred</div>)
     }
 
-    console.log(this.props.data.Photo.imageUrl)
     // const Photo = this.props.data.Photo
 
     return (
         <article>
             <div className="pa4 ph7-l georgia mw9-l center">
-                <img src={this.props.data.Photo.imageUrl} alt={this.props.data.Photo.name} />
+                { this.props.data.Photo.publicId ? 
+                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/${this.props.data.Photo.publicId}`} alt={this.props.data.Photo.name} />  :
+                  <img src={this.props.data.Photo.imageUrl} alt={this.props.data.Photo.name} /> 
+                }
                 <h3 className="f3">{this.props.data.Photo.name} </h3>
                 <p className="mid-gray f3 lh-copy">
                     {this.props.data.Photo.description}
+                    {this.props.data.Photo.publicId}
                 </p>
             </div>
         </article>
@@ -56,6 +67,7 @@ query PhotoQuery($id: ID!) {
     Photo(id: $id) {
       id
       imageUrl
+      publicId
       name
       description
     }

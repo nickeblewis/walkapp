@@ -17,7 +17,7 @@ class ListPage extends React.Component {
     if (this.props.data.loading) {
       return (<div>Loading</div>)
     }
-console.log(this.props)
+
     return (
       <main>
       
@@ -40,6 +40,7 @@ const FeedQuery = gql`query allPhotos {
   allPhotos(orderBy: createdAt_DESC) {
     id
     imageUrl
+    publicId
     name
     description
   }

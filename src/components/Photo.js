@@ -14,8 +14,17 @@ class Photo extends React.Component {
     refresh: React.PropTypes.func,
   }
 
+  // http://res.cloudinary.com/dqpknoetx/image/upload/v1489441520/odtitxnfqdjzfygvuvls.jpg
+
   render () {
-    const outputUrl = this.props.photo.imageUrl;
+    let outputUrl = '';
+    
+    if(this.props.photo.publicId === null) {
+      outputUrl = this.props.photo.imageUrl;
+    } else {
+      outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.photo.publicId;
+    }
+
     var photo = this.props.photo.id;
     const linkTo = '/photo/view/' + photo;
     return (
