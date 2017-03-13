@@ -8,7 +8,7 @@ import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
-// TODO: Should move these to environment variables, this is not secure
+// TODO: Should move these to environment variables, this is that not secure
 const CLOUDINARY_UPLOAD_PRESET = 'bqzvryde';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
 
@@ -19,7 +19,9 @@ class CreatePage extends React.Component {
     this.state = {
       open: true,
       uploadedFile: null,
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
+      publicId: null,
+      metaData: null
       };
     }
 
@@ -40,11 +42,22 @@ class CreatePage extends React.Component {
             if (err) {
                 console.error("ERR1",err);
             }
+            // 1. The following piece of code outputs the response we receive from Cloudinary when the image is uploaded OK
+            //    you will see it is output in the browser console
+            // 2. We also can see in this object that we extract metadata from the photo that was uploaded
+            //    I've decided to capture that too
 
+            // Please note that two new fields have been added to our Photo model on Graph.Cool
+            console.log(response.body)
+
+            // Dan, so some changes need to be made in order to capture the "public_id" as well as the imageUrl
+            // so I have added this line below in the setState
             if (response.body.url !== '') {
                 this.setState({
                     uploadedFileCloudinaryUrl: response.body.url,
                     imageUrl: response.body.url,
+                    publicId: response.body.public_id,
+                    metaData: response.body.image_metadata,
                     userId: this.props.data.user.id
                 });
             }
@@ -60,14 +73,15 @@ class CreatePage extends React.Component {
     name: '',
     description: '',
     imageUrl: '',
-    userId: 0
+    userId: 0,
+    publicId: null,
+    metaData: null
   }
 
   render () {
-    console.log(this.props)
     if (!this.props.data.user) {
       console.warn('only logged in users can create new posts')
-      this.props.router.replace('/photos')
+      this.props.router.replace('/photo')
     }
 
     return (
@@ -112,8 +126,8 @@ class CreatePage extends React.Component {
 
   handlePhoto = () => {
     this.setState({userId: this.props.data.user.id})
-    const {name, description, imageUrl, userId} = this.state
-    this.props.mutate({variables: {name, description, imageUrl, userId }})
+    const {name, description, imageUrl, userId, publicId, metaData} = this.state
+    this.props.mutate({variables: {name, description, imageUrl, userId, publicId, metaData }})
       .then(() => {
         this.props.router.push('/photo')
       })
@@ -121,8 +135,8 @@ class CreatePage extends React.Component {
 }
 
 const createPhoto = gql`
-  mutation ($name: String!, $description: String!, $imageUrl: String!, $userId: ID!) {
-    createPhoto(name: $name, description: $description, imageUrl: $imageUrl, userId: $userId) {
+  mutation ($name: String!, $description: String!, $imageUrl: String!, $userId: ID!, $publicId: String, $metaData: Json) {
+    createPhoto(name: $name, description: $description, imageUrl: $imageUrl, userId: $userId, publicId: $publicId, metaData: $metaData) {
       id
     }
   }
