@@ -1,5 +1,6 @@
 /**
- * Component for Post creation
+ * Upload a new photo and annotate it with name and description
+ * We also capture the full metadata for the image that is taken from EXIF, IPTC and other information
  */
 import React from 'react'
 import { withRouter } from 'react-router'
@@ -8,14 +9,25 @@ import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
 
-// TODO: Should move these to environment variables, this is that not secure
+/** 
+ * TODO
+ * Should move these to environment variables, so let's set some time aside to do that
+ * The other option will be to move them to a file that is not checked into Github
+ * Please ask me about this and why this matters :-)
+ */
+  
+// Recently changed the preset to one that doesn't change the uploaded files, we want them to be stored as original
 const CLOUDINARY_UPLOAD_PRESET = 'bqzvryde';
+
+// This is essentially the prefix for all references to images stored on Cloudinary
+// Please ask me to do a proper training session on how Cloudinary works
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
 
 class CreatePage extends React.Component {
   constructor(props) {
     super(props);
 
+    // Default our state - We shall discuss the difference between props and state at some point
     this.state = {
       open: true,
       uploadedFile: null,
@@ -25,23 +37,32 @@ class CreatePage extends React.Component {
       };
     }
 
+    // This event function is fired when a file is dropped on a page that supports drag-n-drop
     onImageDrop(files) {
+
+        // Store the uploaded file in our state, so it is no longer a null value at this point
         this.setState({
             uploadedFile: files[0]
         });
 
+        // Fire off the image upload handler
         this.handleImageUpload(files[0]);
     }
 
     handleImageUpload(file) {
+        // These lines of code post the data to Cloudinary including the preset and the file data
         let upload = request.post(
             CLOUDINARY_UPLOAD_URL).field('upload_preset', 
             CLOUDINARY_UPLOAD_PRESET).field('file', file);
 
+        // Handle the Response from the server, it may have failed, in which case log the error to the console
         upload.end((err, response) => {
             if (err) {
                 console.error("ERR1",err);
             }
+
+            // Not failed, good, it worked then!
+
             // 1. The following piece of code outputs the response we receive from Cloudinary when the image is uploaded OK
             //    you will see it is output in the browser console
             // 2. We also can see in this object that we extract metadata from the photo that was uploaded
@@ -124,6 +145,7 @@ class CreatePage extends React.Component {
     )
   }
 
+  // This piece of code looks after preparing the GraphQL Mutation
   handlePhoto = () => {
     this.setState({userId: this.props.data.user.id})
     const {name, description, imageUrl, userId, publicId, metaData} = this.state
