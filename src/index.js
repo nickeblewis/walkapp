@@ -14,6 +14,7 @@ import ListPage from './containers/ListPage'
 // import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
 import PhotoPage from './containers/PhotoPage'
+import PlacePage from './containers/PlacePage'
 // import CreateCategory from './containers/CreateCategory'
 
 import { Router, Route, browserHistory } from 'react-router'
@@ -50,6 +51,7 @@ ReactDOM.render((
         {/*<Route path='/contacts' component={BusinessPage} />*/}
         <Route path='/photo/create' component={CreatePage} />
         <Route path='/photo/view/:id' component={PhotoPage} />
+        <Route path='/place/:id' component={PlacePage} />
         {/*<Route path='/createcategory' component={CreateCategory} />*/}
         {/*<Route path='/categories' component={ListCategory} />*/}
         <Route path='login' component={LoginUser} />
