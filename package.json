@@ -10,6 +10,7 @@
     "apollo-client": "^0.7.0",
     "cross-env": "^3.1.4",
     "graphql-tag": "^1.2.1",
+    "node-sass-chokidar": "^0.0.3",
     "react": "^15.3.1",
     "react-apollo": "^0.8.1",
     "react-bootstrap": "^0.30.7",
@@ -28,12 +29,15 @@
     "tachyons-floats": "^3.0.4",
     "tachyons-font-weight": "^5.0.4",
     "tachyons-links": "^3.0.9",
+    "tachyons-sass": "^4.7.4",
     "tachyons-skins": "^4.0.3",
     "tachyons-spacing": "^6.0.4",
     "tachyons-type-scale": "^6.0.4",
     "tachyons-widths": "^5.1.1"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
