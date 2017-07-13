@@ -9,6 +9,7 @@
   "dependencies": {
     "apollo-client": "^0.7.0",
     "cross-env": "^3.1.4",
+    "google-map-react": "^0.24.0",
     "graphql-tag": "^1.2.1",
     "node-sass-chokidar": "^0.0.3",
     "react": "^15.3.1",

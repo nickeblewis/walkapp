@@ -6,9 +6,10 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 // import { Link } from 'react-router'
 import { withRouter } from 'react-router'
+// import GoogleMapReact from 'google-map-react';
 
 class PlacePage extends React.Component {
-
+    
   static propTypes = {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
