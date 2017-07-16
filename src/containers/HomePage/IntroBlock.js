@@ -15,28 +15,26 @@ class IntroBlock extends React.Component {
       <div className="db dt-ns mw9 center">
         <div className="fl-m fl-l w-33-m w-33-l">
           <div className="pa4 pa4-m">
-          <h3 className="f3">Welcome</h3>
-            <p className="mid-gray f4 lh-copy">
-              Farnborough Guide is a new service that aims to help businesses promote themselves to local residents and other businesses alike. The site will also help people find out about interesting services, events, places, activities and a whole lot more.
+          <h3 className="f3">What's in the name?</h3>
+            <p className="mid-gray f4 lh-copy">            
+              Farnborough was mentioned in the domesday book of 1086, a Saxon settlement. The name Farnborough is derived from "Ferneberga" believed to mean "Fern Hill". There are many links to this ancient name across the town.
             </p> 
           </div>
         </div>
         <div className="fl-m fl-l w-33-m w-33-l">
           <div className="pa4 pa4-m">
-            <h3 className="f3">We are seeking photos</h3>
+            <h3 className="f3">Aircraft and Aviation</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
-              We are launching the site early by introducing our local photography campaign. We invite everyone to share their photgraphs of the town here on Farnborough Guide. We are especially interested in businesses around the town whom wish to share photographs of what they do, what they sell. help spread the word.
+              Over the years Farnborough has played a major role in the British aviation industry and is linked with three particular milestones in the history of the industry that has ultimately led to faster travel across the globe.  
             </p>
           </div>
         </div>
         <div className="fl-m fl-l w-33-m w-33-l br b--light-gray">
           <div className="pa4 pa4-m">
-            {this._showText()}
-            <p className="mid-gray f3 lh-copy measure-narrow">
-              So you have some photos to share with everyone in the town? What are you waiting for? Once registered you may upload new images via our photos page!
+            <h3 className="f3">The Future...</h3>
+            <p className="mid-gray f4 lh-copy measure-narrow">
+              Farnborough is a town that has always been in a state of transition mainly due to the aviation and related industry here, so it is no surprise that it continues to be attractive to investors in business and property.  
             </p>
-            { /* Dan, I have created a function that returns the appropriate button at this stage */}
-            {this._renderButton()}
           </div>
         </div> 
       </div>

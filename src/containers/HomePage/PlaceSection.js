@@ -11,10 +11,10 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 // https://css-tricks.com/learning-react-router/ this is a great resource for learning all about this
-import Photo from '../../components/Photo'
+import Place from '../../components/Place'
 
 // https://ponyfoo.com/articles/es6-classes-in-depth describes classes really well
-class PhotoSection extends React.Component {
+class PlaceSection extends React.Component {
 
   // This component is the child of another and we can pass properties down the chain from a parent 
   // to its child components (children)
@@ -39,8 +39,8 @@ class PhotoSection extends React.Component {
           <section className="lh-copy">
             <div className="cf pa2">
               { /* The following piece of code loops through the photo data (see below) */ }
-              {this.props.data.allPhotos.map((photo) =>
-                <Photo key={photo.id} photo={photo} />
+              {this.props.data.allPlaces.map((place) =>
+                <Place key={place.id} place={place} />
               )}
               </div>
             </section>
@@ -51,15 +51,15 @@ class PhotoSection extends React.Component {
 }
 
 const FeedQuery = gql`query allPhotos {
-  allPhotos(orderBy: createdAt_DESC, first: 5) {
+  allPlaces(filter: {published:true}, orderBy: createdAt_DESC, first: 5) {
     id
-    imageUrl
-    publicId
-    name
-    description
+    banner
+    title
+    slug
+    summary
   }
 }`
 
-const PhotoSectionWithData = graphql(FeedQuery)(PhotoSection)
+const PlaceSectionWithData = graphql(FeedQuery)(PlaceSection)
 
-export default PhotoSectionWithData
+export default PlaceSectionWithData

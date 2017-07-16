@@ -1,5 +1,6 @@
 import React from 'react'
 import PhotoSection from './PhotoSection'
+import PlaceSection from './PlaceSection'
 import IntroBlock from './IntroBlock'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
@@ -25,6 +26,7 @@ class HomePage extends React.Component {
         {/* <BusinessSection title="Featured Businesses" /> */}
         
         { /* TODO: Would be great to pass through a value for number of photos to show here */ }
+        <PlaceSection title="Latest Places" />
         <PhotoSection title="Newest Photos" />
       </article>
     )

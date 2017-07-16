@@ -11,7 +11,8 @@ import HomePage from './containers/HomePage'
 // import WalkPage from './containers/WalkPage'
 // import BusinessPage from './containers/BusinessPage'
 import ListPage from './containers/ListPage'
-// import ListCategory from './containers/ListCategory'
+import PlaceListPage from './containers/PlaceListPage'
+import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
 import PhotoPage from './containers/PhotoPage'
 import PlacePage from './containers/PlacePage'
@@ -47,13 +48,14 @@ ReactDOM.render((
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
         <Route path='/photo' component={ListPage} />
+        <Route path='/places' component={PlaceListPage} />
         {/*<Route path='/walks' component={WalkPage} />*/}
         {/*<Route path='/contacts' component={BusinessPage} />*/}
         <Route path='/photo/create' component={CreatePage} />
         <Route path='/photo/view/:id' component={PhotoPage} />
         <Route path='/place/:id' component={PlacePage} />
         {/*<Route path='/createcategory' component={CreateCategory} />*/}
-        {/*<Route path='/categories' component={ListCategory} />*/}
+        <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />
         <Route path='signup' component={CreateUser}/>
       </Route>

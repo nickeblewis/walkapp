@@ -19,14 +19,15 @@ class Place extends React.Component {
   render () {
     let outputUrl = '';
     
-    if(this.props.place.publicId === null) {
-      outputUrl = this.props.place.imageUrl;
-    } else {
-      outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.place.publicId;
-    }
+    // if(this.props.place.publicId === null) {
+      outputUrl = this.props.place.banner;
+    // } else {
+    //   outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.place.publicId;
+    // }
 
-    var place = this.props.place.id;
-    const linkTo = '/place/view/' + place;
+    const place = this.props.place;
+    var slug = this.props.place.slug;
+    const linkTo = '/place/' + slug;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
@@ -35,6 +36,10 @@ class Place extends React.Component {
             />
             </Link>  
         </div>
+        
+      <h3 className="f5 f4-ns mb0 black-90">{place.title}</h3>
+      <h3 className="f6 f5 fw4 mt2 black-60">{place.summary}</h3>
+    
         {/*<span onClick={this.handleDelete}>Delete</span>*/}
       </article>
     )

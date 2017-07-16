@@ -42,19 +42,42 @@ class PlacePage extends React.Component {
       return (<div>An unexpected error occurred</div>)
     }
 
-    // const Photo = this.props.data.Photo
+    const place = this.props.data.Place
 
     return (
         <article>
             <div className="pa4 ph7-l georgia mw9-l center">
                 {/*{ this.props.data.Place.publicId ? 
                   <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/${this.props.data.Place.publicId}`} alt={this.props.data.Place.name} />  :*/}
-                  <img src={this.props.data.Place.banner} alt={this.props.data.Place.name} /> 
+                  <img src={place.banner} alt={place.name} /> 
                 {/*}*/}
-                <h3 className="f3">{this.props.data.Place.title} </h3>
+                <h3 className="f3">{place.title} </h3>
                 <p className="mid-gray f3 lh-copy">
-                    {this.props.data.Place.description}
-                    {this.props.data.Place.publicId}
+                    {place.description}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.publicId}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.address}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.contactEmail ? place.contactEmail : "No email provided"}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.contactFirstName}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.contactLastName}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.email}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.phone}
+                </p>
+                <p className="mid-gray f3 lh-copy">
+                    {place.postcode}
                 </p>
             </div>
         </article>
@@ -70,6 +93,13 @@ query PlaceQuery($id: String!) {
       title
       description
       banner
+      address
+      contactEmail
+      contactFirstName
+      contactLastName
+      email
+      phone
+      postcode
     }
   }
 `
