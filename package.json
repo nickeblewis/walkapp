@@ -11,6 +11,7 @@
     "cross-env": "^3.1.4",
     "google-map-react": "^0.24.0",
     "graphql-tag": "^1.2.1",
+    "leaflet": "^1.1.0",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.3.1",
