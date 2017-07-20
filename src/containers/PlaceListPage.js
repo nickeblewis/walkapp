@@ -22,7 +22,7 @@ class PlaceListPage extends React.Component {
       <main>
       
       <section className='cf w-100 pa2-ns'>
-        <Link to='/place/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
+        <Link to='/places/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
           + New Place
         </Link>
         

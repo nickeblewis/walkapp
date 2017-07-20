@@ -47,14 +47,14 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
-        <Route path='/photo' component={ListPage} />
+        <Route path='/photos' component={ListPage} />
         <Route path='/places' component={PlaceListPage} />
+        <Route path='/places/:id' component={PlacePage} />
         {/*<Route path='/walks' component={WalkPage} />*/}
         {/*<Route path='/contacts' component={BusinessPage} />*/}
-        <Route path='/photo/create' component={CreatePage} />
-        <Route path='/photo/view/:id' component={PhotoPage} />
-        <Route path='/place/:id' component={PlacePage} />
-        {/*<Route path='/createcategory' component={CreateCategory} />*/}
+        <Route path='/photos/create' component={CreatePage} />
+        <Route path='/photos/view/:id' component={PhotoPage} />
+        {/*<Route path='/categories/create' component={CreateCategory} />*/}
         <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />
         <Route path='signup' component={CreateUser}/>

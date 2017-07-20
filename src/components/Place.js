@@ -27,7 +27,7 @@ class Place extends React.Component {
 
     const place = this.props.place;
     var slug = this.props.place.slug;
-    const linkTo = '/place/' + slug;
+    const linkTo = '/places/' + slug;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
