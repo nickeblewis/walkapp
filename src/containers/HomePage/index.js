@@ -32,7 +32,7 @@ class HomePage extends React.Component {
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
         <IntroBlock data={this.props.data}/>
-                <Map center={position} zoom={this.state.zoom}>
+                <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
           <TileLayer
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

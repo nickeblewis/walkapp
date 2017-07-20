@@ -32,7 +32,7 @@ class PlaceListPage extends React.Component {
 
     return (
       <main>
-      <Map center={position} zoom={this.state.zoom}>
+      <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
     <TileLayer
       url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
