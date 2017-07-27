@@ -6924,7 +6924,7 @@ code, .code {
 
 .tile-title {
   font-size: 16px;
-  color: #00386C;
+  color: white;
   height: 24px;
   font-weight: 500;
   overflow: hidden;
@@ -6933,7 +6933,7 @@ code, .code {
 .tile-subtitle {
   font-size: 14px;
   line-height: 16px;
-  color: rgba(0, 56, 108, 0.5); }
+  color: white; }
 
 .tile-group {
   transition: all .2s ease-in-out; }
