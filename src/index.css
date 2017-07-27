@@ -6924,17 +6924,16 @@ code, .code {
 
 .tile-title {
   font-size: 16px;
-  color: #00386C;
+  color: white;
   height: 24px;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis; }
 
-<<<<<<< HEAD
 .tile-subtitle {
   font-size: 14px;
   line-height: 16px;
-  color: rgba(0, 56, 108, 0.5); }
+  color: white; }
 
 .tile-group {
   transition: all .2s ease-in-out; }
@@ -6950,13 +6949,11 @@ code, .code {
 /* styling bellow */
 /* transparency */
 /* IE transparency */
-=======
 .leaflet-container {
   height: 400px;
   width: 100%;
   margin: 30px 0px 0px 0px; }
 
->>>>>>> 7844ac8bea3f78822fdc46ff9d9ded61ebdda053
 /* Nav */
 /* Home page classes */
 .ferns {

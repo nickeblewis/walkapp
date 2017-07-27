@@ -36,23 +36,25 @@ class Place extends React.Component {
             <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' 
             />
          </Link> */}
-         <a className='tile-link' href="/integrations/google-analytics">  
-         </a>
+
           <div className='tile-tags'></div>
             <div className='tile-inner'></div>
               <div className='tile-icon'>
-                <img class="tile-logo" src={outputUrl}/>
-              </div>
-                <div className='tile-group'>
-                 <div className='tile-title'>
-                   {place.title}
-                </div>
-                   <div className='tile-subtitle'>
-                    Description
-                   </div>
-            </div>  
-        </div>
-      </div>
+                <Link className='tile-link' to={linkTo}>  
+                  <img class="tile-logo" src={outputUrl}/>
+                </Link>
+                  
+                    <div className='tile-group'>
+                    <div className='tile-title'>
+                      {place.title}
+                    </div>
+                      <div className='tile-subtitle'>
+                        {place.summary}
+                      </div>
+                      </div>
+                </div>  
+            </div>
+          </div>
         
    {/* <h3 className="f5 f5-ns mb0 black-90">{place.title}</h3> */}
   {/* <h3 className="f6 f5 fw4 mt2 black-60">{place.summary}</h3> */} 
