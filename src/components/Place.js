@@ -29,19 +29,39 @@ class Place extends React.Component {
     var slug = this.props.place.slug;
     const linkTo = '/places/' + slug;
     return (
-      <article className='fl w-50 w-25-m w-20-l pa2'>
-        <div className='aspect-ratio aspect-ratio--1x1'>
-          <Link className='ph2 ph0-ns pb3 link db' to={linkTo}>
+     <div className='grid'>
+      <div className='grid-cell fl w-50 w-25-m w-20-l pa2 '>
+        <div className='tile'>
+         {/* <Link className='ph2 ph0-ns pb3 link db' to={linkTo}> 
             <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' 
             />
-            </Link>  
-        </div>
+         </Link> */}
+
+          <div className='tile-tags'></div>
+            <div className='tile-inner'></div>
+              <div className='tile-icon'>
+                <Link className='tile-link' to={linkTo}>  
+                  <img class="tile-logo" src={outputUrl}/>
+                </Link>
+                  
+                    <div className='tile-group'>
+                    <div className='tile-title'>
+                      {place.title}
+                    </div>
+                      <div className='tile-subtitle'>
+                        {place.summary}
+                      </div>
+                      </div>
+                </div>  
+            </div>
+          </div>
         
-      <h3 className="f5 f4-ns mb0 black-90">{place.title}</h3>
-      <h3 className="f6 f5 fw4 mt2 black-60">{place.summary}</h3>
+   {/* <h3 className="f5 f5-ns mb0 black-90">{place.title}</h3> */}
+  {/* <h3 className="f6 f5 fw4 mt2 black-60">{place.summary}</h3> */} 
     
         {/*<span onClick={this.handleDelete}>Delete</span>*/}
-      </article>
+      </div>
+      
     )
   }
 

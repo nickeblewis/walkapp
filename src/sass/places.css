@@ -1,26 +1,59 @@
-.outer-photo-box {
-  width: 300px;
-  height: 194px;
+.tile-link {
+  height: 100%;
+  width: 100%;
   display: block;
-  position: relative; }
-  .outer-photo-box img {
-    width: 300px;
-    height: auto; }
-  .outer-photo-box .inner-photo-box {
-    background: #c8c8c8;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    position: absolute;
-    padding: 0;
-    transition: opacity .5s; }
-    .outer-photo-box .inner-photo-box p {
-      color: #fff;
-      line-height: 150px;
-      font-family: 'arial';
-      text-align: center; }
-  .outer-photo-box:hover .inner-photo-box {
-    opacity: .9;
-    transition: opacity .5s; }
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  border: 1px solid #E4EDF5;
+  background: white;
+  border-radius: 4px;
+  font-family: 'Segment Circular Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  transform: translateZ(0); }
+
+.tile-logo {
+  width: 100%;
+  max-width: 120px;
+  max-height: 50px; }
+
+.tile-icon {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 95px;
+  margin-bottom: 10px;
+  transition: all .2s ease-in-out; }
+
+.tile-title {
+  font-size: 16px;
+  color: white;
+  height: 24px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.tile-subtitle {
+  font-size: 14px;
+  line-height: 16px;
+  color: white; }
+
+.tile-group {
+  transition: all .2s ease-in-out; }
+
+.blocks {
+  height: 300px;
+  width: 100%; }
+
+/* important */
+/* important(so we can absolutely position the description div */
+/* absolute position (so we can position it where we want)*/
+/* position will be on bottom */
+/* styling bellow */
+/* transparency */
+/* IE transparency */
