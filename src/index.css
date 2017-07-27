@@ -6930,7 +6930,6 @@ code, .code {
   overflow: hidden;
   text-overflow: ellipsis; }
 
-<<<<<<< HEAD
 .tile-subtitle {
   font-size: 14px;
   line-height: 16px;
@@ -6950,13 +6949,11 @@ code, .code {
 /* styling bellow */
 /* transparency */
 /* IE transparency */
-=======
 .leaflet-container {
   height: 400px;
   width: 100%;
   margin: 30px 0px 0px 0px; }
 
->>>>>>> 7844ac8bea3f78822fdc46ff9d9ded61ebdda053
 /* Nav */
 /* Home page classes */
 .ferns {

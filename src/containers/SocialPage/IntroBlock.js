@@ -1,0 +1,69 @@
+import React from 'react'
+import { Link } from 'react-router'
+
+class IntroBlock extends React.Component {
+
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+  
+  render () {
+
+    return (
+      <div className="db dt-ns mw9 center">
+        <div className="fl-m fl-l w-50-m w-50-l">
+          <div className="pa4 pa4-m">
+          <h3 className="f3">Facebook</h3>
+            <p className="mid-gray f4 lh-copy">            
+               
+            </p> 
+          </div>
+        </div>
+        <div className="fl-m fl-l w-50-m w-50-l">
+          <div className="pa4 pa4-m">
+            <h3 className="f3">Instagram</h3>
+            <p className="mid-gray f4 lh-copy measure-narrow">
+              Over the years Farnborough has played a major role in the British aviation industry and is linked with three particular milestones in the history of the industry that has ultimately led to faster travel across the globe.  
+            </p>
+          </div>
+        </div>
+        <div className="fl-m fl-l w-50-m w-50-l">
+          <div className="pa4 pa4-m">
+            <h3 className="f3">Snapchat</h3>
+            <p className="mid-gray f4 lh-copy measure-narrow">
+              Over the years Farnborough has played a major role in the British aviation industry and is linked with three particular milestones in the history of the industry that has ultimately led to faster travel across the globe.  
+            </p>
+          </div>
+        </div>
+        <div className="fl-m fl-l w-50-m w-50-l br b--light-gray">
+          <div className="pa4 pa4-m">
+            <h3 className="f3">Twitter</h3>
+            <p className="mid-gray f4 lh-copy measure-narrow">
+              Farnborough is a town that has always been in a state of transition mainly due to the aviation and related industry here, so it is no surprise that it continues to be attractive to investors in business and property.  
+            </p>
+          </div>
+        </div> 
+      </div>
+      
+    )    
+  }
+
+  // Dan, If not logged in show the Register button, otherwise show the view all photos button
+  _renderButton() {
+    if ( !this.props.data.user ) {
+      return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/signup" >Register Now!</Link>
+    } else {
+      return <Link className="f3 fw4 hover-red no-underline black-70 dib pv2 ph3 ba" to="/Photo" >View all photos</Link> 
+    }
+  }
+
+  _showText() {
+    if ( !this.props.data.user ) {
+      return <h3 className="f3">1. Sign-up</h3>
+    } else {
+      return <h3 className="f3">2. Add photos</h3>
+    }
+  }
+}
+
+export default IntroBlock

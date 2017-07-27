@@ -8,6 +8,7 @@ import MainLayout from './layouts/MainLayout'
 import LoginUser from './containers/LoginUser'
 import CreateUser from './containers/CreateUser'
 import HomePage from './containers/HomePage'
+import SocialPage from './containers/SocialPage'
 // import WalkPage from './containers/WalkPage'
 // import BusinessPage from './containers/BusinessPage'
 import ListPage from './containers/ListPage'
@@ -47,6 +48,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
+        <Route path='/social' component={SocialPage} />
         <Route path='/photos' component={ListPage} />
         <Route path='/places' component={PlaceListPage} />
         <Route path='/places/:id' component={PlacePage} />
