@@ -26,7 +26,7 @@ class Photo extends React.Component {
     }
 
     var photo = this.props.photo.id;
-    const linkTo = '/photo/view/' + photo;
+    const linkTo = '/photos/view/' + photo;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
