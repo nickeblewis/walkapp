@@ -23,8 +23,8 @@ class IntroBlock extends React.Component {
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
             <h3 className="f3">Instagram</h3>
-            <div clasaName="">
-              <img src={instagram_logo}/>
+            <div>
+              <img clasaName="positon" src={instagram_logo}/>
             </div>
             <p className="mid-gray f4 lh-copy measure-narrow">
 
