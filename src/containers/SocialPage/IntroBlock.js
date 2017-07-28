@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import instagram_logo from '../../assets/instagram_logo.png'
 
 class IntroBlock extends React.Component {
 
@@ -22,8 +23,11 @@ class IntroBlock extends React.Component {
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
             <h3 className="f3">Instagram</h3>
+            <div clasaName="">
+              <img src={instagram_logo}/>
+            </div>
             <p className="mid-gray f4 lh-copy measure-narrow">
-              Over the years Farnborough has played a major role in the British aviation industry and is linked with three particular milestones in the history of the industry that has ultimately led to faster travel across the globe.  
+
             </p>
           </div>
         </div>
@@ -31,7 +35,7 @@ class IntroBlock extends React.Component {
           <div className="pa4 pa4-m">
             <h3 className="f3">Snapchat</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
-              Over the years Farnborough has played a major role in the British aviation industry and is linked with three particular milestones in the history of the industry that has ultimately led to faster travel across the globe.  
+
             </p>
           </div>
         </div>
@@ -39,7 +43,7 @@ class IntroBlock extends React.Component {
           <div className="pa4 pa4-m">
             <h3 className="f3">Twitter</h3>
             <p className="mid-gray f4 lh-copy measure-narrow">
-              Farnborough is a town that has always been in a state of transition mainly due to the aviation and related industry here, so it is no surprise that it continues to be attractive to investors in business and property.  
+
             </p>
           </div>
         </div> 
