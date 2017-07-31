@@ -17,39 +17,39 @@ class IntroBlock extends React.Component {
       <div className="db dt-ns mw9 center">
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
-          <h3 className="f3">Facebook</h3>
+          <h2 className="f2">Facebook</h2>
             <img src={facebook_logo}/>
             <p className="mid-gray f4 lh-copy">            
-               
+              Follow us to get the latest news @farnboroughguide
             </p> 
           </div>
         </div>
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
-            <h3 className="f3">Instagram</h3>
+            <h2 className="f2">Instagram</h2>
             <div clasaName="size">
               <img src={instagram_logo}/>
             </div>
             <p className="mid-gray f4 lh-copy measure-narrow">
-
+              See some pictures of farnborough @farnboroughguide
             </p>
           </div>
         </div>
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
-            <h3 className="f3">Snapchat</h3>
+            <h2 className="f2">Snapchat</h2>
               <img src={snapchat_logo}/>
             <p className="mid-gray f4 lh-copy measure-narrow">
-
+              Keep up-to-date with the latest news @fguide
             </p>
           </div>
         </div>
         <div className="fl-m fl-l w-50-m w-50-l br b--light-gray">
           <div className="pa4 pa4-m">
-            <h3 className="f3">Twitter</h3>
+            <h2 className="f2">Twitter</h2>
               <img src={twitter_logo}/>
             <p className="mid-gray f4 lh-copy measure-narrow">
-
+              Give us a follow! @fboroguide
             </p>
           </div>
         </div> 
