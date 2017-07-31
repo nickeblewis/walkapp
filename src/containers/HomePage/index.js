@@ -1,6 +1,7 @@
 import React from 'react'
 import PhotoSection from './PhotoSection'
 import PlaceSection from './PlaceSection'
+import MapSection from './MapSection'
 import EventSection from './EventSection'
 import IntroBlock from './IntroBlock'
 import { withRouter } from 'react-router'
@@ -33,17 +34,7 @@ class HomePage extends React.Component {
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
         <IntroBlock data={this.props.data}/>
-                <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
-          <TileLayer
-            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          />
-          <Marker position={position}>
-            <Popup>
-              <span>A pretty CSS3 popup.<br/>Easily customizable.</span>
-            </Popup>
-          </Marker>
-        </Map>
+        <MapSection />
 
         {/* <BusinessSection title="Featured Businesses" /> */}
         

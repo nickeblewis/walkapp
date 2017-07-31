@@ -33,7 +33,7 @@ class PlaceSection extends React.Component {
 
     // Now for the JSX template that defines how our component actually looks!
     return (
-      <div className="tl bt b--black-10 pa3 pa5-ns bg-lightest-blue navy">
+      <div className="tl bt b--black-10 pa3 pa5-ns bg-lightest-blue navy">       
         <div className="mw9 center">
           <h1 className="f5 ttu tracked fw6 pa3">{this.props.title}</h1>
           <section className="lh-copy">
@@ -50,7 +50,7 @@ class PlaceSection extends React.Component {
   }
 }
 
-const FeedQuery = gql`query allPhotos {
+const FeedQuery = gql`query allPlaces {
   allPlaces(filter: {published:true}, orderBy: createdAt_DESC, first: 5) {
     id
     banner
