@@ -1,3 +1,9 @@
 .size {
   height: 225px;
   width: 225px; }
+
+.logo {
+  width: 300px;
+  max-width: 100%;
+  max-height:100%;
+}

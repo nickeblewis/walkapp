@@ -6958,6 +6958,11 @@ code, .code {
   height: 225px;
   width: 225px; }
 
+.logo {
+  height: 300px;
+  width: 300px;
+  max-width: 100%; }
+
 /* Nav */
 /* Home page classes */
 .ferns {
