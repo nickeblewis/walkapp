@@ -13,15 +13,6 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 class HomePage extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {      
-      lat: 51.27985,
-      lng: -0.75159,
-      zoom: 15,
-    };
-  }
-
   static propTypes = {
     router: React.PropTypes.object,    
     data: React.PropTypes.object,
@@ -36,7 +27,7 @@ class HomePage extends React.Component {
         <IntroBlock data={this.props.data}/>
         <MapSection />
 
-        {/* <BusinessSection title="Featured Businesses" /> */}
+        { /* TODO: <BusinessSection title="Featured Businesses" /> */ }
         
         { /* TODO: Would be great to pass through a value for number of photos to show here */ }
         <PlaceSection title="Latest Places" />
