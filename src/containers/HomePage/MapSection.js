@@ -14,7 +14,7 @@ class MapSection extends React.Component {
     this.state = {      
       lat: 51.27985,
       lng: -0.75159,
-      zoom: 15,
+      zoom: 10,
     };
   }
 
@@ -47,7 +47,7 @@ class MapSection extends React.Component {
 }
 
 const FeedQuery = gql`query allPlaces {
-  allPlaces(filter: {published:true, latitude_not:0, longitude_not:0}, orderBy: createdAt_DESC, last: 5) {
+  allPlaces(filter: {published:true, latitude_not:0, longitude_not:0}, orderBy: createdAt_DESC, first: 5) {
     title
     latitude
     longitude
