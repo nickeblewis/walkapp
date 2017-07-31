@@ -34,11 +34,13 @@ class MapSection extends React.Component {
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker position={position}>
+        {this.props.data.allPlaces.map((marker) =>
+          <Marker position={[marker.longitude, marker.latitude]}>
           <Popup>
-            <span>A pretty CSS3 popup.<br/>Easily customizable.</span>
+            <span>{marker.title}</span>
           </Popup>
-        </Marker>
+        </Marker>        
+        )}        
       </Map>
     )
   }
@@ -46,11 +48,9 @@ class MapSection extends React.Component {
 
 const FeedQuery = gql`query allPlaces {
   allPlaces(filter: {published:true}, orderBy: createdAt_DESC, first: 5) {
-    id
-    banner
     title
-    slug
-    summary
+    latitude
+    longitude
   }
 }`
 
