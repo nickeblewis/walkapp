@@ -29,13 +29,16 @@ class MapSection extends React.Component {
     }
 
     return (
-      <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
+      <Map 
+        center={position} 
+        zoom={this.state.zoom} 
+        scrollWheelZoom={false}>
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {this.props.data.allPlaces.map((marker) =>
-          <Marker position={[marker.latitude, marker.longitude]}>
+        {this.props.data.allPlaces.map((marker, idx) =>
+          <Marker key={`marker-${idx}`} position={[marker.latitude, marker.longitude]}>
           <Popup>
             <span>{marker.title}</span>
           </Popup>
