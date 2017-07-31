@@ -35,7 +35,7 @@ class MapSection extends React.Component {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {this.props.data.allPlaces.map((marker) =>
-          <Marker position={[marker.longitude, marker.latitude]}>
+          <Marker position={[marker.latitude, marker.longitude]}>
           <Popup>
             <span>{marker.title}</span>
           </Popup>
@@ -47,7 +47,7 @@ class MapSection extends React.Component {
 }
 
 const FeedQuery = gql`query allPlaces {
-  allPlaces(filter: {published:true}, orderBy: createdAt_DESC, first: 5) {
+  allPlaces(filter: {published:true, latitude_not:0, longitude_not:0}, orderBy: createdAt_DESC, last: 5) {
     title
     latitude
     longitude
