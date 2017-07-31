@@ -9,7 +9,8 @@ import Place from '../../components/Place'
 
 class MapSection extends React.Component {
 
-   constructor() {
+  // We set the GPS data in our costructor which is used to center the map on the middle of Farnborough
+  constructor() {
     super();
     this.state = {      
       lat: 51.27985,
@@ -38,6 +39,7 @@ class MapSection extends React.Component {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {this.props.data.allPlaces.map((marker, idx) =>
+          { /* TODO - would be nice to click on a marker and see the details for the place slide in to view */ }
           <Marker key={`marker-${idx}`} position={[marker.latitude, marker.longitude]}>
           <Popup>
             <span>{marker.title}</span>
@@ -49,6 +51,9 @@ class MapSection extends React.Component {
   }
 }
 
+// All we need are a title and GPS co-ordinates for our map markers
+// We only select items that have been approved and published and that have a valid lonlat
+// We only show the latest five places - so that the map isn't cluttered at any point in time
 const FeedQuery = gql`query allPlaces {
   allPlaces(filter: {published:true, latitude_not:0, longitude_not:0}, orderBy: createdAt_DESC, first: 5) {
     title
