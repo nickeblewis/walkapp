@@ -6954,8 +6954,9 @@ code, .code {
   width: 100%;
   margin: 30px 0px 0px 0px; }
 
-.position {
-  float: left; }
+.size {
+  height: 225px;
+  width: 225px; }
 
 /* Nav */
 /* Home page classes */
