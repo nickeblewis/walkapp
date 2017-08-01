@@ -35,21 +35,25 @@ class IntroBlock extends React.Component {
             </p>
           </div>
         </div>
-        <div className="fl-m fl-l w-50-m w-50-l">
-          <div className="pa4 pa4-m">
-            <h2 className="f2">Snapchat</h2>
-              <img className="logo" src={snapchat_logo}/>
-            <p className="mid-gray f4 lh-copy measure-narrow">
-              Keep up-to-date with the latest news @fguide
-            </p>
-          </div>
-        </div>
         <div className="fl-m fl-l w-50-m w-50-l br b--light-gray">
           <div className="pa4 pa4-m">
             <h2 className="f2">Twitter</h2>
+             <div className="pa4 pa4-m"> 
               <img className="logo" src={twitter_logo}/>
+             </div> 
             <p className="mid-gray f4 lh-copy measure-narrow">
               Give us a follow! @fboroguide
+            </p>
+          </div>
+        </div>
+        <div className="fl-m fl-l w-50-m w-50-l">
+          <div className="pa4 pa4-m">
+            <h2 className="f2">Snapchat</h2>
+            <div className="pa4 pa4-m">
+              <img className="logo" src={snapchat_logo}/>
+            </div>  
+            <p className="mid-gray f4 lh-copy measure-narrow">
+              Keep up-to-date with the latest news @fguide
             </p>
           </div>
         </div> 

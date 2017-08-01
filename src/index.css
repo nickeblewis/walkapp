@@ -6958,7 +6958,8 @@ code, .code {
   max-width: 250px;
   max-height: 250px;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  margin: auto; }
 
 /* Nav */
 /* Home page classes */
