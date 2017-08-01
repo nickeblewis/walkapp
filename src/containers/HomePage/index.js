@@ -7,7 +7,6 @@ import IntroBlock from './IntroBlock'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 // import BusinessSection from './BusinessSection'
 
@@ -19,7 +18,6 @@ class HomePage extends React.Component {
   }
 
   render () {
-    const position = [this.state.lat, this.state.lng];
     return (
       <article>
         

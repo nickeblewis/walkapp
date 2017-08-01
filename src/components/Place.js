@@ -41,7 +41,7 @@ class Place extends React.Component {
             <div className='tile-inner'></div>
               <div className='tile-icon'>
                 <Link className='tile-link' to={linkTo}>  
-                  <img class="tile-logo" src={outputUrl}/>
+                  <img class="tile-logo" role="presentation" src={outputUrl}/>
                 </Link>
                   
                     <div className='tile-group'>

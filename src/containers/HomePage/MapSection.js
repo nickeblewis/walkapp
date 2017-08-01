@@ -5,7 +5,6 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Place from '../../components/Place'
 
 class MapSection extends React.Component {
 
@@ -38,13 +37,12 @@ class MapSection extends React.Component {
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {this.props.data.allPlaces.map((marker, idx) =>
-          { /* TODO - would be nice to click on a marker and see the details for the place slide in to view */ }
+        {this.props.data.allPlaces.map((marker, idx) => 
           <Marker key={`marker-${idx}`} position={[marker.latitude, marker.longitude]}>
-          <Popup>
-            <span>{marker.title}</span>
-          </Popup>
-        </Marker>        
+            <Popup>
+              <span>{marker.title}</span>
+            </Popup>
+          </Marker>        
         )}        
       </Map>
     )
