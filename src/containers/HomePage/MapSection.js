@@ -14,7 +14,7 @@ class MapSection extends React.Component {
     this.state = {      
       lat: 51.27985,
       lng: -0.75159,
-      zoom: 10,
+      zoom: 15,
     };
   }
 
