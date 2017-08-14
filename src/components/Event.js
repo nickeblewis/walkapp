@@ -6,10 +6,10 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link } from 'react-router'
 
-class Photo extends React.Component {
+class Event extends React.Component {
 
   static propTypes = {
-    photo: React.PropTypes.object,
+    event: React.PropTypes.object,
     mutate: React.PropTypes.func,
     refresh: React.PropTypes.func,
   }
@@ -19,14 +19,14 @@ class Photo extends React.Component {
   render () {
     let outputUrl = '';
     
-    if(this.props.photo.publicId === null) {
-      outputUrl = this.props.photo.imageUrl;
+    if(this.props.event.publicId === null) {
+      outputUrl = this.props.event.imageUrl;
     } else {
-      outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.photo.publicId;
+      outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.event.publicId;
     }
 
-    var photo = this.props.photo.id;
-    const linkTo = '/photos/view/' + photo;
+    var event = this.props.event.id;
+    const linkTo = '/events/view/' + event;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
@@ -41,19 +41,19 @@ class Photo extends React.Component {
   }
 
   handleDelete = () => {
-    this.props.mutate({variables: {id: this.props.photo.id}})
+    this.props.mutate({variables: {id: this.props.event.id}})
       .then(this.props.refresh)
   }
 }
 
 const deleteMutation = gql`
-  mutation deletePhoto($id: ID!) {
-    deletePhoto(id: $id) {
+  mutation deleteEvent($id: ID!) {
+    deleteEvent(id: $id) {
       id
     }
   }
 `
 
-const PhotoWithMutation = graphql(deleteMutation)(Photo)
+const EventWithMutation = graphql(deleteMutation)(Event)
 
-export default PhotoWithMutation
+export default EventWithMutation

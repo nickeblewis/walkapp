@@ -14,8 +14,11 @@ import ListPage from './containers/ListPage'
 import PlaceListPage from './containers/PlaceListPage'
 import ListCategory from './containers/ListCategory'
 import CreatePage from './containers/CreatePage'
+import CreateEvent from './containers/CreateEvent'
 import PhotoPage from './containers/PhotoPage'
+import EventPage from './containers/EventPage'
 import PlacePage from './containers/PlacePage'
+import EventListPage from './containers/EventListPage'
 // import CreateCategory from './containers/CreateCategory'
 
 import { Router, Route, browserHistory } from 'react-router'
@@ -49,11 +52,14 @@ ReactDOM.render((
         <Route path='/' component={HomePage} />
         <Route path='/photos' component={ListPage} />
         <Route path='/places' component={PlaceListPage} />
+        <Route path='/events' component={EventListPage} />
         <Route path='/places/:id' component={PlacePage} />
         {/*<Route path='/walks' component={WalkPage} />*/}
         {/*<Route path='/contacts' component={BusinessPage} />*/}
         <Route path='/photos/create' component={CreatePage} />
+        <Route path='/events/create' component={CreateEvent} />
         <Route path='/photos/view/:id' component={PhotoPage} />
+        <Route path='/events/view/:id' component={EventPage} />
         {/*<Route path='/categories/create' component={CreateCategory} />*/}
         <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />
