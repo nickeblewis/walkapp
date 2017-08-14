@@ -19,6 +19,8 @@ import PhotoPage from './containers/PhotoPage'
 import EventPage from './containers/EventPage'
 import PlacePage from './containers/PlacePage'
 import EventListPage from './containers/EventListPage'
+import MessagePage from './containers/MessagePage'
+import ThankyouPage from './containers/ThankyouPage'
 // import CreateCategory from './containers/CreateCategory'
 
 import { Router, Route, browserHistory } from 'react-router'
@@ -64,6 +66,8 @@ ReactDOM.render((
         <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />
         <Route path='signup' component={CreateUser}/>
+        <Route path='message' component={MessagePage}/>
+        <Route path='thankyou' component={ThankyouPage}/>
       </Route>
     </Router>
   </ApolloProvider>
