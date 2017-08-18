@@ -66,7 +66,7 @@ ReactDOM.render((
         <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />
         <Route path='signup' component={CreateUser}/>
-        <Route path='message' component={MessagePage}/>
+        <Route path='registeryourinterest' component={MessagePage}/>
         <Route path='thankyou' component={ThankyouPage}/>
       </Route>
     </Router>
