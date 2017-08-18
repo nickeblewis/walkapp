@@ -62,13 +62,14 @@ class EventPage extends React.Component {
 
 
 const EventQuery = gql`
-query EventQuery($id: ID!) {
-    Event(id: $id) {
+query EventQuery($id: String!) {
+    Event(slug: $id) {
       id
       imageUrl
       publicId
       name
       description
+      slug
     }
   }
 `

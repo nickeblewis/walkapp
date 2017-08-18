@@ -43,6 +43,7 @@ const FeedQuery = gql`query allEvents {
     publicId
     name
     description
+    slug
   }
 }`
 

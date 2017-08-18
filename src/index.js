@@ -63,7 +63,7 @@ ReactDOM.render((
         <Route path='/photos/create' component={CreatePage} />
         <Route path='/events/create' component={CreateEvent} />
         <Route path='/photos/view/:id' component={PhotoPage} />
-        <Route path='/events/view/:id' component={EventPage} />
+        <Route path='/events/:id' component={EventPage} />
         {/*<Route path='/categories/create' component={CreateCategory} />*/}
         <Route path='/categories' component={ListCategory} />
         <Route path='login' component={LoginUser} />

@@ -25,8 +25,8 @@ class Event extends React.Component {
       outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.event.publicId;
     }
 
-    var event = this.props.event.id;
-    const linkTo = '/events/view/' + event;
+    var event = this.props.event.slug;
+    const linkTo = '/events/' + event;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>

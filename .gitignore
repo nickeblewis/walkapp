@@ -16,4 +16,4 @@ npm-debug.log
 .idea/*
 *.swp
 
-src/*.css
+**s/*.css
