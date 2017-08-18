@@ -53,7 +53,6 @@ class EventPage extends React.Component {
                 <h3 className="f3">{this.props.data.Event.name} </h3>
                 <p className="mid-gray f3 lh-copy">
                     {this.props.data.Event.description}
-                    {this.props.data.Event.publicId}
                 </p>
             </div>
         </article>
