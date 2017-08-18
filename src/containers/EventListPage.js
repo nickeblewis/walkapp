@@ -44,6 +44,7 @@ const FeedQuery = gql`query allEvents {
     name
     description
     slug
+    eventDate
   }
 }`
 

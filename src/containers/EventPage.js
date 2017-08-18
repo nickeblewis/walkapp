@@ -41,25 +41,38 @@ class EventPage extends React.Component {
       return (<div>An unexpected error occurred</div>)
     }
 
+      console.log(this.props.data.Event)
     // const Event = this.props.data.Event
 
     return (
-        <article>
-            <div className="pa4 ph7-l georgia mw9-l center">
-                { this.props.data.Event.publicId ? 
-                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/${this.props.data.Event.publicId}`} alt={this.props.data.Event.name} />  :
+      <main>
+        <div className="db dt-ns mw9 center">
+          <div className="fl-m fl-l w-50-m w-50-l">
+            <div className="pa4 pa4-m">
+              { this.props.data.Event.publicId ? 
+                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_800/v1489441520/${this.props.data.Event.publicId}`} alt={this.props.data.Event.name} />  :
                   <img src={this.props.data.Event.imageUrl} alt={this.props.data.Event.name} /> 
                 }
-                <h3 className="f3">{this.props.data.Event.name} </h3>
-                <p className="mid-gray f3 lh-copy">
-                    {this.props.data.Event.description}
-                </p>
-            </div>
-        </article>
+          </div>
+        </div>
+        <div className="fl-m fl-l w-50-m w-50-l">
+          <div className="pa4 pa4-m">
+            <h3 className="f4">{this.props.data.Event.name}</h3>
+            <p className="mid-gray f5 lh-copy">
+              {this.props.data.Event.description}
+            </p>
+            <h3 className="f4">Date & Time</h3>
+            <p className="mid-gray f5 lh-copy">
+              {this.props.data.Event.eventDate}
+            </p>
+          </div>
+        </div>
+      </div>
+            <div className="pa4 ph7-l georgia mw9-l center"></div>
+        </main>
     )
   }
 }
-
 
 const EventQuery = gql`
 query EventQuery($id: String!) {
