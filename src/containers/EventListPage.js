@@ -20,17 +20,16 @@ class EventListPage extends React.Component {
 
     return (
       <main>
-      
-      <section className='cf w-100 pa2-ns'>
-        <Link to='/events/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
-          + New Event
-        </Link>
-        
-          {this.props.data.allEvents.map((event) =>
-            <Event key={event.id} event={event} refresh={() => this.props.data.refetch()} />
-          )}
-        
-      </section>
+        <section className='cf w-100 pa2-ns'>
+          <Link to='/events/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
+            + New Event
+          </Link>
+          
+            {this.props.data.allEvents.map((event) =>
+              <Event key={event.id} event={event} refresh={() => this.props.data.refetch()} />
+            )}
+          
+        </section>
       </main>
     )
   }

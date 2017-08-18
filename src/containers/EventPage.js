@@ -50,7 +50,7 @@ class EventPage extends React.Component {
           <div className="fl-m fl-l w-50-m w-50-l">
             <div className="pa4 pa4-m">
               { this.props.data.Event.publicId ? 
-                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_800/v1489441520/${this.props.data.Event.publicId}`} alt={this.props.data.Event.name} />  :
+                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_500/v1489441520/${this.props.data.Event.publicId}`} alt={this.props.data.Event.name} />  :
                   <img src={this.props.data.Event.imageUrl} alt={this.props.data.Event.name} /> 
                 }
           </div>
