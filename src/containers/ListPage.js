@@ -19,18 +19,15 @@ class ListPage extends React.Component {
     }
 
     return (
-      <main>
-      
-      <section className='cf w-100 pa2-ns'>
-        <Link to='/photo/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
-          + New Photo
-        </Link>
-        
-          {this.props.data.allPhotos.map((photo) =>
-            <Photo key={photo.id} photo={photo} refresh={() => this.props.data.refetch()} />
-          )}
-        
-      </section>
+      <main>        
+        <section className='cf w-100 pa2-ns'>
+          <Link to='/photo/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
+            + New Photo
+          </Link>          
+            {this.props.data.allPhotos.map((photo) =>
+              <Photo key={photo.id} photo={photo} refresh={() => this.props.data.refetch()} />
+            )}          
+        </section>
       </main>
     )
   }

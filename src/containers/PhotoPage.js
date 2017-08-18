@@ -44,16 +44,17 @@ class PhotoPage extends React.Component {
     // const Photo = this.props.data.Photo
 
     return (
-        <article>
-            <div className="pa4 ph7-l georgia mw9-l center">
+        <article className="avenir">
+            <div className="pa4 ph7-l mw9-l center">
                 { this.props.data.Photo.publicId ? 
                   <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/${this.props.data.Photo.publicId}`} alt={this.props.data.Photo.name} />  :
                   <img src={this.props.data.Photo.imageUrl} alt={this.props.data.Photo.name} /> 
                 }
-                <h3 className="f3">{this.props.data.Photo.name} </h3>
-                <p className="mid-gray f3 lh-copy">
+                
+                <h1 className="f1 lh-title">{this.props.data.Photo.name} </h1>
+                <p className="f4 mid-gray lh-copy">
                     {this.props.data.Photo.description}
-                    {this.props.data.Photo.publicId}
+                    {/* {this.props.data.Photo.publicId} */}
                 </p>
             </div>
         </article>
