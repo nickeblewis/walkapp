@@ -52,6 +52,8 @@ class PhotoPage extends React.Component {
                 }
                 
                 <h1 className="f1 lh-title">{this.props.data.Photo.name} </h1>
+                <h4 className="f1 ttu tracked-tight mt0">{this.props.data.Photo.name} </h4>
+                <h4 className="f1 ttu tracked-mega mt0">{this.props.data.Photo.name} </h4>
                 <p className="f4 mid-gray lh-copy">
                     {this.props.data.Photo.description}
                     {/* {this.props.data.Photo.publicId} */}
