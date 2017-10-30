@@ -69,6 +69,14 @@ class EventPage extends React.Component {
             <p className="mid-gray f5 lh-copy">
               {this.props.data.Event.eventDate}
             </p>
+            <h3 className="f4">Who to Contact?</h3>
+            <p className="mid-gray f5 lh-copy">
+              {this.props.data.Event.contactName}
+            </p>
+            <h3 className="f4">Cost</h3>
+            <p className="mid-gray f5 lh-copy">
+              {this.props.data.Event.cost}
+            </p>
           </div>
         </div>
       </div>
@@ -86,6 +94,8 @@ query EventQuery($id: String!) {
       publicId
       name
       description
+      contactName
+      cost
       slug
       eventVenue {
         title
