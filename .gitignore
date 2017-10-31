@@ -17,3 +17,7 @@ npm-debug.log
 *.swp
 
 **s/*.css
+
+src/index.css
+yarn.lock
+package-lock.json
