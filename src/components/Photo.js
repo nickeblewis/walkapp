@@ -18,13 +18,6 @@ class Photo extends React.Component {
   // http://res.cloudinary.com/dqpknoetx/image/upload/v1489441520/odtitxnfqdjzfygvuvls.jpg
 
   render () {
-    let outputUrl = '';
-    
-    if(this.props.photo.publicId === null) {
-      outputUrl = this.props.photo.imageUrl;
-    } else {
-      outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_640/v1489441520/' + this.props.photo.publicId;
-    }
 
     var photo = this.props.photo.id;
     var publicId = this.props.photo.publicId;

@@ -53,7 +53,6 @@ class PhotoSection extends React.Component {
 const FeedQuery = gql`query allPhotos {
   allPhotos(orderBy: createdAt_DESC, first: 5) {
     id
-    imageUrl
     publicId
     name
     description

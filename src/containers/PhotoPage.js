@@ -68,7 +68,6 @@ const PhotoQuery = gql`
 query PhotoQuery($id: ID!) {
     Photo(id: $id) {
       id
-      imageUrl
       publicId
       name
       description

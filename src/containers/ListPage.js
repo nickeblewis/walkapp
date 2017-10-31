@@ -36,7 +36,6 @@ class ListPage extends React.Component {
 const FeedQuery = gql`query allPhotos {
   allPhotos(orderBy: createdAt_DESC) {
     id
-    imageUrl
     publicId
     name
     description

@@ -38,7 +38,6 @@ class EventListPage extends React.Component {
 const FeedQuery = gql`query allEvents {
   allEvents(orderBy: createdAt_DESC) {
     id
-    imageUrl
     publicId
     name
     description
