@@ -6,6 +6,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 // import { Link } from 'react-router'
 import { withRouter } from 'react-router'
+import { CloudinaryContext, Transformation, Image } from'cloudinary-react'
 
 class PhotoPage extends React.Component {
 
@@ -46,11 +47,11 @@ class PhotoPage extends React.Component {
     return (
         <article className="avenir">
             <div className="pa4 ph7-l mw9-l center">
-                { this.props.data.Photo.publicId ? 
-                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/${this.props.data.Photo.publicId}`} alt={this.props.data.Photo.name} />  :
-                  <img src={this.props.data.Photo.imageUrl} alt={this.props.data.Photo.name} /> 
-                }
-                
+                <CloudinaryContext cloudName="dqpknoetx">
+            <Image publicId={this.props.data.Photo.publicId}>
+              <Transformation width="800" crop="scale" />
+            </Image>
+            </CloudinaryContext>
                 <h1 className="f1 lh-title">{this.props.data.Photo.name} </h1>
                 <h4 className="f1 ttu tracked-tight mt0">{this.props.data.Photo.name} </h4>
                 <h4 className="f1 ttu tracked-mega mt0">{this.props.data.Photo.name} </h4>

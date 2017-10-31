@@ -5,6 +5,7 @@ import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link } from 'react-router'
+import { CloudinaryContext, Transformation, Image } from'cloudinary-react'
 
 class Photo extends React.Component {
 
@@ -26,13 +27,20 @@ class Photo extends React.Component {
     }
 
     var photo = this.props.photo.id;
+    var publicId = this.props.photo.publicId;
+
     const linkTo = '/photos/view/' + photo;
     return (
       <article className='fl w-50 w-25-m w-20-l pa2'>
         <div className='aspect-ratio aspect-ratio--1x1'>
           <Link className='ph2 ph0-ns pb3 link db' to={linkTo}>
-            <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' 
-            />
+            {/* <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation' 
+            /> */}
+            <CloudinaryContext cloudName="dqpknoetx">
+            <Image publicId={publicId}>
+              <Transformation height="400" width="400" crop="thumb" />
+            </Image>
+            </CloudinaryContext>
             </Link>  
         </div>
         {/*<span onClick={this.handleDelete}>Delete</span>*/}
