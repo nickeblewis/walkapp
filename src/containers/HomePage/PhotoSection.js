@@ -33,7 +33,7 @@ class PhotoSection extends React.Component {
 
     // Now for the JSX template that defines how our component actually looks!
     return (
-      <div className="tl bt b--black-10 pa3 pa5-ns bg-lightest-blue navy">
+      <div className="tl bt b--black-10 pa3 pa5-ns bg-black white">
         <div className="mw9 center">
           <h1 className="f5 ttu tracked fw6 pa3">{this.props.title}</h1>
           <section className="lh-copy">
