@@ -41,13 +41,13 @@ class Nav extends React.Component {
           <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link> */}
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> */}
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link> 
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link> 
+          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link>  */}
+          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link>  */}
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/contacts" >Search</Link> */}
-          <span className="f6 fw4 hover-white no-underline white-50 dn dib-l pv2 ph3">
+          {/* <span className="f6 fw4 hover-white no-underline white-50 dn dib-l pv2 ph3">
           Logged in as {this.props.data.user.name}
         </span>
-          <span onClick={this._logout} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Logout</span> 
+          <span onClick={this._logout} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Logout</span>  */}
                     
         </nav>
       </header>
@@ -61,12 +61,12 @@ class Nav extends React.Component {
           <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link> */}
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> */}
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link> 
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link> 
+          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link>  */}
+          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link>  */}
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/contacts" >Search</Link> */}
           
-                    <span onClick={this._showLogin} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Login</span> 
-                    <span onClick={this._showSignup} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Sign Up</span> 
+              {/* <span onClick={this._showLogin} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Login</span> 
+                    <span onClick={this._showSignup} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Sign Up</span>  */}
         </nav>
       </header>
     )
