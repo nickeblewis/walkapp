@@ -4,6 +4,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
 // import { Link } from 'react-router'
 import { withRouter } from 'react-router'
 
@@ -49,10 +50,13 @@ class EventPage extends React.Component {
         <div className="db dt-ns mw9 center">
           <div className="fl-m fl-l w-50-m w-50-l">
             <div className="pa4 pa4-m">
-              { this.props.data.Event.publicId ? 
-                  <img src={`http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_500/v1489441520/${this.props.data.Event.publicId}`} alt={this.props.data.Event.name} />  :
-                  <img src={this.props.data.Event.imageUrl} alt={this.props.data.Event.name} /> 
-                }
+                  <CloudinaryContext cloudName="dqpknoetx">
+                  <Image publicId={this.props.data.Event.publicId}>
+                    <Transformation width="500" crop="scale" />
+                  </Image>
+                </CloudinaryContext>
+
+                
           </div>
         </div>
         <div className="fl-m fl-l w-50-m w-50-l">
