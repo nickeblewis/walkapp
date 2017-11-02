@@ -103,6 +103,12 @@ class EventPage extends React.Component {
             <h3 className="f4">Contact Details</h3>
             <p className="mid-gray f5 lh-copy">
               {this.props.data.Event.contactName}
+              <a href={"mailto:" + this.props.data.Event.contactEmail}>{this.props.data.Event.contactEmail}</a>
+              
+            </p>
+            <p className="mid-gray f5 lh-copy">
+
+              <a target="_blank" href={"http://" + this.props.data.Event.website}>{this.props.data.Event.website}</a>
             </p>
             {/* <h3 className="f4">Cost</h3>
             <p className="mid-gray f5 lh-copy">
@@ -121,11 +127,11 @@ const EventQuery = gql`
 query EventQuery($id: String!) {
     Event(slug: $id) {
       id
-      imageUrl
       publicId
       name
       description
       contactName
+      contactEmail
       cost
       slug
       eventVenue {
@@ -136,6 +142,7 @@ query EventQuery($id: String!) {
         longitude
       }      
       eventDate
+      website
     }
   }
 `
