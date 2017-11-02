@@ -23,12 +23,12 @@ class HomePage extends React.Component {
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
         <IntroBlock data={this.props.data}/>
-        <MapSection />
+        {/* <MapSection /> */}
 
         { /* TODO: <BusinessSection title="Featured Businesses" /> */ }
         
         { /* TODO: Would be great to pass through a value for number of photos to show here */ }
-        <PlaceSection title="Latest Places" />
+        {/* <PlaceSection title="Latest Places" /> */}
         <EventSection title="Upcoming Events" />
         <PhotoSection title="Newest Photos" />
       </article>
