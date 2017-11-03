@@ -36,7 +36,7 @@ class EventListPage extends React.Component {
 }
 
 const FeedQuery = gql`query allEvents {
-  allEvents(orderBy: createdAt_DESC) {
+  allEvents(orderBy: eventDate_ASC) {
     id
     publicId
     name

@@ -51,7 +51,7 @@ class EventSection extends React.Component {
 }
 
 const FeedQuery = gql`query allEvents {
-  allEvents(orderBy: createdAt_DESC, first: 5) {
+  allEvents(orderBy: eventDate_ASC, first: 5) {
     id
     publicId
     name
