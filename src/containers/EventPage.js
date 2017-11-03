@@ -110,6 +110,10 @@ class EventPage extends React.Component {
 
               <a target="_blank" href={"http://" + this.props.data.Event.website}>{this.props.data.Event.website}</a>
             </p>
+            <p className="mid-gray f5 lh-copy">
+
+              {this.props.data.Event.eventVenue.phone}
+            </p>
             {/* <h3 className="f4">Cost</h3>
             <p className="mid-gray f5 lh-copy">
               {this.props.data.Event.cost}
