@@ -96,8 +96,7 @@ class EventPage extends React.Component {
             </p>
 
             <p className="mid-gray f5 lh-copy">
-              {Event.contactName}
-              <a href={"mailto:" + Event.contactEmail}>{Event.contactEmail}</a>              
+              <a href={"mailto:" + Event.contactEmail}>{Event.contactEmail}</a>
             </p>
 
             <p className="mid-gray f5 lh-copy">

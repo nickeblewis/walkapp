@@ -29,20 +29,21 @@ class Event extends React.Component {
     var event = this.props.event.slug;
     const linkTo = '/events/' + event;
     return (
-      <article className='fl w-50 w-25-m w-20-l pa2'>
-        <div className='aspect-ratio aspect-ratio--1x1'>
-          <Link className='ph2 ph0-ns pb3 link db' to={linkTo}>
+      <div className='fl w-50 w-25-m w-20-l pa2'>
+        {/* <div className='aspect-ratio aspect-ratio--1x1'> */}
+          <Link className='db link dim tc' to={linkTo}>
             {/* <img style={{ backgroundImage: `url(${outputUrl})` }} className='db bg-center cover aspect-ratio--object' role='presentation'  */}
          
             <CloudinaryContext cloudName="dqpknoetx">
-                  <Image publicId={this.props.event.publicId}>
-                    <Transformation width="500" height="500" crop="thumb" />
+                  <Image publicId={this.props.event.publicId} className="w-100 db outline black-10">
+                  <Transformation height="400" width="400" crop="fit" />
                   </Image>
                 </CloudinaryContext>
             </Link>  
-        </div>
+            
+        {/* </div> */}
         {/*<span onClick={this.handleDelete}>Delete</span>*/}
-      </article>
+      </div>
     )
   }
 

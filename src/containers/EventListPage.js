@@ -19,18 +19,22 @@ class EventListPage extends React.Component {
     }
 
     return (
-      <main>
-        <section className='cf w-100 pa2-ns'>
-          {/* <Link to='/events/create' className='fixed bg-white top-0 right-0 pa4 ttu dim black no-underline'>
-            + New Event
-          </Link> */}
-          
+      <div className="tl bt b--black-10 pa3 pa5-ns bg-black white">
+        
+        <div className="mw9 center">
+        
+          {/* <section className="lh-copy"> */}
+            <div className="cf pa2">
+              
+            <h2 class="f3 fw4 pa3 mv0">What's On in your area...</h2>           
             {this.props.data.allEvents.map((event) =>
               <Event key={event.id} event={event} refresh={() => this.props.data.refetch()} />
             )}
           
-        </section>
-      </main>
+       </div>
+       {/* </section> */}
+       </div>
+       </div>
     )
   }
 }

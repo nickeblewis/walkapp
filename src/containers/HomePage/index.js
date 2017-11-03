@@ -30,7 +30,7 @@ class HomePage extends React.Component {
         { /* TODO: Would be great to pass through a value for number of photos to show here */ }
         {/* <PlaceSection title="Latest Places" /> */}
         <EventSection title="Upcoming Events" />
-        <PhotoSection title="Newest Photos" />
+        {/* <PhotoSection title="Newest Photos" /> */}
       </article>
     )
   }
