@@ -30,17 +30,6 @@ class EventPage extends React.Component {
 
   
   render () {
-    // const outputUrl = "http://placehold.it/400x400";
-    // var myText = this.props.params.id;
-    // console.log(this.props.data.Event)
-    // let outputUrl = '';
-    
-    // if(this.props.data.Event.publicId === null) {
-    //   outputUrl = this.props.data.Event.imageUrl;
-    // } else {
-    //   outputUrl = 'http://res.cloudinary.com/dqpknoetx/image/upload/c_scale,w_1200/v1489441520/' + this.props.data.Event.publicId;
-    // }
-
     if (this.props.data.loading) {
       return (<div>Loading</div>)
     }
@@ -51,16 +40,17 @@ class EventPage extends React.Component {
     }
 
       console.log(this.props.data.Event)
-    // const Event = this.props.data.Event
+      
+      const Event = this.props.data.Event
 
-    let position = [this.props.data.Event.eventVenue.longitude,this.props.data.Event.eventVenue.latitude]
+    let position = [Event.eventVenue.longitude,Event.eventVenue.latitude]
     return (
       <main>
         <div className="db dt-ns mw9 center bg-black">
           <div className="fl-m fl-l w-50-m w-50-l">
             <div className="pa4 pa4-m center">
                   <CloudinaryContext cloudName="dqpknoetx">
-                  <Image publicId={this.props.data.Event.publicId}>
+                  <Image publicId={Event.publicId}>
                     <Transformation width="500" crop="scale" />
                   </Image>
                 </CloudinaryContext>
@@ -70,9 +60,9 @@ class EventPage extends React.Component {
         </div>
         <div className="fl-m fl-l w-50-m w-50-l bg-near-white">
           <div className="pa4 pa4-m">
-            <h3 className="f2">{this.props.data.Event.name}</h3>
+            <h3 className="f2">{Event.name}</h3>
             <p className="mid-gray f4 lh-copy">
-              {this.props.data.Event.description}
+              {Event.description}
             </p>
             <h3 className="f4">Where?</h3>
             <Map 
@@ -88,36 +78,34 @@ class EventPage extends React.Component {
           </Marker>        
       </Map>
             <p className="mid-gray f4 lh-copy">
-              {this.props.data.Event.eventVenue.title}
+              {Event.eventVenue.title}
             </p>
+
             <p className="mid-gray f6 lh-copy">
-              {this.props.data.Event.eventVenue.address}
+              {Event.eventVenue.address}
             </p>
+
             <p className="mid-gray f6 lh-copy">
-              {this.props.data.Event.eventVenue.postcode}
+              {Event.eventVenue.postcode}
             </p>
-            {/* <h3 className="f4">When?</h3>
-            <p className="mid-gray f5 lh-copy">
-              {this.props.data.Event.eventDate}
-            </p> */}
+
             <h3 className="f4">Contact Details</h3>
-            <p className="mid-gray f5 lh-copy">
-              {this.props.data.Event.contactName}
-              <a href={"mailto:" + this.props.data.Event.contactEmail}>{this.props.data.Event.contactEmail}</a>
-              
-            </p>
-            <p className="mid-gray f5 lh-copy">
 
-              <a target="_blank" href={"http://" + this.props.data.Event.website}>{this.props.data.Event.website}</a>
-            </p>
             <p className="mid-gray f5 lh-copy">
+              {Event.contactName}              
+            </p>
 
-              {this.props.data.Event.eventVenue.phone}
-            </p>
-            {/* <h3 className="f4">Cost</h3>
             <p className="mid-gray f5 lh-copy">
-              {this.props.data.Event.cost}
-            </p> */}
+              {Event.contactName}
+              <a href={"mailto:" + Event.contactEmail}>{Event.contactEmail}</a>              
+            </p>
+
+            <p className="mid-gray f5 lh-copy">
+              <a target="_blank" href={"http://" + Event.website}>{Event.website}</a>
+            </p>
+            <p className="mid-gray f5 lh-copy">
+              {Event.eventVenue.phone ? Event.eventVenue.phone : "No phone number available"}
+            </p>
           </div>
         </div>
       </div>
@@ -144,6 +132,7 @@ query EventQuery($id: String!) {
         address
         latitude
         longitude
+        phone
       }      
       eventDate
       website
