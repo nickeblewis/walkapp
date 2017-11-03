@@ -149,8 +149,8 @@ class CreateEvent extends React.Component {
   handleEvent = () => {
     // this.setState({userId: this.props.data.user.id})
     this.setState({userId: 'cj1b7fnnxzllj0147oih4ai72'})
-    const {name, description, imageUrl, publicId} = this.state
-    this.props.mutate({variables: {name, description, imageUrl, publicId }})
+    const {name, description, publicId} = this.state
+    this.props.mutate({variables: {name, description, publicId }})
       .then(() => {
         this.props.router.push('/events')
       })
@@ -158,8 +158,8 @@ class CreateEvent extends React.Component {
 }
 
 const createEvent = gql`
-  mutation ($name: String!, $description: String!, $imageUrl: String!, $publicId: String) {
-    createEvent(name: $name, description: $description, imageUrl: $imageUrl, publicId: $publicId) {
+  mutation ($name: String!, $description: String!, $publicId: String) {
+    createEvent(name: $name, description: $description, publicId: $publicId) {
       id
     }
   }
