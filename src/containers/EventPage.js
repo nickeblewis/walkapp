@@ -43,7 +43,7 @@ class EventPage extends React.Component {
       
       const Event = this.props.data.Event
 
-    let position = [Event.eventVenue.longitude,Event.eventVenue.latitude]
+    let position = [Event.place.longitude,Event.place.latitude]
     return (
       <main>
         <div className="db dt-ns mw9 center bg-black">
@@ -78,15 +78,15 @@ class EventPage extends React.Component {
           </Marker>        
       </Map>
             <p className="mid-gray f4 lh-copy">
-              {Event.eventVenue.title}
+              {Event.place.title}
             </p>
 
             <p className="mid-gray f6 lh-copy">
-              {Event.eventVenue.address}
+              {Event.place.address}
             </p>
 
             <p className="mid-gray f6 lh-copy">
-              {Event.eventVenue.postcode}
+              {Event.place.postcode}
             </p>
 
             <h3 className="f4">Contact Details</h3>
@@ -103,7 +103,7 @@ class EventPage extends React.Component {
               <a target="_blank" href={"http://" + Event.website}>{Event.website}</a>
             </p>
             <p className="mid-gray f5 lh-copy">
-              {Event.eventVenue.phone ? Event.eventVenue.phone : "No phone number available"}
+              {Event.place.phone ? Event.place.phone : "No phone number available"}
             </p>
           </div>
         </div>
@@ -125,7 +125,7 @@ query EventQuery($id: String!) {
       contactEmail
       cost
       slug
-      eventVenue {
+      place {
         title
         postcode
         address
