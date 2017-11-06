@@ -40,7 +40,7 @@ class EventListPage extends React.Component {
 }
 
 const FeedQuery = gql`query allEvents {
-  allEvents(orderBy: eventDate_ASC) {
+  allEvents(filter: {archived: false}, orderBy: eventDate_ASC) {
     id
     publicId
     name
