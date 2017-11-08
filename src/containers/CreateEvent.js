@@ -1,6 +1,11 @@
 /**
  * Upload a new photo and annotate it with name and description
  * We also capture the full metadata for the image that is taken from EXIF, IPTC and other information
+ * 
+ * NOTES FOR UNIT 212
+ * 
+ * 2.1 - Refers to coding standards such as comments, naming and layout. This file also serves as a good example.
+ * 
  */
 import React from 'react'
 import { withRouter } from 'react-router'
