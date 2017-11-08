@@ -79,8 +79,6 @@ class CreateEvent extends React.Component {
                     publicId: response.body.public_id,
                     userId: 'cj1b7fnnxzllj0147oih4ai72' 
                 });
-
-                // Replace the userId line with this later on this.props.data.user.id
             }
         });
     }
@@ -108,6 +106,7 @@ class CreateEvent extends React.Component {
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
+          { /* The DropZone component handles file upload */ }
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
             multiple={false}
@@ -119,24 +118,33 @@ class CreateEvent extends React.Component {
                   </div>}
               </div>
           </Dropzone>   
+
+          { /* Event Name */ }
           <input
             className='w-100 pa3 mv2'
             value={this.state.name}
             placeholder='Name'
             onChange={(e) => this.setState({name: e.target.value})}
           />
+
+          { /* Event description */ }
           <input
             className='w-100 pa3 mv2'
             value={this.state.description}
             placeholder='Description'
             onChange={(e) => this.setState({description: e.target.value})}
           />
+
+          { /* Image URL - this is auto-populated by the action of uploading an image file */ }
           <input
             className='w-100 pa3 mv2'
             value={this.state.imageUrl}
             placeholder='Image Url'
             onChange={(e) => this.setState({imageUrl: e.target.value})}
           />
+
+          { /* Unit 212 - 2.2 */ }
+          { /* The code below validates that all fields are populated, if so, the submit button is activated */ }
           {this.state.description && this.state.imageUrl && this.state.name &&
             <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handleEvent}>Post</button>
           }

@@ -18,7 +18,7 @@ class IntroBlock extends React.Component {
         <div className="fl-m fl-l w-50-m w-50-l">
           <div className="pa4 pa4-m">
           <h2 className="f2">Facebook</h2>
-            <img className="logo" src={facebook_logo}/>
+            <img className="logo" role="presentation" src={facebook_logo}/>
             <p className="mid-gray f4 lh-copy">            
               Follow us to get the latest news @farnboroughguide
             </p> 
@@ -28,7 +28,7 @@ class IntroBlock extends React.Component {
           <div className="pa4 pa4-m">
             <h2 className="f2">Instagram</h2>
             <div clasaName="size">
-              <img className="logo" src={instagram_logo}/>
+              <img className="logo" role="presentation" src={instagram_logo}/>
             </div>
             <p className="mid-gray f4 lh-copy measure-narrow">
               See some pictures of farnborough @farnboroughguide
@@ -39,7 +39,7 @@ class IntroBlock extends React.Component {
           <div className="pa4 pa4-m">
             <h2 className="f2">Twitter</h2>
              <div className="pa4 pa4-m"> 
-              <img className="logo" src={twitter_logo}/>
+              <img className="logo" role="presentation" src={twitter_logo}/>
              </div> 
             <p className="mid-gray f4 lh-copy measure-narrow">
               Give us a follow! @fboroguide
@@ -50,7 +50,7 @@ class IntroBlock extends React.Component {
           <div className="pa4 pa4-m">
             <h2 className="f2">Snapchat</h2>
             <div className="pa4 pa4-m">
-              <img className="logo" src={snapchat_logo}/>
+              <img  role="presentation" className="logo" src={snapchat_logo}/>
             </div>  
             <p className="mid-gray f4 lh-copy measure-narrow">
               Keep up-to-date with the latest news @fguide

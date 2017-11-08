@@ -18,7 +18,7 @@ class Event extends React.Component {
   // http://res.cloudinary.com/dqpknoetx/image/upload/v1489441520/odtitxnfqdjzfygvuvls.jpg
 
   render () {
-    let outputUrl = '';
+    // let outputUrl = '';
     
     // if(this.props.event.publicId === null) {
     //   outputUrl = this.props.event.imageUrl;
@@ -28,6 +28,9 @@ class Event extends React.Component {
 
     var event = this.props.event.slug;
     const linkTo = '/events/' + event;
+
+    console.log(linkTo)
+
     return (
       <div className='fl w-50 w-25-m w-20-l pa2'>
         {/* <div className='aspect-ratio aspect-ratio--1x1'> */}

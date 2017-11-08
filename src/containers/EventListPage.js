@@ -2,7 +2,6 @@
  * Component that lists all Posts
  */
 import React from 'react'
-import { Link } from 'react-router'
 import Event from '../components/Event'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
