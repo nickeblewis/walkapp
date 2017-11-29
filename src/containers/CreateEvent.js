@@ -102,11 +102,14 @@ class CreateEvent extends React.Component {
   }
 
   render () {
-    // Temporary measure here!!!!
-    // if (!this.props.data.user) {
-    //   console.warn('only logged in users can create new events')
-    //   this.props.router.replace('/events')
-    // }
+    if (this.props.data.loading) {
+      return (<div>Loading</div>)
+    }
+
+    if (!this.props.data.user) {
+      console.warn('only logged in users can create new events')
+      this.props.router.replace('/events')
+    }
 
     return (
       <div className='w-100 pa4 flex justify-center'>
@@ -160,8 +163,8 @@ class CreateEvent extends React.Component {
 
   // This piece of code looks after preparing the GraphQL Mutation
   handleEvent = () => {
-    // this.setState({userId: this.props.data.user.id})
-    this.setState({userId: 'cj1b7fnnxzllj0147oih4ai72'})
+    this.setState({userId: this.props.data.user.id})
+    // this.setState({userId: 'cj1b7fnnxzllj0147oih4ai72'})
     const {name, description, publicId} = this.state
     this.props.mutate({variables: {name, description, publicId }})
       .then(() => {

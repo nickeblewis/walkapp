@@ -25,7 +25,7 @@ class EventListPage extends React.Component {
           {/* <section className="lh-copy"> */}
             <div className="cf pa2">
               
-            <h2 className="f3 fw4 pa3 mv0">What's On in your area...</h2>           
+            <h2 className="f3 fw4 pa3 mv0">Welcome to your Dashboard</h2>           
             {this.props.data.allEvents.map((event) =>
               <Event key={event.id} event={event} refresh={() => this.props.data.refetch()} />
             )}

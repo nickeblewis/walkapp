@@ -18,6 +18,7 @@ import CreatePage from './containers/CreatePage'
 import CreateEvent from './containers/CreateEvent'
 import PhotoPage from './containers/PhotoPage'
 import EventPage from './containers/EventPage'
+import DashboardPage from './containers/DashboardPage'
 import PlacePage from './containers/PlacePage'
 import EventListPage from './containers/EventListPage'
 import MessagePage from './containers/MessagePage'
@@ -57,6 +58,7 @@ ReactDOM.render((
         <Route path='/photos' component={ListPage} />
         <Route path='/places' component={PlaceListPage} />
         <Route path='/events' component={EventListPage} />
+        <Route path='/admin' component={DashboardPage} />
         <Route path='/places/:id' component={PlacePage} />
         {/*<Route path='/walks' component={WalkPage} />*/}
         {/*<Route path='/contacts' component={BusinessPage} />*/}
