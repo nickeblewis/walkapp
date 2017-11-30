@@ -148,17 +148,17 @@ class CreatePage extends React.Component {
   // This piece of code looks after preparing the GraphQL Mutation
   handlePhoto = () => {
     this.setState({userId: this.props.data.user.id})
-    const {name, description, imageUrl, userId, publicId, metaData} = this.state
-    this.props.mutate({variables: {name, description, imageUrl, userId, publicId, metaData }})
+    const {name, description, userId, publicId, metaData} = this.state
+    this.props.mutate({variables: {name, description, userId, publicId, metaData }})
       .then(() => {
-        this.props.router.push('/photo')
+        this.props.router.push('/photos')
       })
   }
 }
 
 const createPhoto = gql`
-  mutation ($name: String!, $description: String!, $imageUrl: String!, $userId: ID!, $publicId: String, $metaData: Json) {
-    createPhoto(name: $name, description: $description, imageUrl: $imageUrl, userId: $userId, publicId: $publicId, metaData: $metaData) {
+  mutation ($name: String!, $description: String!, $userId: ID!, $publicId: String, $metaData: Json) {
+    createPhoto(name: $name, description: $description, userId: $userId, publicId: $publicId, metaData: $metaData) {
       id
     }
   }

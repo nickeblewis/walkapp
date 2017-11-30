@@ -163,10 +163,9 @@ class CreateEvent extends React.Component {
 
   // This piece of code looks after preparing the GraphQL Mutation
   handleEvent = () => {
-    this.setState({userId: this.props.data.user.id})
-    // this.setState({userId: 'cj1b7fnnxzllj0147oih4ai72'})
+    const userId = this.props.data.user.id
     const {name, description, publicId} = this.state
-    this.props.mutate({variables: {name, description, publicId }})
+    this.props.mutate({variables: {name, description, userId, publicId }})
       .then(() => {
         this.props.router.push('/events')
       })
@@ -174,8 +173,8 @@ class CreateEvent extends React.Component {
 }
 
 const createEvent = gql`
-  mutation ($name: String!, $description: String!, $publicId: String) {
-    createEvent(name: $name, description: $description, publicId: $publicId) {
+  mutation ($name: String!, $description: String!, $userId: ID!, $publicId: String) {
+    createEvent(name: $name, description: $description, userId: $userId, publicId: $publicId) {
       id
     }
   }
