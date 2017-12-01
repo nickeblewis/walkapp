@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "apollo-client": "^0.7.0",
+    "bulma": "^0.6.1",
     "cloudinary-react": "^1.0.4",
     "cross-env": "^3.1.4",
     "google-map-react": "^0.24.0",
