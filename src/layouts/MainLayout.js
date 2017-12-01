@@ -24,6 +24,10 @@ class MainLayout extends React.Component {
     this.props.router.push('/login')
   }
 
+  _createEvent = () => {
+    this.props.router.push('/events/create')
+  }
+
   _showSignup = () => {
     this.props.router.push('/signup')
   }
@@ -37,7 +41,7 @@ class MainLayout extends React.Component {
         <nav className="f6 fw6 ttu tracked">
           <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
           <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link>
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/admin" >Admin</Link>
+          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/admin" >Admin</Link> */}
           {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> */}
           {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link>  */}
           {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link>  */}
@@ -45,8 +49,11 @@ class MainLayout extends React.Component {
           <span className="f6 fw4 hover-white no-underline white-50 dn dib-l pv2 ph3">
           Logged in as {this.props.data.user.name}
         </span>
+          <span onClick={this._createEvent} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Create Event</span> 
           <span onClick={this._logout} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Logout</span> 
                     
+        </nav>
+        <nav className="f6 fw6 ttu tracked right">
         </nav>
       </header>
     )
