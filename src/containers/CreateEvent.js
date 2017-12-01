@@ -13,6 +13,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
+// import GoogleMap from '../components/GoogleMap'
 
 /** 
  * TODO
@@ -96,11 +97,17 @@ class CreateEvent extends React.Component {
   state = {
     name: '',
     description: '',
+    eventDate: new Date(),
+    slug: '',
+    socialMessage: '',
+    website: '',
     imageUrl: '',
     userId: 0,
     publicId: null    
   }
 
+  onChange = eventDate => this.setState({ eventDate })
+  
   render () {
     if (this.props.data.loading) {
       return (<div>Loading</div>)
@@ -114,6 +121,15 @@ class CreateEvent extends React.Component {
     return (
       <div className='w-100 pa4 flex justify-center'>
         <div style={{ maxWidth: 400 }} className=''>
+        <h2 className="f2">Create new Event</h2>
+          <p className="f4">
+            When creating a new event it will be shown on our pages and ordered based on the date it 
+            will be taking place.
+          </p>
+          <p className="f4">
+            Please add a flyer, graphic or other image that will represent your event on our website
+            Your image will also be used in conjunction with automated social media campaigns
+          </p>
           { /* The DropZone component handles file upload */ }
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
@@ -126,6 +142,22 @@ class CreateEvent extends React.Component {
                   </div>}
               </div>
           </Dropzone>   
+          
+          { /* Image URL - this is auto-populated by the action of uploading an image file */ }
+          <input
+            className='w-100 pa3 mv2'
+            value={this.state.imageUrl}
+            placeholder='Image Url'
+            disabled={true}
+            onChange={(e) => this.setState({imageUrl: e.target.value})}
+          />
+
+          <h4 className="f4">
+            The title of your event
+          </h4>
+          <p className="f4">
+
+          </p>
 
           { /* Event Name */ }
           <input
@@ -134,6 +166,12 @@ class CreateEvent extends React.Component {
             placeholder='Name'
             onChange={(e) => this.setState({name: e.target.value})}
           />
+          <h4 className="f4">
+            Event Description
+          </h4>
+          <p className="f4">
+            
+          </p>
 
           { /* Event description */ }
           <input
@@ -143,19 +181,90 @@ class CreateEvent extends React.Component {
             onChange={(e) => this.setState({description: e.target.value})}
           />
 
-          { /* Image URL - this is auto-populated by the action of uploading an image file */ }
+          <h4 className="f4">
+            Event Date
+          </h4>
+          <p className="f4">
+            The date is used to automatically schedule social media messages for your event. 
+            Please enter in a format of YYYY-MM-DDTHH:MM
+          </p>
+
+          { /* Event Date */ }
           <input
             className='w-100 pa3 mv2'
-            value={this.state.imageUrl}
-            placeholder='Image Url'
-            onChange={(e) => this.setState({imageUrl: e.target.value})}
+            value={this.state.eventDate}
+            placeholder='Event Date'
+            onChange={(e) => this.setState({eventDate: e.target.value})}
           />
+
+          <h4 className="f4">
+            Slug
+          </h4>
+          <p className="f4">
+            A slug is a term that we use referring to the name appended to the end of a URL, so for 
+            example www.farnboroughguide.com/events/farnborough-international-airshow and your event may be 
+            "Christmas Carols in the Meads" would be written as christmas-carols-in-the-meads
+          </p>
+
+          { /* Slug */ }
+          <input
+            className='w-100 pa3 mv2'
+            value={this.state.slug}
+            placeholder='Slug'
+            onChange={(e) => this.setState({slug: e.target.value})}
+          />
+
+          <h4 className="f4">
+            Social Message
+          </h4>
+          <p className="f4">
+            The message you wish to post via Farnborough Guide's Twitter and Facebook accounts
+          </p>
+
+          { /* Social message */ }
+          <input
+            className='w-100 pa3 mv2'
+            value={this.state.socialMessage}
+            placeholder='Social Message'
+            onChange={(e) => this.setState({socialMessage: e.target.value})}
+          />
+
+          <h4 className="f4">
+            Website Link
+          </h4>
+          <p className="f4">
+            The official event website 
+          </p>
+
+          { /* Website */ }
+          <input
+            className='w-100 pa3 mv2'
+            value={this.state.website}
+            placeholder='Website'
+            onChange={(e) => this.setState({website: e.target.value})}
+          />
+
+
+
+
+
+          { /* Can't get this bloody working yet!!!!! */ }
+          { /* <GoogleMap /> */ }
+
+
+
+
+
+
+
+
+
 
           { /* Unit 212 - 2.2 */ }
           { /* The code below validates that all fields are populated, if so, the submit button is activated */ }
-          {this.state.description && this.state.imageUrl && this.state.name &&
-            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handleEvent}>Post</button>
-          }
+          {/* {this.state.description && this.state.imageUrl && this.state.name && */}
+            <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handleEvent}>Create Event</button>
+          {/* } */}
         </div>
       </div>
     )
@@ -164,8 +273,8 @@ class CreateEvent extends React.Component {
   // This piece of code looks after preparing the GraphQL Mutation
   handleEvent = () => {
     const userId = this.props.data.user.id
-    const {name, description, publicId} = this.state
-    this.props.mutate({variables: {name, description, userId, publicId }})
+    const {name, description, publicId, eventDate, slug, socialMessage, website} = this.state
+    this.props.mutate({variables: {name, description, userId, publicId, eventDate, slug, socialMessage, website }})
       .then(() => {
         this.props.router.push('/events')
       })
@@ -173,8 +282,25 @@ class CreateEvent extends React.Component {
 }
 
 const createEvent = gql`
-  mutation ($name: String!, $description: String!, $userId: ID!, $publicId: String) {
-    createEvent(name: $name, description: $description, userId: $userId, publicId: $publicId) {
+  mutation (
+    $name: String!, 
+    $description: String!, 
+    $eventDate: DateTime, 
+    $slug: String,
+    $socialMessage: String,
+    $website: String,
+    $userId: ID!, 
+    $publicId: String) {
+  createEvent(
+    archived: false,
+    name: $name, 
+    description: $description, 
+    eventDate: $eventDate, 
+    slug: $slug,
+    socialMessage: $socialMessage,
+    website: $website,
+    userId: $userId, 
+    publicId: $publicId) {
       id
     }
   }
