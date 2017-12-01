@@ -156,7 +156,14 @@ class CreateEvent extends React.Component {
     const markerPosition = [this.state.marker.lat, this.state.marker.lng]
 
     return (
+
       <div className='w-100 pa4 flex justify-center'>
+        
+
+
+
+
+
         <div style={{ maxWidth: 400 }} className=''>
           <h2 className="f2">Create new Event</h2>
           <p className="f4">
@@ -319,7 +326,8 @@ class CreateEvent extends React.Component {
   handleEvent = () => {
     const userId = this.props.data.user.id
     const { name, description, publicId, eventDate, slug, socialMessage, website } = this.state
-    this.props.mutate({ variables: { name, description, userId, publicId, eventDate, slug, socialMessage, website } })
+    const { lat, lng } = this.state.marker
+    this.props.mutate({ variables: { name, description, userId, publicId, eventDate, slug, socialMessage, website, lat, lng } })
       .then(() => {
         this.props.router.push('/events')
       })
@@ -334,6 +342,8 @@ const createEvent = gql`
     $slug: String,
     $socialMessage: String,
     $website: String,
+    $lat: Float,
+    $lng: Float,
     $userId: ID!, 
     $publicId: String) {
   createEvent(
@@ -344,6 +354,8 @@ const createEvent = gql`
     slug: $slug,
     socialMessage: $socialMessage,
     website: $website,
+    lat: $lat,
+    lng: $lng,
     userId: $userId, 
     publicId: $publicId) {
       id
