@@ -35,64 +35,65 @@ class MainLayout extends React.Component {
   _isLoggedIn = () => {
     return this.props.data.user
   }
-  renderLoggedIn() {
-    return (
-      <header className="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-        <nav className="f6 fw6 ttu tracked">
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link>
-          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/admin" >Admin</Link> */}
-          {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> */}
-          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link>  */}
-          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link>  */}
-          {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/contacts" >Search</Link> */}
-          <span className="f6 fw4 hover-white no-underline white-50 dn dib-l pv2 ph3">
-          Logged in as {this.props.data.user.name}
-        </span>
-          <span onClick={this._createEvent} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Create Event</span> 
-          <span onClick={this._logout} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Logout</span> 
-                    
-        </nav>
-        <nav className="f6 fw6 ttu tracked right">
-        </nav>
-      </header>
-    )
-  }
 
-  renderLoggedOut() {
+
+  render = () => {
     return (
-      <header className="bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-        <nav className="f6 fw6 ttu tracked">
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/" >Home</Link> 
-          {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/events" >Events</Link> */}
-          {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" to="/walks" >Walks</Link> */}
-          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/photos" >Photos</Link>  */}
-          <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/events" >Events</Link> 
-          {/* <Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/places" >Places</Link>  */}
-          {/*<Link className="f6 fw4 hover-white no-underline white-70 dn dib-l pv2 ph3" to="/contacts" >Search</Link> */}
-          
-                    <span onClick={this._showLogin} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Login</span> 
-                    <span onClick={this._showSignup} className="f6 fw4 hover-white no-underline white-70 dib ml2 pv2 ph3 ba">Sign Up</span>
+      <main>
+        <nav role="navigation" aria-label="main navigation" className="navbar">
+          <div className="container">
+            <div className="navbar-brand">
+              <Link to="/" className="navbar-item">
+                <strong>🏠 Home</strong>
+              </Link>
+              <button data-target="navMenu" className="button navbar-burger"><span></span> <span></span> <span></span></button>
+            </div>
+            <div id="navMenu" className="navbar-menu">
+              <div className="navbar-start">
+                <Link to="/events" className="navbar-item"><span>Events</span></Link>
+                {/* <Link to="/blog" className="navbar-item"><span>Blog</span></Link>  */}
+              </div>
+              <div className="navbar-end">
+                {this._isLoggedIn() &&
+                  <div className="navbar-item">
+                    <span>
+                      Logged in as {this.props.data.user.name}
+                    </span>
+                  </div>
+                }
+
+                {!this._isLoggedIn() &&
+                  <div className="navbar-item">
+                    <span onClick={this._showSignup} className="button is-primary">SIGN UP</span>
+                  </div>
+                }
+
+                {!this._isLoggedIn() &&
+                  <div className="navbar-item">
+                    <span onClick={this._showLogin} className="button is-light">LOG IN</span>
+                  </div>
+                }
+
+                {this._isLoggedIn() &&
+                  <div className="navbar-item">
+                    <Link to="/events/create" className="button is-light">CREATE EVENT</Link>
+                  </div>
+                }
+
+                {this._isLoggedIn() &&
+                  <div className="navbar-item">
+                    <span onClick={this._logout} className="button is-light">LOG OUT</span>
+                  </div>
+                }
+                
+              </div>
+            </div>
+          </div>
         </nav>
-      </header>
-    )
-  }
-  render () {
-    let nav = null;
-
-    if (this._isLoggedIn()) {
-      nav =  this.renderLoggedIn();
-    } else {
-      nav =  this.renderLoggedOut();
-    }
-
-    return (
-        <main>          
-          {nav}
-          <Header />
-          {this.props.children}
-          <Footer />        
-        </main>
+        <Header />
+        {this.props.children}
+        <Footer />
+      </main>
     )
   }
 }
@@ -106,4 +107,4 @@ const userQuery = gql`
   }
 `
 
-export default graphql(userQuery, { options: {forceFetch: true }})(withRouter(MainLayout))
+export default graphql(userQuery, { options: { forceFetch: true } })(withRouter(MainLayout))
