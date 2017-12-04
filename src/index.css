@@ -6560,6 +6560,6 @@ label.panel-block {
   margin-bottom: 1rem;
   font-weight: 600; }
 
-.is-header {
-  background: linear-gradient(90deg, #8e54e9, #4776e6);
+.homepage-hero {
+  background: url("assets/NIC_0713.jpg") no-repeat center center fixed;
   color: white; }
