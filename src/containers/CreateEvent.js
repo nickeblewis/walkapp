@@ -43,6 +43,7 @@ class CreateEvent extends React.Component {
       website: '',
       imageUrl: '',
       userId: 0,
+      venueName: '',
       publicId: null,
       open: true,
       uploadedFile: null,
@@ -217,6 +218,20 @@ class CreateEvent extends React.Component {
 
           </p>
 
+          { /* Venue Name */}
+          <input
+            className='w-100 pa3 mv2'
+            value={this.state.venueName}
+            placeholder='Venue Name'
+            onChange={(e) => this.setState({ venueName: e.target.value })}
+          />
+          <h4 className="f4">
+            Event Description
+          </h4>
+          <p className="f4">
+
+          </p>
+
           { /* Event description */}
           <input
             className='w-100 pa3 mv2'
@@ -325,9 +340,9 @@ class CreateEvent extends React.Component {
   // This piece of code looks after preparing the GraphQL Mutation
   handleEvent = () => {
     const userId = this.props.data.user.id
-    const { name, description, publicId, eventDate, slug, socialMessage, website } = this.state
+    const { name, description, publicId, eventDate, slug, socialMessage, website, venueName } = this.state
     const { lat, lng } = this.state.marker
-    this.props.mutate({ variables: { name, description, userId, publicId, eventDate, slug, socialMessage, website, lat, lng } })
+    this.props.mutate({ variables: { name, description, userId, venueName, publicId, eventDate, slug, socialMessage, website, lat, lng } })
       .then(() => {
         this.props.router.push('/events')
       })
@@ -345,6 +360,7 @@ const createEvent = gql`
     $lat: Float,
     $lng: Float,
     $userId: ID!, 
+    $venueName: String,
     $publicId: String) {
   createEvent(
     archived: false,
@@ -357,6 +373,7 @@ const createEvent = gql`
     lat: $lat,
     lng: $lng,
     userId: $userId, 
+    venueName: $venueName,
     publicId: $publicId) {
       id
     }
