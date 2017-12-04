@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router'
 import gql from 'graphql-tag'
+import { ReactSlackChat } from 'react-slack-chat'
 
 class MainLayout extends React.Component {
   static propTypes = {
@@ -92,6 +93,36 @@ class MainLayout extends React.Component {
         </nav>
         <Header />
         {this.props.children}
+        <ReactSlackChat
+          botName='farnbot' // VisitorID, CorpID, Email, IP address etc.
+          apiToken='eG94Yi0yODIyMzgyNjI5NjYtYmZTV1hhUmJQYng0bXFQZUNIYk5IV0w1'
+          channels={[
+          {
+            name: 'random'
+          },
+          {
+            name: 'test',
+            id: 'C48SAX4',
+            icon: ''
+          },
+          {
+            name: 'test22',
+            id: '',
+            icon: './logo.svg'
+          }]}
+          helpText='Optional Help Text'
+          themeColor='#856090'
+          userImage='http://www.iconshock.com/img_vista/FLAT/mail/jpg/robot_icon.jpg'
+          debugMode={true}
+          hooks={[
+            {
+              /* My Custom Hook */
+              id: 'getSystemInfo',
+              action: () => 'MY SYSTEM INFO!'
+            }
+          ]}
+        />
+
         <Footer />
       </main>
     )
