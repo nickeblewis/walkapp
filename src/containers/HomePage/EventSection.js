@@ -28,24 +28,22 @@ class EventSection extends React.Component {
 
     // Display a little loading message whilst we load data in 
     if (this.props.data.loading) {
-      return (<div>Loading</div>)
+      return (<div className="pageloader">Loading</div>)
     }
 
     // Now for the JSX template that defines how our component actually looks!
     return (
-      <div className="tl bt b--black-10 pa3 pa5-ns bg-black white">
-        <div className="mw9 center">
-          <h1 className="f5 ttu tracked fw6 pa3">{this.props.title}</h1>
-          <section className="lh-copy">
-            <div className="cf pa2">
+      <section className="homepage-events">
+        <div className="container">
+          <p className="title is-4">{this.props.title}</p>
               { /* The following piece of code loops through the photo data (see below) */ }
+              <div className="columns is-multiline">
               {this.props.data.allEvents.map((event) =>
                 <Event key={event.id} event={event} />
               )}
               </div>
-            </section>
           </div>
-      </div>
+      </section>
     )
   }
 }
@@ -56,6 +54,9 @@ const FeedQuery = gql`query allEvents {
     publicId
     name
     slug
+    eventDate
+    socialMessage
+    venueName
     description
   }
 }`
