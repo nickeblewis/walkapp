@@ -6559,3 +6559,7 @@ label.panel-block {
 .footer ul li:first-child {
   margin-bottom: 1rem;
   font-weight: 600; }
+
+.is-header {
+  background: linear-gradient(90deg, #8e54e9, #4776e6);
+  color: white; }
