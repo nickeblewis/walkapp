@@ -10,13 +10,13 @@ class Header extends React.Component {
     render = () => {
         return (
             // <section className="hero is-warning " style={{ backgroundImage: `url(${bg})` }}>
-            <section className="hero is-warning">
-                <div className="hero-body">
+            <section className="hero is-bold is-header is-large">
+                <div className="hero-body has-text-centered">
                     <div className="container">
-                        <h1 className="title">
+                        <h1 className="title is-3 has-text-weight-light">
                             Farnborough Guide
                         </h1>     
-                        <h2 className="subtitle">
+                        <h2 className="title is-5 has-text-weight-light is-light">
                             The Guide to Your Town
                         </h2>
                     </div>
