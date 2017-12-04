@@ -1,4 +1,3 @@
-@import '../node_modules/tachyons-sass/tachyons.scss';
 @import '../node_modules/bulma/bulma.sass';
 @import './_normalize.css';
 @import 'sass/places.scss';
@@ -9,7 +8,7 @@
 
 /* Home page classes */
 
-.homepage-introblock {
+.homepage-introblock, .homepage-events, .eventspage-main, .eventpage-events {
     background-color: #fff;
     padding: 0;
     margin: 0;
@@ -27,6 +26,13 @@
 
 .footimg{
     background-image: url('assets/iStock-589939788.jpg')
+}
+
+.footer {
+    ul li:first-child {
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
 }
 // .bl {
 //     border-left-style: solid;
