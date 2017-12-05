@@ -41,7 +41,7 @@ class Event extends React.Component {
 
               <CloudinaryContext cloudName="dqpknoetx">
                 <Image publicId={this.props.event.publicId} className="">
-                  <Transformation width="400" height="200" crop="thumb" />
+                  <Transformation width="500" height="200" crop="thumb" />
                 </Image>
               </CloudinaryContext>
             </Link>
@@ -59,7 +59,7 @@ class Event extends React.Component {
                 </p>
               </div>
             </div>
-            <div className="content">{this.props.event.socialMessage}</div>
+            {/* <div className="content">{this.props.event.socialMessage}</div> */}
           </div>
         </div>
       </div>
