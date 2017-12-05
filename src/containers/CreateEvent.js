@@ -1,21 +1,21 @@
 /**
  * Upload a new photo and annotate it with name and description
  * We also capture the full metadata for the image that is taken from EXIF, IPTC and other information
- * 
+ *
  * NOTES FOR UNIT 212
- * 
+ *
  * 2.1 - Refers to coding standards such as comments, naming and layout. This file also serves as a good example.
- * 
+ *
  */
-import React from 'react'
-import { withRouter } from 'react-router'
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
-import Dropzone from 'react-dropzone'
-import request from 'superagent'
-import { Map, Marker, TileLayer } from 'react-leaflet'
+import React from "react";
+import { withRouter } from "react-router";
+import { graphql } from "react-apollo";
+import gql from "graphql-tag";
+import Dropzone from "react-dropzone";
+import request from "superagent";
+import { Map, Marker, TileLayer } from "react-leaflet";
 
-/** 
+/**
  * TODO
  * Should move these to environment variables, so let's set some time aside to do that
  * The other option will be to move them to a file that is not checked into Github
@@ -23,11 +23,12 @@ import { Map, Marker, TileLayer } from 'react-leaflet'
  */
 
 // Recently changed the preset to one that doesn't change the uploaded files, we want them to be stored as original
-const CLOUDINARY_UPLOAD_PRESET = 'bqzvryde';
+const CLOUDINARY_UPLOAD_PRESET = "bqzvryde";
 
 // This is essentially the prefix for all references to images stored on Cloudinary
 // Please ask me to do a proper training session on how Cloudinary works
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqpknoetx/upload';
+const CLOUDINARY_UPLOAD_URL =
+  "https://api.cloudinary.com/v1_1/dqpknoetx/upload";
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -35,19 +36,19 @@ class CreateEvent extends React.Component {
 
     // Default our state - We shall discuss the difference between props and state at some point
     this.state = {
-      name: '',
-      description: '',
+      name: "",
+      description: "",
       eventDate: new Date(),
-      slug: '',
-      socialMessage: '',
-      website: '',
-      imageUrl: '',
+      slug: "",
+      socialMessage: "",
+      website: "",
+      imageUrl: "",
       userId: 0,
-      venueName: '',
+      venueName: "",
       publicId: null,
       open: true,
       uploadedFile: null,
-      uploadedFileCloudinaryUrl: '',
+      uploadedFileCloudinaryUrl: "",
       center: {
         lat: 51.290763,
         lng: -0.754099
@@ -58,12 +59,11 @@ class CreateEvent extends React.Component {
       },
       zoom: 17,
       draggable: true
-    }
+    };
   }
 
   // This event function is fired when a file is dropped on a page that supports drag-n-drop
   onImageDrop(files) {
-
     // Store the uploaded file in our state, so it is no longer a null value at this point
     this.setState({
       uploadedFile: files[0]
@@ -75,9 +75,10 @@ class CreateEvent extends React.Component {
 
   handleImageUpload(file) {
     // These lines of code post the data to Cloudinary including the preset and the file data
-    let upload = request.post(
-      CLOUDINARY_UPLOAD_URL).field('upload_preset',
-      CLOUDINARY_UPLOAD_PRESET).field('file', file);
+    let upload = request
+      .post(CLOUDINARY_UPLOAD_URL)
+      .field("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+      .field("file", file);
 
     // Handle the Response from the server, it may have failed, in which case log the error to the console
     upload.end((err, response) => {
@@ -93,16 +94,16 @@ class CreateEvent extends React.Component {
       //    I've decided to capture that too
 
       // Please note that two new fields have been added to our Photo model on Graph.Cool
-      console.log(response.body)
+      console.log(response.body);
 
       // Dan, so some changes need to be made in order to capture the "public_id" as well as the imageUrl
       // so I have added this line below in the setState
-      if (response.body.url !== '') {
+      if (response.body.url !== "") {
         this.setState({
           uploadedFileCloudinaryUrl: response.body.url,
           imageUrl: response.body.url,
           publicId: response.body.public_id,
-          userId: 'cj1b7fnnxzllj0147oih4ai72'
+          userId: "cj1b7fnnxzllj0147oih4ai72"
         });
       }
     });
@@ -110,8 +111,8 @@ class CreateEvent extends React.Component {
   static propTypes = {
     router: React.PropTypes.object,
     mutate: React.PropTypes.func,
-    data: React.PropTypes.object,
-  }
+    data: React.PropTypes.object
+  };
 
   // state = {
   //   name: '',
@@ -135,160 +136,273 @@ class CreateEvent extends React.Component {
   //   draggable: true
   // }
 
-  onChange = eventDate => this.setState({ eventDate })
+  onChange = eventDate => this.setState({ eventDate });
 
   updatePosition = () => {
-    const { lat, lng } = this.refs.marker.leafletElement.getLatLng()
+    const { lat, lng } = this.refs.marker.leafletElement.getLatLng();
     this.setState({
-      marker: { lat, lng },
-    })
-  }
+      marker: { lat, lng }
+    });
+  };
 
   render() {
     if (this.props.data.loading) {
-      return (<div>Loading</div>)
+      return <div>Loading</div>;
     }
 
     if (!this.props.data.user) {
-      console.warn('only logged in users can create new events')
-      this.props.router.replace('/events')
+      console.warn("only logged in users can create new events");
+      this.props.router.replace("/events");
     }
-    const position = [this.state.center.lat, this.state.center.lng]
-    const markerPosition = [this.state.marker.lat, this.state.marker.lng]
+    const position = [this.state.center.lat, this.state.center.lng];
+    const markerPosition = [this.state.marker.lat, this.state.marker.lng];
 
     return (
-<section className="section">
-  <div className="container">
-    <h1 className="title">Create New Event!</h1>
-    <h1 className="subtitle">When creating a new event, it will be shown on our pages and ordered based on the date it will be taking place.</h1> 
-    <div className="content">
-      <p>Please add a flyer, graphic or other image that will represent your event on our website. Your image will also be used in conjunction with automated social media campaingns.</p>
-    </div>
-{ /* UPLOAD IMAGE */}      
-      <div className="file is-dark is-boxed">
-        <label className="file-label">
-          <input className="file-input" type="file" name="image" value={this.state.imageUrl} disable={true} multiple={false} onChange={(e) => this.setState({ imageUrl: e.target.value})}/>
-            <span className="file-cta">
-              <span className="file">
-              </span>
-              <span className="file-label">
-                Upload Image...
-              </span>
-            </span>
-        </label>    
-      </div>
-      <br></br>
-{ /* VENUE NAME */}
-    <label className="label">Event</label>
-      <div className="field">
-        <div className="control">
-          <input className="input" type="name" placeholder="Event Name" value={this.state.name} onChange={(e) => this.setState( {name: e.target.value})}/>
-        </div>
-      </div>
-{ /* EVENT NAME */}  
-    <label className="label">Venue</label>    
-      <div className="field">
-        <div className="control">
-          <input className="input" type="name" placeholder="Venue Name" value={this.state.venueName} onChange={(e) => this.setState( {venueName: e.target.value})}/>
-        </div>
-      </div>
-{ /* EVENT DESCRIPTION */}
-    <label className="label">Description</label>
-      <div className="field">
-          <textarea className="textarea" placeholder="Description" value={this.state.description} onChange={(e) => this.setState({description: e.target.value })}></textarea>
-      </div>
-{ /* EVENT DATE */}
-    <label className="label">Date</label>
-      <div className="content">
-        <p>The date is used to automatically scedule social media messages for your event. Please enter in the format of YYYY-MM-DDTHH:MM</p>
-      </div>
-      <div className="field">
-        <div className="control">
-          <input className="input" type="name" placeholder="Event Date" value={this.state.eventDate} onChange={(e) => this.setState( {eventDate: e.target.value})}/>
-        </div>
-      </div> 
-{ /* LOCATION */}
-    <label className="label">Location</label>
-     <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
-          <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
-              <Marker position={markerPosition} draggable={this.state.draggable} onDragend={this.updatePosition} ref="marker"></Marker>
-     </Map>
-{ /* SLUG */}
-<label className="label">Slug</label>
-      <div className="content">
-        <p>A slug is a term that we use referring to the name appended to the end of a URL, so for example if your event was "Christmas Carols in the Meads" the slug would be christmas-carols-in-the-meads</p>
-      </div>
-      <div classname="field">
-        <div className="control">
-          <input className="input" type="name" placeholder="Slug" value={this.state.slug} onChange={(e) => this.setState( {slug: e.target.value})}/> 
-        </div>
-      </div>
-{ /*SOCIAL MESSAGE */}
-    <label className="label">Social Message</label>
-      <div className="content">
-          <p>The message you wish to post via Farnborough Guide's Twitter and Facebook social media accounts</p>
-      </div>
-      <div className="field">
-          <textarea className="textarea" placeholder="Social Message" value={this.state.socialMessage} onChange={(e) => this.setState({socialMessage: e.target.value })}></textarea>
-      </div>
-{ /*WEBSITE */}
-    <label className="label">Website</label>
-      <div className="content">
-        <p>The offical event website</p>
-      </div>
-      <div className="field">
-        <div className="control">
-          <input className="input" placeholder="Website" value={this.state.website} onChange={(e) => this.setState({website: e.target.value })}></input>
-        </div>  
-      </div>
-  </div>
-</section>
+      <section className="section">
+        <div className="container">
+          <h1 className="title">Create New Event!</h1>
+          <h1 className="subtitle">
+            When creating a new event, it will be shown on our pages and ordered
+            based on the date it will be taking place.
+          </h1>
+          <div className="content">
+            <p>
+              Please add a flyer, graphic or other image that will represent
+              your event on our website. Your image will also be used in
+              conjunction with automated social media campaingns.
+            </p>
+          </div>
+          {/* The DropZone component handles file upload */}
+          <Dropzone
+            onDrop={this.onImageDrop.bind(this)}
+            multiple={false}
+            accept="image/*"
+          >
+            <div>
+              {this.state.uploadedFileCloudinaryUrl === "" ? null : (
+                <div>
+                  <p>{this.state.uploadedFile.name}</p>
+                </div>
+              )}
+            </div>
+          </Dropzone>
 
-    )
+          {/* Image URL - this is auto-populated by the action of uploading an image file */}
+          <input
+            className="input"
+            value={this.state.imageUrl}
+            placeholder="Image Url"
+            disabled={true}
+            onChange={e => this.setState({ imageUrl: e.target.value })}
+          />
+          {/* UPLOAD IMAGE */}
+          <div className="file is-dark is-boxed">
+            <label className="file-label">
+              <input
+                className="file-input"
+                type="file"
+                name="image"
+                value={this.state.imageUrl}
+                disable={true}
+                multiple={false}
+                onChange={e => this.setState({ imageUrl: e.target.value })}
+              />
+            </label>
+          </div>
+          <br />
+          {/* VENUE NAME */}
+          <label className="label">Event</label>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="name"
+                placeholder="Event Name"
+                value={this.state.name}
+                onChange={e => this.setState({ name: e.target.value })}
+              />
+            </div>
+          </div>
+          {/* EVENT NAME */}
+          <label className="label">Venue</label>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="name"
+                placeholder="Venue Name"
+                value={this.state.venueName}
+                onChange={e => this.setState({ venueName: e.target.value })}
+              />
+            </div>
+          </div>
+          {/* EVENT DESCRIPTION */}
+          <label className="label">Description</label>
+          <div className="field">
+            <textarea
+              className="textarea"
+              placeholder="Description"
+              value={this.state.description}
+              onChange={e => this.setState({ description: e.target.value })}
+            />
+          </div>
+          {/* EVENT DATE */}
+          <label className="label">Date</label>
+          <div className="content">
+            <p>
+              The date is used to automatically scedule social media messages
+              for your event. Please enter in the format of YYYY-MM-DDTHH:MM
+            </p>
+          </div>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="name"
+                placeholder="Event Date"
+                value={this.state.eventDate}
+                onChange={e => this.setState({ eventDate: e.target.value })}
+              />
+            </div>
+          </div>
+          {/* LOCATION */}
+          <label className="label">Location</label>
+          <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
+            <TileLayer
+              url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+              attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            />
+            <Marker
+              position={markerPosition}
+              draggable={this.state.draggable}
+              onDragend={this.updatePosition}
+              ref="marker"
+            />
+          </Map>
+          {/* SLUG */}
+          <label className="label">Slug</label>
+          <div className="content">
+            <p>
+              A slug is a term that we use referring to the name appended to the
+              end of a URL, so for example if your event was "Christmas Carols
+              in the Meads" the slug would be christmas-carols-in-the-meads
+            </p>
+          </div>
+          <div classname="field">
+            <div className="control">
+              <input
+                className="input"
+                type="name"
+                placeholder="Slug"
+                value={this.state.slug}
+                onChange={e => this.setState({ slug: e.target.value })}
+              />
+            </div>
+          </div>
+          {/*SOCIAL MESSAGE */}
+          <label className="label">Social Message</label>
+          <div className="content">
+            <p>
+              The message you wish to post via Farnborough Guide's Twitter and
+              Facebook social media accounts
+            </p>
+          </div>
+          <div className="field">
+            <textarea
+              className="textarea"
+              placeholder="Social Message"
+              value={this.state.socialMessage}
+              onChange={e => this.setState({ socialMessage: e.target.value })}
+            />
+          </div>
+          {/*WEBSITE */}
+          <label className="label">Website</label>
+          <div className="content">
+            <p>The offical event website</p>
+          </div>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                placeholder="Website"
+                value={this.state.website}
+                onChange={e => this.setState({ website: e.target.value })}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   // This piece of code looks after preparing the GraphQL Mutation
   handleEvent = () => {
-    const userId = this.props.data.user.id
-    const { name, description, publicId, eventDate, slug, socialMessage, website, venueName } = this.state
-    const { lat, lng } = this.state.marker
-    this.props.mutate({ variables: { name, description, userId, venueName, publicId, eventDate, slug, socialMessage, website, lat, lng } })
-      .then(() => {
-        this.props.router.push('/events')
+    const userId = this.props.data.user.id;
+    const {
+      name,
+      description,
+      publicId,
+      eventDate,
+      slug,
+      socialMessage,
+      website,
+      venueName
+    } = this.state;
+    const { lat, lng } = this.state.marker;
+    this.props
+      .mutate({
+        variables: {
+          name,
+          description,
+          userId,
+          venueName,
+          publicId,
+          eventDate,
+          slug,
+          socialMessage,
+          website,
+          lat,
+          lng
+        }
       })
-  }
+      .then(() => {
+        this.props.router.push("/events");
+      });
+  };
 }
 
 const createEvent = gql`
-  mutation (
-    $name: String!, 
-    $description: String!, 
-    $eventDate: DateTime, 
-    $slug: String,
-    $socialMessage: String,
-    $website: String,
-    $lat: Float,
-    $lng: Float,
-    $userId: ID!, 
-    $venueName: String,
-    $publicId: String) {
-  createEvent(
-    archived: false,
-    name: $name, 
-    description: $description, 
-    eventDate: $eventDate, 
-    slug: $slug,
-    socialMessage: $socialMessage,
-    website: $website,
-    lat: $lat,
-    lng: $lng,
-    userId: $userId, 
-    venueName: $venueName,
-    publicId: $publicId) {
+  mutation(
+    $name: String!
+    $description: String!
+    $eventDate: DateTime
+    $slug: String
+    $socialMessage: String
+    $website: String
+    $lat: Float
+    $lng: Float
+    $userId: ID!
+    $venueName: String
+    $publicId: String
+  ) {
+    createEvent(
+      archived: false
+      name: $name
+      description: $description
+      eventDate: $eventDate
+      slug: $slug
+      socialMessage: $socialMessage
+      website: $website
+      lat: $lat
+      lng: $lng
+      userId: $userId
+      venueName: $venueName
+      publicId: $publicId
+    ) {
       id
     }
   }
-`
+`;
 
 const userQuery = gql`
   query {
@@ -296,8 +410,8 @@ const userQuery = gql`
       id
     }
   }
-`
+`;
 
 export default graphql(createEvent)(
   graphql(userQuery, { options: { forceFetch: true } })(withRouter(CreateEvent))
-)
+);
