@@ -28,27 +28,30 @@ class CreateLogin extends React.Component {
     }
 
     return (
-      <div className='w-100 pa4 flex justify-center'>
-        <div style={{ maxWidth: 400 }} className=''>
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.email}
-            placeholder='Email'
-            onChange={(e) => this.setState({email: e.target.value})}
-          />
-          <input
-            className='w-100 pa3 mv2'
-            type='password'
-            value={this.state.password}
-            placeholder='Password'
-            onChange={(e) => this.setState({password: e.target.value})}
-          />
+<section className="section">
+  <div className="container">
+      <div classname="columns">
+        
+        <div className="column is-half">
+         <h1 className="title">Log In</h1>
+          <div className="field">
+            <div className="control">
+              <input className="input" type="email" placeholder="email" value={this.state.email} onChange={(e) => this.setState({email: e.target.value})}/> 
+            </div>
+          </div>  
+          <div className="field">
+            <div className="control">
+              <input className="input" type="password" placeholder="password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})}/> 
+            </div>
+          </div>   
 
           {this.state.email && this.state.password &&
-          <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.signinUser}>Log in</button>
-          }
+          <button className="button is-link" onClick={this.signinUser}>Login</button>}
+
+         </div> 
         </div>
       </div>
+</section>      
     )
   }
 
