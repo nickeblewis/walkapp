@@ -187,14 +187,6 @@ class CreateEvent extends React.Component {
             </div>
           </Dropzone>
 
-          {/* Image URL - this is auto-populated by the action of uploading an image file */}
-          <input
-            className="input"
-            value={this.state.imageUrl}
-            placeholder="Image Url"
-            disabled={true}
-            onChange={e => this.setState({ imageUrl: e.target.value })}
-          />
           {/* UPLOAD IMAGE */}
           <div className="file is-dark is-boxed">
             <label className="file-label">
@@ -330,6 +322,7 @@ class CreateEvent extends React.Component {
               />
             </div>
           </div>
+          <button className='button is-primary' onClick={this.handleEvent}>Create Event</button>
         </div>
       </section>
     );
