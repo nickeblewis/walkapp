@@ -157,183 +157,93 @@ class CreateEvent extends React.Component {
     const markerPosition = [this.state.marker.lat, this.state.marker.lng]
 
     return (
-
-      <div className='w-100 pa4 flex justify-center'>
-        
-
-
-
-
-
-        <div style={{ maxWidth: 400 }} className=''>
-          <h2 className="f2">Create new Event</h2>
-          <p className="f4">
-            When creating a new event it will be shown on our pages and ordered based on the date it
-            will be taking place.
-          </p>
-          <p className="f4">
-            Please add a flyer, graphic or other image that will represent your event on our website
-            Your image will also be used in conjunction with automated social media campaigns
-          </p>
-          { /* The DropZone component handles file upload */}
-          <Dropzone
-            onDrop={this.onImageDrop.bind(this)}
-            multiple={false}
-            accept="image/*">
-            <div>
-              {this.state.uploadedFileCloudinaryUrl === '' ? null :
-                <div>
-                  <p>{this.state.uploadedFile.name}</p>
-                </div>}
-            </div>
-          </Dropzone>
-
-          { /* Image URL - this is auto-populated by the action of uploading an image file */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.imageUrl}
-            placeholder='Image Url'
-            disabled={true}
-            onChange={(e) => this.setState({ imageUrl: e.target.value })}
-          />
-
-          <h4 className="f4">
-            The title of your event
-          </h4>
-          <p className="f4">
-
-          </p>
-
-          { /* Event Name */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.name}
-            placeholder='Name'
-            onChange={(e) => this.setState({ name: e.target.value })}
-          />
-          <h4 className="f4">
-            Event Description
-          </h4>
-          <p className="f4">
-
-          </p>
-
-          { /* Venue Name */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.venueName}
-            placeholder='Venue Name'
-            onChange={(e) => this.setState({ venueName: e.target.value })}
-          />
-          <h4 className="f4">
-            Event Description
-          </h4>
-          <p className="f4">
-
-          </p>
-
-          { /* Event description */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.description}
-            placeholder='Description'
-            onChange={(e) => this.setState({ description: e.target.value })}
-          />
-
-          <h4 className="f4">
-            Event Date
-          </h4>
-          <p className="f4">
-            The date is used to automatically schedule social media messages for your event.
-            Please enter in a format of YYYY-MM-DDTHH:MM
-          </p>
-
-          { /* Event Date */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.eventDate}
-            placeholder='Event Date'
-            onChange={(e) => this.setState({ eventDate: e.target.value })}
-          />
-
-          <div>
-            <h4 className="f4">
-              Location
-          </h4>
-
-            <Map
-              center={position}
-              zoom={this.state.zoom}
-              scrollWheelZoom={false}>
-              <TileLayer
-                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              />
-              <Marker
-                position={markerPosition}
-                draggable={this.state.draggable}
-                onDragend={this.updatePosition}
-                ref="marker"
-              >
-              </Marker>
-            </Map>
-          </div>
-          <h4 className="f4">
-            Slug
-          </h4>
-          <p className="f4">
-            A slug is a term that we use referring to the name appended to the end of a URL, so for
-            example www.farnboroughguide.com/events/farnborough-international-airshow and your event may be
-            "Christmas Carols in the Meads" would be written as christmas-carols-in-the-meads
-          </p>
-
-
-
-          { /* Slug */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.slug}
-            placeholder='Slug'
-            onChange={(e) => this.setState({ slug: e.target.value })}
-          />
-
-          <h4 className="f4">
-            Social Message
-          </h4>
-          <p className="f4">
-            The message you wish to post via Farnborough Guide's Twitter and Facebook accounts
-          </p>
-
-          { /* Social message */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.socialMessage}
-            placeholder='Social Message'
-            onChange={(e) => this.setState({ socialMessage: e.target.value })}
-          />
-
-          <h4 className="f4">
-            Website Link
-          </h4>
-          <p className="f4">
-            The official event website
-          </p>
-
-          { /* Website */}
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.website}
-            placeholder='Website'
-            onChange={(e) => this.setState({ website: e.target.value })}
-          />
-
-          { /* Unit 212 - 2.2 */}
-          { /* The code below validates that all fields are populated, if so, the submit button is activated */}
-          {/* {this.state.description && this.state.imageUrl && this.state.name && */}
-          <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.handleEvent}>Create Event</button>
-          {/* } */}
+<section className="section">
+  <div className="container">
+    <h1 className="title">Create New Event!</h1>
+    <h1 className="subtitle">When creating a new event, it will be shown on our pages and ordered based on the date it will be taking place.</h1> 
+    <div className="content">
+      <p>Please add a flyer, graphic or other image that will represent your event on our website. Your image will also be used in conjunction with automated social media campaingns.</p>
+    </div>
+{ /* UPLOAD IMAGE */}      
+      <div className="file is-dark is-boxed">
+        <label className="file-label">
+          <input className="file-input" type="file" name="image" value={this.state.imageUrl} disable={true} multiple={false} onChange={(e) => this.setState({ imageUrl: e.target.value})}/>
+            <span className="file-cta">
+              <span className="file">
+              </span>
+              <span className="file-label">
+                Upload Image...
+              </span>
+            </span>
+        </label>    
+      </div>
+      <br></br>
+{ /* VENUE NAME */}
+    <label className="label">Event</label>
+      <div className="field">
+        <div className="control">
+          <input className="input" type="name" placeholder="Event Name" value={this.state.name} onChange={(e) => this.setState( {name: e.target.value})}/>
         </div>
       </div>
+{ /* EVENT NAME */}  
+    <label className="label">Venue</label>    
+      <div className="field">
+        <div className="control">
+          <input className="input" type="name" placeholder="Venue Name" value={this.state.venueName} onChange={(e) => this.setState( {venueName: e.target.value})}/>
+        </div>
+      </div>
+{ /* EVENT DESCRIPTION */}
+    <label className="label">Description</label>
+      <div className="field">
+          <textarea className="textarea" placeholder="Description" value={this.state.description} onChange={(e) => this.setState({description: e.target.value })}></textarea>
+      </div>
+{ /* EVENT DATE */}
+    <label className="label">Date</label>
+      <div className="content">
+        <p>The date is used to automatically scedule social media messages for your event. Please enter in the format of YYYY-MM-DDTHH:MM</p>
+      </div>
+      <div className="field">
+        <div className="control">
+          <input className="input" type="name" placeholder="Event Date" value={this.state.eventDate} onChange={(e) => this.setState( {eventDate: e.target.value})}/>
+        </div>
+      </div> 
+{ /* LOCATION */}
+    <label className="label">Location</label>
+     <Map center={position} zoom={this.state.zoom} scrollWheelZoom={false}>
+          <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
+              <Marker position={markerPosition} draggable={this.state.draggable} onDragend={this.updatePosition} ref="marker"></Marker>
+     </Map>
+{ /* SLUG */}
+<label className="label">Slug</label>
+      <div className="content">
+        <p>A slug is a term that we use referring to the name appended to the end of a URL, so for example if your event was "Christmas Carols in the Meads" the slug would be christmas-carols-in-the-meads</p>
+      </div>
+      <div classname="field">
+        <div className="control">
+          <input className="input" type="name" placeholder="Slug" value={this.state.slug} onChange={(e) => this.setState( {slug: e.target.value})}/> 
+        </div>
+      </div>
+{ /*SOCIAL MESSAGE */}
+    <label className="label">Social Message</label>
+      <div className="content">
+          <p>The message you wish to post via Farnborough Guide's Twitter and Facebook social media accounts</p>
+      </div>
+      <div className="field">
+          <textarea className="textarea" placeholder="Social Message" value={this.state.socialMessage} onChange={(e) => this.setState({socialMessage: e.target.value })}></textarea>
+      </div>
+{ /*WEBSITE */}
+    <label className="label">Website</label>
+      <div className="content">
+        <p>The offical event website</p>
+      </div>
+      <div className="field">
+        <div className="control">
+          <input className="input" placeholder="Website" value={this.state.website} onChange={(e) => this.setState({website: e.target.value })}></input>
+        </div>  
+      </div>
+  </div>
+</section>
+
     )
   }
 
