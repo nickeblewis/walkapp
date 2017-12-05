@@ -31,44 +31,55 @@ class CreateUser extends React.Component {
     }
 
     return (
-      <div className='w-100 pa4 flex justify-center'>
-        <div style={{ maxWidth: 400 }} className=''>
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.email}
-            placeholder='Email'
-            onChange={(e) => this.setState({email: e.target.value})}
-          />
-          <input
-            className='w-100 pa3 mv2'
-            type='password'
-            value={this.state.password}
-            placeholder='Password'
-            onChange={(e) => this.setState({password: e.target.value})}
-          />
-          <input
-            className='w-100 pa3 mv2'
-            value={this.state.name}
-            placeholder='Name'
-            onChange={(e) => this.setState({name: e.target.value})}
-          />
-          <div>
-            <input
-              className='w-100 pa3 mv2'
-              value={this.state.emailSubscription}
-              type='checkbox'
-              onChange={(e) => this.setState({emailSubscription: e.target.checked})}
-            />
-            <span>
-              Subscribe to email notifications?
-            </span>
+<section className="section">
+  <div className="container">
+   <h1 className="title">Benifits of Signing Up!</h1> 
+    <div className="columns">
+      <div className="column is-half has-text-left">
+          <div className="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget hendrerit sapien, vel pharetra sem. Phasellus dapibus eros eu justo cursus, eget ultricies odio mollis.</p>
           </div>
-
-          {this.state.name && this.state.email && this.state.password &&
-          <button className='pa3 bg-black-10 bn dim ttu pointer' onClick={this.createUser}>Sign Up</button>
-          }
+      </div>     
+      
+      <div className="column is-half has-content-left">
+        <div className="field">
+            <div className="control">
+              <input className="input" type="email" placeholder="Email" value={this.state.email} onChange={(e) => this.setState( {email: e.target.value})}/>
+            </div>
         </div>
-      </div>
+
+        <div className="field">
+            <div className="control">
+              <input className="input" type="password" placeholder="password" value={this.state.password} onChange={(e) => this.setState( {password: e.target.value})}/>
+            </div>
+        </div>
+        
+        <div className="field">
+            <div className="control">
+              <input className="input" type="Name" placeholder="name" value={this.state.name} onChange={(e) => this.setState( {name: e.target.value})}/>
+            </div>
+        </div>
+
+        <div className="field">
+          <div className="control">
+            <label className="checkbox">
+              <input type="checkbox" onChange={(e) => this.setState({emailSubscription: e.target.checked})}/>
+                 Subscribe to email notifications?
+            </label>
+          </div>
+        </div>
+
+        {this.state.name && this.state.email && this.state.password &&
+        <button className="button is-link" onClick={this.createUser}>Sign Up</button>}
+
+      </div> 
+    </div>  
+  </div> 
+</section> 
+  
+
+      
+      
     )
   }
 
