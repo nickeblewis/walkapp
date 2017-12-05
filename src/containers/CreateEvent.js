@@ -114,28 +114,6 @@ class CreateEvent extends React.Component {
     data: React.PropTypes.object
   };
 
-  // state = {
-  //   name: '',
-  //   description: '',
-  //   eventDate: new Date(),
-  //   slug: '',
-  //   socialMessage: '',
-  //   website: '',
-  //   imageUrl: '',
-  //   userId: 0,
-  //   publicId: null,
-  //   center: {
-  //     lat: 51.290763,
-  //     lng: -0.754099
-  //   },
-  //   marker: {
-  //     lat: 51.290763,
-  //     lng: -0.754099
-  //   },
-  //   zoom: 17,
-  //   draggable: true
-  // }
-
   onChange = eventDate => this.setState({ eventDate });
 
   updatePosition = () => {
@@ -187,22 +165,8 @@ class CreateEvent extends React.Component {
             </div>
           </Dropzone>
 
-          {/* UPLOAD IMAGE */}
-          <div className="file is-dark is-boxed">
-            <label className="file-label">
-              <input
-                className="file-input"
-                type="file"
-                name="image"
-                value={this.state.imageUrl}
-                disable={true}
-                multiple={false}
-                onChange={e => this.setState({ imageUrl: e.target.value })}
-              />
-            </label>
-          </div>
-          <br />
-          {/* VENUE NAME */}
+ 
+          {/* EVENT NAME */}
           <label className="label">Event</label>
           <div className="field">
             <div className="control">
@@ -215,7 +179,7 @@ class CreateEvent extends React.Component {
               />
             </div>
           </div>
-          {/* EVENT NAME */}
+          {/* VENUE NAME */}
           <label className="label">Venue</label>
           <div className="field">
             <div className="control">
