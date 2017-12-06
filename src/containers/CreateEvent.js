@@ -41,6 +41,7 @@ class CreateEvent extends React.Component {
       eventDate: new Date(),
       slug: "",
       socialMessage: "",
+      socialMessagePostDate: "",
       website: "",
       imageUrl: "",
       userId: 0,
@@ -244,7 +245,7 @@ class CreateEvent extends React.Component {
               in the Meads" the slug would be christmas-carols-in-the-meads
             </p>
           </div>
-          <div classname="field">
+          <div className="field">
             <div className="control">
               <input
                 className="input"
@@ -270,6 +271,20 @@ class CreateEvent extends React.Component {
               value={this.state.socialMessage}
               onChange={e => this.setState({ socialMessage: e.target.value })}
             />
+          </div>
+          <label className="label">Social Message Schedule DateTime</label>
+          <div className="content">
+            <p>Let us know when you want this message to be posted to social media</p>
+          </div>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                placeholder="Social Message Post Date"
+                value={this.state.socialMessagePostDate}
+                onChange={e => this.setState({ socialMessagePostDate: e.target.value })}
+              />
+            </div>
           </div>
           {/*WEBSITE */}
           <label className="label">Website</label>
@@ -302,6 +317,7 @@ class CreateEvent extends React.Component {
       eventDate,
       slug,
       socialMessage,
+      socialMessagePostDate,
       website,
       venueName
     } = this.state;
@@ -317,6 +333,7 @@ class CreateEvent extends React.Component {
           eventDate,
           slug,
           socialMessage,
+          socialMessagePostDate,
           website,
           lat,
           lng
@@ -335,6 +352,7 @@ const createEvent = gql`
     $eventDate: DateTime
     $slug: String
     $socialMessage: String
+    $socialMessagePostDate: DateTime
     $website: String
     $lat: Float
     $lng: Float
@@ -349,6 +367,7 @@ const createEvent = gql`
       eventDate: $eventDate
       slug: $slug
       socialMessage: $socialMessage
+      socialMessagePostDate: $socialMessagePostDate
       website: $website
       lat: $lat
       lng: $lng
@@ -357,6 +376,9 @@ const createEvent = gql`
       publicId: $publicId
     ) {
       id
+      socials {
+        id
+      }
     }
   }
 `;
