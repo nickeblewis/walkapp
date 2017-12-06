@@ -27,11 +27,20 @@ class EventSection extends React.Component {
     // Display a little loading message whilst we load data in
     if (this.props.data.loading) {
       return (
-        <div className="homepage-events">
-          <div className="container">
-            <p className="title is-1 is-centered">Loading</p>
-          </div>
+//LOADING ICON  
+  <section className="section">
+    <div className="container">
+      <div className="level">
+        <div className="level-left"></div>
+
+        <div className="level-item is-centered">
+          <a className="button is-dark is-loading is-large">Loading</a>
         </div>
+        
+        <div className="level-right"></div>
+      </div>
+    </div>
+  </section> 
       );
     }
 
