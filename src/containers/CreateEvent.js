@@ -123,11 +123,22 @@ class CreateEvent extends React.Component {
     });
   };
 
-  render() {
+    render() {
     if (this.props.data.loading) {
-      return <div>Loading</div>;
+      return(
+        <section className="section">
+          <div className="container">
+            <div className="level">
+              <div className="level-left"></div>
+              <div className="level-item">
+                <a className="button is-dark is-loading is-large">Loading</a>
+              </div>
+              <div className="level-right"></div>  
+            </div>
+          </div>
+        </section>
+      );
     }
-
     if (!this.props.data.user) {
       console.warn("only logged in users can create new events");
       this.props.router.replace("/events");

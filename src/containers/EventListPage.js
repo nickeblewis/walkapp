@@ -12,9 +12,21 @@ class EventListPage extends React.Component {
     data: React.PropTypes.object,
   }
 
-  render () {
+    render() {
     if (this.props.data.loading) {
-      return (<div>Loading</div>)
+      return(
+        <section className="section">
+          <div className="container">
+            <div className="level">
+              <div className="level-left"></div>
+              <div className="level-item">
+                <a className="button is-dark is-loading is-large">Loading</a>
+              </div>
+              <div className="level-right"></div>  
+            </div>
+          </div>
+        </section>
+      );
     }
 
     return (
