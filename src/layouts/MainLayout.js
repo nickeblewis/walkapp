@@ -43,7 +43,7 @@ class MainLayout extends React.Component {
           <div className="container">
             <div className="navbar-brand">
               <Link to="/" className="navbar-item">
-                <strong>🏠 Home</strong>
+                <strong>Home</strong>
               </Link>
               <button data-target="navMenu" className="button navbar-burger">
                 <span /> <span /> <span />
@@ -98,6 +98,7 @@ class MainLayout extends React.Component {
                   </div>
                 )}
               </div>
+            
             </div>
           </div>
         </nav>
