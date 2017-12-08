@@ -38,7 +38,7 @@ class MainLayout extends React.Component {
 
   render = () => {
     return (
-      <main>
+      <div>
         <nav role="navigation" aria-label="main navigation" className="navbar">
           <div className="container">
             <div className="navbar-brand">
@@ -106,7 +106,7 @@ class MainLayout extends React.Component {
         {this.props.children}
 
         <Footer />
-      </main>
+      </div>
     );
   };
 }

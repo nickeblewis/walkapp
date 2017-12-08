@@ -16,6 +16,9 @@
     padding-bottom: 2.35rem;
 }
 
+.homepage-events, .eventpage-events {
+    background-color: whitesmoke;
+}
 .ferns{
     background-image: url('assets/iStock-504241498.jpg');
 }
@@ -39,6 +42,16 @@
     background: url('assets/NIC_0713.jpg') no-repeat center center fixed;
     color: white;
 }
+
+// .fg {
+//     padding-bottom: 3rem;
+//     padding-top: 3rem;
+// }
+
+.fg { 
+    padding: 1.5rem;
+}
+
 // .bl {
 //     border-left-style: solid;
 //     border-left-width: 1px;

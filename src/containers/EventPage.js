@@ -48,7 +48,7 @@ class EventPage extends React.Component {
         <div className="container">
           <br />
           <div className="columns">
-            <div className="column">
+            <div className="column has-text-centered">
               <CloudinaryContext cloudName="dqpknoetx">
                 <Image publicId={Event.publicId}>
                   <Transformation width="500" crop="scale" />

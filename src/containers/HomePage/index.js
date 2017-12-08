@@ -19,7 +19,7 @@ class HomePage extends React.Component {
 
   render () {
     return (
-      <article>
+      <article className="fg">
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
         <IntroBlock data={this.props.data}/>

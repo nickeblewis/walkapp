@@ -48,7 +48,7 @@ class EventSection extends React.Component {
     return (
       <section className="homepage-events">
         <div className="container">
-          <p className="title is-4">{this.props.title}</p>
+          <h4 className="title is-4 has-text-centered">{this.props.title}</h4>
           {/* The following piece of code loops through the photo data (see below) */}
           <div className="columns is-multiline">
             {this.props.data.allEvents.map(event => (

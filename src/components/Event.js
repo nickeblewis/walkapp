@@ -41,7 +41,7 @@ class Event extends React.Component {
 
               <CloudinaryContext cloudName="dqpknoetx">
                 <Image publicId={this.props.event.publicId} className="">
-                  <Transformation width="500" height="200" crop="thumb" />
+                  <Transformation width="800" height="200" crop="thumb" />
                 </Image>
               </CloudinaryContext>
             </Link>

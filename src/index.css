@@ -6547,6 +6547,9 @@ label.panel-block {
   padding-top: 2.35rem;
   padding-bottom: 2.35rem; }
 
+.homepage-events, .eventpage-events {
+  background-color: whitesmoke; }
+
 .ferns {
   background-image: url("assets/iStock-504241498.jpg"); }
 
@@ -6563,3 +6566,6 @@ label.panel-block {
 .homepage-hero {
   background: url("assets/NIC_0713.jpg") no-repeat center center fixed;
   color: white; }
+
+.fg {
+  padding: 1.5rem; }
