@@ -28,6 +28,10 @@ class EventPage extends React.Component {
     params: React.PropTypes.object.isRequired
   };
 
+  renderDescription() {
+    return {__html: this.props.data.Event.description};
+  }
+
   render() {
     if (this.props.data.loading) {
       return(
@@ -69,7 +73,7 @@ class EventPage extends React.Component {
             </div>
             <div className="column">
               <h1 className="title">{Event.name}</h1>
-              <p className="content is-large">{Event.description}</p>
+              <div className="content is-large" dangerouslySetInnerHTML={this.renderDescription()} />
               <Map
                 center={position}
                 zoom={this.state.zoom}
