@@ -12,10 +12,16 @@ class Event extends React.Component {
   static propTypes = {
     event: React.PropTypes.object,
     mutate: React.PropTypes.func,
-    refresh: React.PropTypes.func
+    refresh: React.PropTypes.func,
+    data: React.PropTypes.object
   };
 
   // http://res.cloudinary.com/dqpknoetx/image/upload/v1489441520/odtitxnfqdjzfygvuvls.jpg
+
+  _isLoggedIn() {
+    console.log('debug1', this.props.data)
+    return window.localStorage.getItem('graphcoolToken')
+  }
 
   render() {
     // let outputUrl = '';
@@ -60,27 +66,41 @@ class Event extends React.Component {
               </div>
             </div>
             {/* <div className="content">{this.props.event.socialMessage}</div> */}
+            {this._isLoggedIn() &&
+              <div className="field is-grouped is-grouped-multiline">
+              <p className="control">
+                <a className="button is-primary">Edit</a>
+              </p>
+              <p className="control">
+                <a className="button is-primary">Promote</a>
+              </p>
+              <p className="control">
+                <a className="button is-warning" onClick={this.handleUpdate}>Archive</a>
+              </p>
+            </div>
+            }
+            
           </div>
         </div>
       </div>
     );
   }
 
-  handleDelete = () => {
+  handleUpdate = () => {
     this.props
       .mutate({ variables: { id: this.props.event.id } })
       .then(this.props.refresh);
   };
 }
 
-const deleteMutation = gql`
-  mutation deleteEvent($id: ID!) {
-    deleteEvent(id: $id) {
+const updateMutation = gql`
+  mutation updateEvent($id: ID!) {
+    updateEvent(id: $id, archived: true) {
       id
     }
   }
 `;
 
-const EventWithMutation = graphql(deleteMutation)(Event);
+const EventWithMutation = graphql(updateMutation)(Event);
 
 export default EventWithMutation;

@@ -10,7 +10,7 @@ class IntroBlock extends React.Component {
   }
 
   render() {
-
+    console.log('introblock', this.props.data)
     return (
       <section className="homepage-introblock">
         <div className="container">

@@ -44,6 +44,7 @@ class EventSection extends React.Component {
       );
     }
 
+    console.log('event-section', this.props.data)
     // Now for the JSX template that defines how our component actually looks!
     return (
       <section className="homepage-events">
@@ -52,7 +53,7 @@ class EventSection extends React.Component {
           {/* The following piece of code loops through the photo data (see below) */}
           <div className="columns is-multiline">
             {this.props.data.allEvents.map(event => (
-              <Event key={event.id} event={event} />
+              <Event key={event.id} event={event} data={this.props.data} />
             ))}
           </div>
         </div>

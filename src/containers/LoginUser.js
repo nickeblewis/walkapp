@@ -42,7 +42,7 @@ class CreateLogin extends React.Component {
     return (
 <section className="section">
   <div className="container">
-      <div classname="columns">
+      <div className="columns">
         
         <div className="column is-half">
          <h1 className="title">Log In</h1>
