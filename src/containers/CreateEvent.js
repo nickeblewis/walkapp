@@ -14,7 +14,9 @@ import gql from "graphql-tag";
 import Dropzone from "react-dropzone";
 import request from "superagent";
 import { Map, Marker, TileLayer } from "react-leaflet";
-
+import { CloudinaryContext, Transformation, Image } from "cloudinary-react";
+import moment from "moment"
+import DateTime from "react-datetime"
 /**
  * TODO
  * Should move these to environment variables, so let's set some time aside to do that
@@ -36,9 +38,10 @@ class CreateEvent extends React.Component {
 
     // Default our state - We shall discuss the difference between props and state at some point
     this.state = {
+      m: moment(),
       name: "",
       description: "",
-      eventDate: new Date(),
+      eventDate: "",
       slug: "",
       socialMessage: "",
       socialMessagePostDate: "",
@@ -62,6 +65,14 @@ class CreateEvent extends React.Component {
       draggable: true
     };
   }
+
+  handleChange = m => {
+    this.setState({ m });
+  };
+
+  handleSave = () => {
+    console.log('saved', this.state.m.format('llll'));
+  };
 
   // This event function is fired when a file is dropped on a page that supports drag-n-drop
   onImageDrop(files) {
@@ -134,7 +145,7 @@ class CreateEvent extends React.Component {
               <div className="level-item">
                 <a className="button is-dark is-loading is-large">Loading</a>
               </div>
-              <div className="level-right"></div>  
+              <div className="level-right"></div>
             </div>
           </div>
         </section>
@@ -152,17 +163,17 @@ class CreateEvent extends React.Component {
         <div className="container">
           <h1 className="title">Create New Event!</h1>
           <h1 className="subtitle">
-            When creating a new event, it will be shown on our pages and ordered
-            based on the date it will be taking place.
+            Every event you create is displayed on our pages based on date. In addition we automatically schedule social media messages to be sent at a date and time of your choice.
           </h1>
+          {/* The DropZone component handles file upload */}
+          <label className="label">Image</label>
           <div className="content">
             <p>
               Please add a flyer, graphic or other image that will represent
               your event on our website. Your image will also be used in
-              conjunction with automated social media campaingns.
+              conjunction with automated social media campaigns.
             </p>
           </div>
-          {/* The DropZone component handles file upload */}
           <Dropzone
             onDrop={this.onImageDrop.bind(this)}
             multiple={false}
@@ -171,13 +182,17 @@ class CreateEvent extends React.Component {
             <div>
               {this.state.uploadedFileCloudinaryUrl === "" ? null : (
                 <div>
-                  <p>{this.state.uploadedFile.name}</p>
+                  <CloudinaryContext cloudName="dqpknoetx">
+                    <Image publicId={this.state.publicId} className="">
+                      <Transformation width="800" height="800" crop="thumb" />
+                    </Image>
+                  </CloudinaryContext>
                 </div>
               )}
             </div>
           </Dropzone>
 
- 
+
           {/* EVENT NAME */}
           <label className="label">Event</label>
           <div className="field">
@@ -216,6 +231,7 @@ class CreateEvent extends React.Component {
           </div>
           {/* EVENT DATE */}
           <label className="label">Date</label>
+
           <div className="content">
             <p>
               The date is used to automatically scedule social media messages
@@ -223,15 +239,16 @@ class CreateEvent extends React.Component {
             </p>
           </div>
           <div className="field">
-            <div className="control">
+            { /* }<div className="control">
               <input
                 className="input"
                 type="name"
                 placeholder="Event Date"
                 value={this.state.eventDate}
                 onChange={e => this.setState({ eventDate: e.target.value })}
-              />
-            </div>
+              /> */ }
+              <DateTime viewMode="months" dateFormat="YYYY-MM-DD" utc={true} onChange={e => this.setState({ eventDate: e.format('YYYY-MM-DDTHH:mm') })}/>
+
           </div>
           {/* LOCATION */}
           <label className="label">Location</label>
@@ -271,7 +288,7 @@ class CreateEvent extends React.Component {
           <label className="label">Social Message</label>
           <div className="content">
             <p>
-              The message you wish to post via Farnborough Guide's Twitter and
+              The message you wish to post via Farnborough Guides Twitter and
               Facebook social media accounts
             </p>
           </div>
@@ -288,14 +305,15 @@ class CreateEvent extends React.Component {
             <p>Let us know when you want this message to be posted to social media</p>
           </div>
           <div className="field">
-            <div className="control">
+            { /* }<div className="control">
               <input
                 className="input"
                 placeholder="Social Message Post Date"
                 value={this.state.socialMessagePostDate}
                 onChange={e => this.setState({ socialMessagePostDate: e.target.value })}
-              />
-            </div>
+              /> */}
+              <DateTime viewMode="months" dateFormat="YYYY-MM-DD" utc={true} onChange={e => this.setState({ socialMessagePostDate: e.format('YYYY-MM-DDTHH:mm') })}/>
+            
           </div>
           {/*WEBSITE */}
           <label className="label">Website</label>
