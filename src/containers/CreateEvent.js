@@ -313,12 +313,12 @@ class CreateEvent extends React.Component {
                 onChange={e => this.setState({ socialMessagePostDate: e.target.value })}
               /> */}
               <DateTime viewMode="months" dateFormat="YYYY-MM-DD" utc={true} onChange={e => this.setState({ socialMessagePostDate: e.format('YYYY-MM-DDTHH:mm') })}/>
-            
+
           </div>
           {/*WEBSITE */}
           <label className="label">Website</label>
           <div className="content">
-            <p>The offical event website</p>
+            <p>The offical event website. NO need to include the http: prefix, that is added automatically</p>
           </div>
           <div className="field">
             <div className="control">
