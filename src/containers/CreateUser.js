@@ -32,8 +32,51 @@ class CreateUser extends React.Component {
 
     return (
 <section className="section">
+<div className="pricing-table">
+  <div className="pricing-plan">
+    <div className="plan-header">Starter</div>
+    <div className="plan-price"><span className="plan-price-amount"><span className="plan-price-currency">£</span>20</span>/month</div>
+    <div className="plan-items">
+    <div className="plan-item">10 queued promotions at a time</div>
+    <div className="plan-item">-</div>
+    <div className="plan-item">Shared across FG network</div>
+    <div className="plan-item">-</div>
+  </div>
+    <div className="plan-footer">
+      <button className="button is-fullwidth" disabled="disabled">Current plan</button>
+    </div>
+  </div>
+
+  <div className="pricing-plan is-warning">
+    <div className="plan-header">Gold</div>
+    <div className="plan-price"><span className="plan-price-amount"><span className="plan-price-currency">£</span>40</span>/month</div>
+    <div className="plan-items">
+      <div className="plan-item">50 queued promotions at a time</div>
+      <div className="plan-item">4 of your own social accounts</div>
+      <div className="plan-item">Shared across FG network</div>
+      <div className="plan-item">Facebook, Instagram, Twitter & FG website</div>
+    </div>
+    <div className="plan-footer">
+      <button className="button is-fullwidth">Choose</button>
+    </div>
+  </div>
+
+  <div className="pricing-plan is-danger">
+    <div className="plan-header">Platinum</div>
+    <div className="plan-price"><span className="plan-price-amount"><span className="plan-price-currency">£</span>100</span>/month</div>
+    <div className="plan-items">
+    <div className="plan-item">100 queued promotions at a time</div>
+    <div className="plan-item">5 of your own social accounts</div>
+    <div className="plan-item">Shared across FG network</div>
+    <div className="plan-item">Facebook, Instagram, Twitter, Pinterest and Google+ & FG website</div>
+    </div>
+    <div className="plan-footer">
+      <button className="button is-fullwidth">Choose</button>
+    </div>
+  </div>
+</div>
   <div className="container">
-   <h1 className="title">Benifits of Signing Up!</h1> 
+   <h1 className="title">Benefits of Signing Up!</h1> 
     <div className="columns">
       <div className="column is-half has-text-left">
           <div className="content">
