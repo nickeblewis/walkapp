@@ -29,7 +29,7 @@ class Footer extends React.Component {
                 <li>Contact</li>
                 <li>+44 (0)1252 757213</li>
                 <li><a href="mailto:contact@farnboroughguide.com">contact@farnboroughguide.com</a></li>
-                <li>Nick Lewis Ltd, Ferneberga House, Alexandra Road, Farnborough</li>
+                <li>HeadForCode, Ferneberga House, Alexandra Road, Farnborough, GU14 6DQ</li>
               </ul>
             </div>
           </div>
