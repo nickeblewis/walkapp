@@ -14,10 +14,10 @@ class Header extends React.Component {
           <div className="hero-body has-text-centered">
             <div className="container">
               <h1 className="title is-2 has-text-weight-light">
-                Farnborough Guide
+                Rushmoor Life
               </h1>
               <h2 className="title is-5 has-text-weight-light is-light">
-                The Guide to Your Town
+                Farnborough / North Camp / Aldershot
               </h2>
             </div>
           </div>
