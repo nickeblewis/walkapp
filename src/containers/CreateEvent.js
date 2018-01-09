@@ -288,7 +288,7 @@ class CreateEvent extends React.Component {
           <label className="label">Social Message</label>
           <div className="content">
             <p>
-              The message you wish to post via Farnborough Guides Twitter and
+              The message you wish to post via Rushmoor Life's Twitter and
               Facebook social media accounts
             </p>
           </div>
