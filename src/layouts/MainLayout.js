@@ -1,4 +1,10 @@
 import React from "react";
+
+import styled, { ThemeProvider } from 'styled-components';
+
+import baseStyles from '../css';
+import theme from "../styles/theme";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 // import Nav from '../components/Nav'
@@ -6,6 +12,17 @@ import { Link } from "react-router";
 import { graphql } from "react-apollo";
 import { withRouter } from "react-router";
 import gql from "graphql-tag";
+
+const Wrapper = styled.div`
+  margin: 0 auto;
+  padding-top: 80px;
+`;
+
+const Container = styled.main`
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s;
+`;
 
 class MainLayout extends React.Component {
   static propTypes = {
@@ -53,6 +70,9 @@ class MainLayout extends React.Component {
               <div className="navbar-start">
                 <Link to="/events" className="navbar-item">
                   <span>Events</span>
+                </Link>
+                <Link to="/about" className="navbar-item">
+                  <span>About</span>
                 </Link>
                 {/* <Link to="/blog" className="navbar-item"><span>Blog</span></Link>  */}
               </div>

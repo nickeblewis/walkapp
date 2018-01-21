@@ -23,6 +23,7 @@ import PlacePage from './containers/PlacePage'
 import EventListPage from './containers/EventListPage'
 import MessagePage from './containers/MessagePage'
 import ThankyouPage from './containers/ThankyouPage'
+import AboutPage from './containers/AboutPage'
 // import CreateCategory from './containers/CreateCategory'
 
 import { Router, Route, browserHistory } from 'react-router'
@@ -55,6 +56,7 @@ ReactDOM.render((
       <Route component={MainLayout}>
         <Route path='/' component={HomePage} />
         <Route path='/social' component={SocialPage} />
+        <Route path='/about' component={AboutPage} />
         <Route path='/photos' component={ListPage} />
         <Route path='/places' component={PlaceListPage} />
         <Route path='/events' component={EventListPage} />
