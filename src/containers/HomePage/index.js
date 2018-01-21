@@ -1,4 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
+
+import HeroSection from '../../components/home/HeroSection'
+
 // import PhotoSection from './PhotoSection'
 // import PlaceSection from './PlaceSection'
 // import MapSection from './MapSection'
@@ -10,6 +14,12 @@ import gql from 'graphql-tag'
 
 // import BusinessSection from './BusinessSection'
 
+const Wrapper = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`;
+
 class HomePage extends React.Component {
 
   static propTypes = {
@@ -18,9 +28,10 @@ class HomePage extends React.Component {
   }
 
   render () {
-    console.log('mainIndex', this.props.data)
     return (
-      <article className="fg">
+      <Wrapper>
+        <HeroSection/>
+<article className="fg">
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
         <IntroBlock data={this.props.data}/>
@@ -33,6 +44,8 @@ class HomePage extends React.Component {
         <EventSection title="Upcoming Events" data={this.props.data} />
         {/* <PhotoSection title="Newest Photos" /> */}
       </article>
+      </Wrapper>
+      
     )
   }
 }

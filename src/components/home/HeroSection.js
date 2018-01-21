@@ -75,8 +75,8 @@ class HeroSection extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>About Us...</Title>
-        <Slogan>Learn more about the team behind Rushmoor.Life</Slogan>
+        <Title>Rushmoor Life</Title>
+        <Slogan>Farnborough / North Camp / Aldershot</Slogan>
       </Wrapper>
     );
   }

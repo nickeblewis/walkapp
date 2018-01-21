@@ -122,7 +122,7 @@ class MainLayout extends React.Component {
             </div>
           </div>
         </nav>
-        <Header />
+        {/* <Header /> */}
         {this.props.children}
 
         <Footer />

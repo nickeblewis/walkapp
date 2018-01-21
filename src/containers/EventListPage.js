@@ -2,9 +2,19 @@
  * Component that lists all Posts
  */
 import React from 'react'
+import styled from 'styled-components'
+
+import HeroSection from '../components/events/HeroSection'
+
 import Event from '../components/Event'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+
+const Wrapper = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`;
 
 class EventListPage extends React.Component {
 
@@ -30,7 +40,9 @@ class EventListPage extends React.Component {
     }
 
     return (
-      <section className="eventpage-events">
+      <Wrapper>
+        <HeroSection/>
+        <section className="eventpage-events">
       <div className="container">
         <p className="title is-4">What's on in the area...</p>
             { /* The following piece of code loops through the photo data (see below) */ }
@@ -41,6 +53,8 @@ class EventListPage extends React.Component {
             </div>
         </div>
     </section>
+      </Wrapper>
+      
     )
   }
 }
