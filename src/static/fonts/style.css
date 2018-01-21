@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./Lato-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('./BebasNeue.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  src: url('./SFDisplay-Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
