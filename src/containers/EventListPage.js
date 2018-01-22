@@ -4,7 +4,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import HeroSection from '../components/events/HeroSection'
+import HeroSection from '../components/HeroSection'
 
 import Event from '../components/Event'
 import { graphql } from 'react-apollo'
@@ -41,7 +41,7 @@ class EventListPage extends React.Component {
 
     return (
       <Wrapper>
-        <HeroSection/>
+        <HeroSection title="Events" slogan="What's coming up..." />
         <section className="eventpage-events">
       <div className="container">
         <p className="title is-4">What's on in the area...</p>

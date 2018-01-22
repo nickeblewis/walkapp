@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import HeroSection from '../../components/about/HeroSection'
+import HeroSection from '../../components/HeroSection'
 
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
@@ -23,7 +23,7 @@ class AboutPage extends React.Component {
   render () {
     return (
         <Wrapper>
-            <HeroSection />
+            <HeroSection title="About Us" slogan="What are we all about and who are we?" />
             <article className="fg">
                 <div>Hello mate</div>        
             </article>

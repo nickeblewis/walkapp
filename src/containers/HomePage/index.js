@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import HeroSection from '../../components/home/HeroSection'
+import HeroSection from '../../components/HeroSection'
 
 // import PhotoSection from './PhotoSection'
 // import PlaceSection from './PlaceSection'
@@ -30,7 +30,7 @@ class HomePage extends React.Component {
   render () {
     return (
       <Wrapper>
-        <HeroSection/>
+        <HeroSection title="Rushmoor.Life" slogan="Farnborough / North Camp / Aldershot"/>
 <article className="fg">
         
         { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
