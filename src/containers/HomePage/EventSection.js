@@ -44,7 +44,7 @@ class EventSection extends React.Component {
       );
     }
 
-    console.log('event-section', this.props.data)
+    // console.log('event-section', this.props.data)
     // Now for the JSX template that defines how our component actually looks!
     return (
       <section className="homepage-events">

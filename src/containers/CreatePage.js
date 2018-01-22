@@ -69,7 +69,7 @@ class CreatePage extends React.Component {
             //    I've decided to capture that too
 
             // Please note that two new fields have been added to our Photo model on Graph.Cool
-            console.log(response.body)
+            // console.log(response.body)
 
             // Dan, so some changes need to be made in order to capture the "public_id" as well as the imageUrl
             // so I have added this line below in the setState

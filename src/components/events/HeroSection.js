@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // import logo from '../../assets/logo.svg';
 import landscape from '../../assets/NIC_0713.jpg';
-import landscapeMobile from '../../assets/NIC_0713.jpg';
+// import landscapeMobile from '../../assets/NIC_0713.jpg';
 import media from '../../css/media';
 
 

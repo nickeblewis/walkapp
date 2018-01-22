@@ -52,7 +52,7 @@ const main = async() => {
 
   // create movies
   const placeIds = await createPlaces(rawPlaces)
-  console.log(`Created ${placeIds.length} Places`)
+  // console.log(`Created ${placeIds.length} Places`)
 }
 
 main().catch((e) => console.error(e))

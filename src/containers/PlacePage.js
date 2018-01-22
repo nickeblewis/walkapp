@@ -38,7 +38,7 @@ class PlacePage extends React.Component {
     }
 
      if (this.props.data.error) {
-      console.log(this.props.data.error)
+    //   console.log(this.props.data.error)
       return (<div>An unexpected error occurred</div>)
     }
 

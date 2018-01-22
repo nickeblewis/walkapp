@@ -19,7 +19,6 @@ class Event extends React.Component {
   // http://res.cloudinary.com/dqpknoetx/image/upload/v1489441520/odtitxnfqdjzfygvuvls.jpg
 
   _isLoggedIn() {
-    console.log('debug1', this.props.data)
     return window.localStorage.getItem('graphcoolToken')
   }
 
@@ -35,7 +34,7 @@ class Event extends React.Component {
     var event = this.props.event.slug;
     const linkTo = "/events/" + event;
 
-    console.log(linkTo);
+    // console.log(linkTo);
 
     return (
       <div className="column is-one-third">

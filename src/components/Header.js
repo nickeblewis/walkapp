@@ -1,30 +1,55 @@
-/**
- * Component that lists all Posts
- */
-import React from "react";
-// import { Link } from 'react-router'
-// import bg from '../assets/NIC_0713.jpg'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-class Header extends React.Component {
-  render = () => {
+// import logo from '../assets/logo4.jpg';
+import { rhythm } from '../utils/typography';
+import Nav from '../components/Nav';
+
+const Wrapper = styled.header`
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #d2d2d2;
+  justify-content: center;
+  background-color: #fff;
+`;
+
+const Container = styled.div`
+  display: flex;
+  width: calc(1024px + ${rhythm(0.5)});
+  height: 100%;
+  margin: 0 ${rhythm(0.5)};
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  display: block;
+  margin: 0;
+  width: 40px;
+`;
+
+const LogoLink = styled.a`
+  width: 229px;
+`;
+
+class Header extends Component {
+  render() {
     return (
-      // <section className="hero is-warning " style={{ backgroundImage: `url(${bg})` }}>
-      <section className="homepage-hero">
-        <header className="hero is-dark">
-          <div className="hero-body has-text-centered">
-            <div className="container">
-              <h1 className="title is-2 has-text-weight-light">
-                Rushmoor Life
-              </h1>
-              <h2 className="title is-5 has-text-weight-light is-light">
-                Farnborough / North Camp / Aldershot
-              </h2>
-            </div>
-          </div>
-        </header>
-      </section>
+      <Wrapper role="banner">
+        <Container>
+          {/* <LogoLink href={`${__PATH_PREFIX__}/`}>
+            <Logo src={logo} alt={this.props.title} />
+          </LogoLink> */}
+          <Nav pathname={this.props.pathname} />
+        </Container>
+      </Wrapper>
     );
-  };
+  }
 }
 
 export default Header;

@@ -50,11 +50,11 @@ class EventPage extends React.Component {
     }
 
     if (this.props.data.error) {
-      console.log(this.props.data.error);
+      // console.log(this.props.data.error);
       return <div>An unexpected error occurred</div>;
     }
 
-    console.log(this.props.data.Event);
+    // console.log(this.props.data.Event);
 
     const Event = this.props.data.Event;
 
