@@ -8,6 +8,7 @@ import HeroSection from '../../components/HeroSection'
 // import MapSection from './MapSection'
 import EventSection from './EventSection'
 import IntroBlock from './IntroBlock'
+import NavJump from './NavJump'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -23,29 +24,31 @@ const Wrapper = styled.div`
 class HomePage extends React.Component {
 
   static propTypes = {
-    router: React.PropTypes.object,    
+    router: React.PropTypes.object,
     data: React.PropTypes.object,
   }
 
-  render () {
+  render() {
     return (
       <Wrapper>
-        <HeroSection title="Rushmoor.Life" slogan="Farnborough / North Camp / Aldershot"/>
-<article className="fg">
-        
-        { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */ }
-        <IntroBlock data={this.props.data}/>
-        {/* <MapSection /> */}
+        <HeroSection title="Rushmoor.Life" slogan="Farnborough / North Camp / Aldershot" />
+        <article className="fg">
 
-        { /* TODO: <BusinessSection title="Featured Businesses" /> */ }
-        
-        { /* TODO: Would be great to pass through a value for number of photos to show here */ }
-        {/* <PlaceSection title="Latest Places" /> */}
-        <EventSection title="Upcoming Events" data={this.props.data} />
-        {/* <PhotoSection title="Newest Photos" /> */}
-      </article>
+          { /* Dan, added a new paramater here to pass data to the IntroBlock component, this object includes our user details */}
+          {/* <IntroBlock data={this.props.data}/> */}
+          {/* <MapSection /> */}
+
+          { /* TODO: <BusinessSection title="Featured Businesses" /> */}
+
+          { /* TODO: Would be great to pass through a value for number of photos to show here */}
+          {/* <PlaceSection title="Latest Places" /> */}
+          <IntroBlock />
+          <NavJump />
+          <EventSection title="Upcoming Events" data={this.props.data} />
+          {/* <PhotoSection title="Newest Photos" /> */}
+        </article>
       </Wrapper>
-      
+
     )
   }
 }
@@ -60,4 +63,4 @@ const userQuery = gql`
 `
 
 // Dan, here we connect the user data to the UI
-export default graphql(userQuery, { options: { forceFetch: true }} )(withRouter(HomePage))
+export default graphql(userQuery, { options: { forceFetch: true } })(withRouter(HomePage))

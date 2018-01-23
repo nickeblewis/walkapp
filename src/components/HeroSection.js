@@ -10,12 +10,13 @@ import media from '../css/media';
 
 const Wrapper = styled.section`
   display: flex;
-  height: 20vw;
+  height: 16vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 //   background-image: url(${landscape});
-  background-color: #345678;
+  // background-color: #345678;
+  background-color: ${props => props.theme.header.backgrounds.wrapper};
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -28,7 +29,7 @@ const Wrapper = styled.section`
 
 const Title = styled.h1`
   margin: 0;
-  color: #fff;
+  color: ${props => props.theme.header.colors.title};
   font-family: BebasNeue;
   font-size: 81px;
   text-align: center;
@@ -50,7 +51,7 @@ const Title = styled.h1`
 
 const Slogan = styled.h2`
   margin: 0 1vw 4vw;
-  color: #fff;
+  color: ${props => props.theme.header.colors.slogan};
   font-family: SFUIDisplay;
   font-size: 22px;
   text-align: center;

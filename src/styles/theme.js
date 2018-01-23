@@ -1,6 +1,33 @@
 const colors = require("./colors");
 
 const theme = {
+  header: {
+    colors: {
+      title: colors.bright,
+      slogan: colors.light
+    },
+    backgrounds: {
+      wrapper: colors.primary
+    }
+  },
+  intro: {
+    colors: {
+      title: colors.light,
+      subTitle: colors.dark
+    },
+    backgrounds: {
+      wrapper: colors.tertiary
+    }    
+  },
+  bulletin: {
+    colors: {
+      title: colors.light,
+      subTitle: colors.light
+    },
+    backgrounds: {
+      wrapper: colors.reallyDark
+    }    
+  },
   navigator: {
     colors: {
       title: colors.firstSuperLight,
@@ -33,7 +60,9 @@ const theme = {
       metaBorder: colors.first,
       text: colors.dark,
       title: colors.middle,
-      subTitle: colors.superDark
+      subTitle: colors.superDark,
+      primary: colors.primary,
+      secondary: colors.secondary
     },
     backgrounds: {
       wrapper: colors.bright,

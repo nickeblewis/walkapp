@@ -1,6 +1,6 @@
 import React from "react";
 
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import baseStyles from '../css';
 import theme from "../styles/theme";
@@ -54,7 +54,9 @@ class MainLayout extends React.Component {
   };
 
   render = () => {
+    console.log("THEME", theme)
     return (
+      <ThemeProvider theme={theme}>
       <div>
         <nav role="navigation" aria-label="main navigation" className="navbar">
           <div className="container">
@@ -127,6 +129,7 @@ class MainLayout extends React.Component {
 
         <Footer />
       </div>
+      </ThemeProvider>
     );
   };
 }
